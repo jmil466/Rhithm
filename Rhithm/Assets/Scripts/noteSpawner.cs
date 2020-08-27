@@ -6,110 +6,65 @@ using UnityEngine;
 
 public class noteSpawner : MonoBehaviour
 {
-    public GameObject redNote;
-    public GameObject blueNote;
-    public GameObject greenNote;
-    public float max = 10f;
-    public static float xAxis = 0f;
-    public static float yAxis = 0.3f;
-    public static float zAxis = 0f;
+
+
+
     //public float BPM = 90f;
-    public  float beatCD = 60f / 128f; //seconds per beat given 90 bpm
+    public  float secsPerBeat = 60f / 165f ;
+
     public float noteSpeed = 20f;
 
-    public float laneLength = 1000f;
+    public float difficultyMultiplier = 4; // Adjusts the Spawn Rate, default is 2
 
+    // Position of Note Spawns
+    public Vector3[] noteSpawnPositions; // Array for spawn positions of notes
+    public Vector3 noteOneSpawn = new Vector3(1.025f, 0.3f, 43f); // Spawn Position of Note One
+    public Vector3 noteTwoSpawn = new Vector3(0f, 0.3f, 43f); // Spawn Position of Note Two
+    public Vector3 noteThreeSpawn = new Vector3(-1.025f, 0.3f, 43f); // Spawn Position of Note Three
+
+    // Note Objects
+    public GameObject noteOne; // Note One Prefab
+    public GameObject noteTwo; // Note Two Prefab
+    public GameObject noteThree; // Note Three Prefab
+    public GameObject obstacle; // Obstacle Game Object
+    private bool end;
 
     // Start is called before the first frame update
     void Start()
     {
-        createNotes();
+        noteSpawnPositions = new[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
+        StartCoroutine(WaitForBPM());
     }
-
-    void createNotes()
+    IEnumerator WaitForBPM()
     {
-
-
-        // BPS = BMP/60
-        //seconds/ beat
-        // s = 20 units/second
-        // s = d /t
-        // d = s * t
-        // 20 * beatCD;
-
-        float beatDistance = noteSpeed * beatCD;
-
-//         float BPS = BPM / 60;
-
-        // 
-        //
-
-        //int randNum = (int)UnityEngine.Random.Range(2, max);
-        //int randMultiplier = (int)UnityEngine.Random.Range(3, 5);
-
-        int colourGen = (int)UnityEngine.Random.Range(0, 3) + 1;
-
-
-        int randNumBEATS;// = (int)UnityEngine.Random.Range(0, 4) + 1;
-        float spacer;// = (float) randNumBEATS * beatDistance;
-        
-
-        Boolean end = false;
-        float totalDistance = 0;
-
-        int test = 0;
-
-        while (!end && test < 100)
+        while (!end) // change this to "Hey while theres more than X seconds of song left, keep spawning
         {
-            randNumBEATS = (int)UnityEngine.Random.Range(1, 4) + 1;
-            spacer = beatDistance / 2; //randNumBEATS;
-            totalDistance += spacer;
 
+            yield return new WaitForSeconds(secsPerBeat / difficultyMultiplier);
+            
+            float randomNum = UnityEngine.Random.Range(0.0f, 1.0f);
 
-            if ((spacer) - zAxis > laneLength)
+            if (randomNum >= 0 && randomNum < 0.29)
             {
-                end = true;
+                Instantiate(noteOne, noteSpawnPositions[0], Quaternion.identity);
             }
-            if (colourGen == 1)
-            {
-                Instantiate(redNote, new Vector3(xAxis + 2, yAxis, zAxis + totalDistance), Quaternion.identity);
-                // spacer += randNum + randMultiplier;
-                totalDistance += spacer;
-                UnityEngine.Debug.Log("Red Beat");
-                test++;
+            else if (randomNum >= 0.29 && randomNum < 0.58)
+            { // Spawns Cube 2
+                Instantiate(noteTwo, noteSpawnPositions[1], Quaternion.identity);
             }
-
-            if (colourGen == 2)
-            {
-                Instantiate(blueNote, new Vector3(xAxis, yAxis, zAxis + totalDistance), Quaternion.identity);
-                //spacer += randNum + randMultiplier;
-                totalDistance += spacer;
-
-                UnityEngine.Debug.Log("Blue Beat");
-                test++;
+            else if (randomNum >= 0.58 && randomNum < 0.87)
+            { // Spawns Cube 3
+                Instantiate(noteThree, noteSpawnPositions[2], Quaternion.identity);
+            }
+            else if (randomNum >= 0.87 && randomNum < 0.95)
+            { // Spawns Damage Cube/combo breaker cube
+                int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
+                Instantiate(obstacle, noteSpawnPositions[index], Quaternion.identity);
             }
 
-            if (colourGen == 3)
-            {
-
-                Instantiate(greenNote, new Vector3(xAxis - 2, yAxis, zAxis + totalDistance), Quaternion.identity);
-                //spacer += randNum + randMultiplier;
-                totalDistance += spacer;
-
-                UnityEngine.Debug.Log("Green Beat");
-                test++;
-            }
-
-       
-            //randMultiplier = (int)UnityEngine.Random.Range(0, 8);
-            colourGen = (int)UnityEngine.Random.Range(0, 3) + 1;
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
+    }
 }
+

@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Green Beat
+  - Blue Beat
+  - Red Beat
+  - NoteBlock
   layers:
   - Default
   - TransparentFX

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoteBlock : MonoBehaviour
+public class Clickable : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

@@ -1,19 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     //public float playerSpeed = 0.01f;
     private Vector3 currentPos;
     public int score;
-    public Text scoreText;
+    //public Text scoreText;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = "Score: 0";
+        //scoreText.text = "Score: 0";
     }
     // Update is called once per frame
     void Update()
@@ -55,7 +52,7 @@ public class PlayerScript : MonoBehaviour
         Destroy(other.gameObject);
 
 
-        scoreText.text = "Score: " + score;
+        //scoreText.text = "Score: " + score;
     }
     public void changeScore(string tag)
     {
@@ -64,12 +61,12 @@ public class PlayerScript : MonoBehaviour
             if (tag == "damage")
             {
                 score++;
-                scoreText.text = "Score: " + score;
+                //scoreText.text = "Score: " + score;
             }
             else if (tag == "Score")
             {
                 score--;
-                scoreText.text = "Score: " + score;
+                //scoreText.text = "Score: " + score;
             }
         }
     }

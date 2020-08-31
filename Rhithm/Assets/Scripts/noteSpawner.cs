@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class noteSpawner : MonoBehaviour
 {
-
-
-
     //public float BPM = 90f;
     public  float secsPerBeat = 60f / 165f ;
 
@@ -67,4 +64,3 @@ public class noteSpawner : MonoBehaviour
 
     }
 }
-

@@ -28,12 +28,11 @@ public class noteSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        secsPerBeat = 60f / BPM;
-        Debug.Log(secsPerBeat);
+        secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
         noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
-        StartCoroutine(WaitForBPM());
+        StartCoroutine(SpawnNote());
     }
-    IEnumerator WaitForBPM()
+    IEnumerator SpawnNote()
     {
         while (!end) // change this to "Hey while theres more than X seconds of song left, keep spawning
         {
@@ -58,9 +57,11 @@ public class noteSpawner : MonoBehaviour
                 Instantiate(noteThree, noteSpawnPositions[2], Quaternion.identity);
             }
             else if (randomNum >= 0.87 && randomNum < 0.95) 
-            { // Spawns Damage Cube/combo breaker cube
+            { // Spawns Obstacle
                 int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
-                Instantiate(obstacle, noteSpawnPositions[index], Quaternion.identity);
+                Vector3 currPos = noteSpawnPositions[index];
+                currPos.y += 0.7f; // Increases the spawn height so that the Obstacle is not in the ground.
+                Instantiate(obstacle, currPos, Quaternion.identity);
             }
 
             if (firstSpawn)

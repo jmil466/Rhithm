@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 1226200173}
   m_Layer: 0
   m_Name: Player TestObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,6 +391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1365335753}
+  multiplierStreakOne: 5
+  multiplierStreakTwo: 0
+  multiplierStreakThree: 0
+  multiplierStreakFour: 0
 --- !u!114 &1226200173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +448,7 @@ MonoBehaviour:
   noteOne: {fileID: 4726777821201800354, guid: 574b4976ce3041244a1c6c77c3441b71, type: 3}
   noteTwo: {fileID: 1896755558869317669, guid: 4f1dba5b23b427043863c2750bba5e25, type: 3}
   noteThree: {fileID: 3191767650865381924, guid: d8c1ef00bf0ca4a4289abcc4ba484f1e, type: 3}
-  obstacle: {fileID: 8974101954616755929, guid: 64bbec7c5a85ce546897a0ce3ad0bc2c, type: 3}
+  obstacle: {fileID: 3163848203327040880, guid: 274ac3334847b2340a9ebcdc71d90f21, type: 3}
 --- !u!4 &1305612631
 Transform:
   m_ObjectHideFlags: 0

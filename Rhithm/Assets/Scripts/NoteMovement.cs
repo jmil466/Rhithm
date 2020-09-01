@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class NoteMovement : MonoBehaviour
 {
-   
     public float speed = -20f;
 
     // Start is called before the first frame update

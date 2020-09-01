@@ -8,6 +8,7 @@ TagManager:
   - Blue Beat
   - Red Beat
   - NoteBlock
+  - Note
   layers:
   - Default
   - TransparentFX

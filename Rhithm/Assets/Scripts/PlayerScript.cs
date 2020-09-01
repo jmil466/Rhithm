@@ -3,7 +3,7 @@ public class PlayerScript : MonoBehaviour
 {
     //public float playerSpeed = 0.01f;
     private Vector3 currentPos;
-    public int score;
+    //public int score;
     //public Text scoreText;
 
 
@@ -39,7 +39,7 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "damage" && score > 0)
         {
@@ -69,7 +69,7 @@ public class PlayerScript : MonoBehaviour
                 //scoreText.text = "Score: " + score;
             }
         }
-    }
+    }*/
 
 
 

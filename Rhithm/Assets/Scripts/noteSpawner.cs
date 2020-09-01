@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class noteSpawner : MonoBehaviour
 {
+
     public float BPM;
     public float secsPerBeat;
     public float difficultyMultiplier; // Adjusts the Spawn Rate, default is 1
@@ -72,4 +73,3 @@ public class noteSpawner : MonoBehaviour
 
     }
 }
-

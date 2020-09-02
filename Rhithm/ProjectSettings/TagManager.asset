@@ -9,6 +9,10 @@ TagManager:
   - Red Beat
   - NoteBlock
   - Note
+  - Obstacle
+  - ScoreUI
+  - ScoreText
+  - MultiplierText
   layers:
   - Default
   - TransparentFX

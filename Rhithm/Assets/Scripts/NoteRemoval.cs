@@ -11,7 +11,7 @@ public class NoteRemoval : MonoBehaviour
     {
         if(other.gameObject.tag == "Note")
         {
-            score.decreaseScore();
+            //score.decreaseScore(); Do we want it to decrease score?
             score.resetNoteStreak();
             score.noteMissed();
         }

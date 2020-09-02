@@ -1,138 +1,58 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class fogColour : MonoBehaviour
 {
 
-    bool end = false;
-    float speed = 0.001F;
-
-    bool redTurn = true;
-    bool greenTurn = false;
-    bool blueTurn = false;
-    Color lerpedColor = Color.white;
-    float tick;
-
-    int FUCKME = 0;
+    Color[] col = new Color[3];
+    public float ColorTransTime = 5f;
+    Color lerpedColor;
+    public bool repeatable = true;
+    public float speed = 2f;
+    public float duration = 5f;
+    public float test = 0.9F;
 
 
+    int looper = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    // Use this for initialization
+    IEnumerator Start()
     {
+        col[0] = Color.blue;
+        col[1] = Color.red;
+        col[2] = Color.green;
 
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
-
-        //lerpedColor = Color.Lerp(Color.blue, Color.red,1 );//Mathf.PingPong(Time.time, ));
-
-
-
-        RenderSettings.fogColor = lerpedColor;
-
-        StartCoroutine(ChangeEngineColour());
-
-        tick = 10f;
-
-        //if (FUCKME == 0)
-        //{
-        //    Red();
-        //}
-        //else if (FUCKME == 1)
-        //{
-        //    Green();
-        //}
-        //else if (FUCKME == 2)
-        //{
-        //    Blue();
-        //}
-
-
-
-    }
-
-
-    private void Red()
-    {
-        tick += Time.deltaTime * speed;
-        lerpedColor = Color.Lerp(Color.blue, Color.red, tick);
-
-        FUCKME++;
-    }
-    private void Green()
-    {
-        tick += Time.deltaTime * speed;
-        lerpedColor = Color.Lerp(Color.red, Color.green, tick);
-
-        FUCKME++;
-
-    }
-    private void Blue()
-    {
-
-        tick += Time.deltaTime * speed;
-        lerpedColor = Color.Lerp(Color.green, Color.blue, tick);
-
-        FUCKME = 0;
-
-    }
-
-
-
-    private IEnumerator ChangeEngineColour()
-    {
-
-        if (FUCKME == 0)
+        while (repeatable)
         {
+            yield return RepeatLerp(col[0], col[1], duration);
+            yield return RepeatLerp(col[1], col[2], duration);
+            yield return RepeatLerp(col[2], col[0], duration);
+            // lerp down scale
 
-            tick += Time.deltaTime * speed;
-            lerpedColor = Color.Lerp(Color.blue, Color.red, tick);
-            yield return null;
-
-            FUCKME = 1;
-        }
-
-        if (FUCKME == 1)
-        {
-            tick += Time.deltaTime * speed;
-            lerpedColor = Color.Lerp(Color.red, Color.green, tick);
-            yield return null;
-
-            FUCKME = 2;
-
-            //if (lerpedColor == Color.green)
-            //{
-
-            //    greenTurn = false;
-            //    blueTurn = true;
-            //}
-        }
-
-        if (FUCKME == 2)
-        {
-            tick += Time.deltaTime * speed;
-            lerpedColor = Color.Lerp(Color.green, Color.blue, tick);
-            yield return null;
-
-            //if (lerpedColor == Color.blue)
-            //{
-            //    redTurn = true;
-            //    blueTurn = false; ;
-            //}
-
-            FUCKME = 0;
         }
 
 
     }
+
+    public IEnumerator RepeatLerp(Color start, Color end, float time)
+    {
+        float i = 0.0f;
+        float rate = (1.0f / time) * speed;
+        while(i < 1.0f)
+        {
+            i += Time.deltaTime * test;
+            RenderSettings.fogColor = Color.Lerp(start, end, i);
+            yield return null;
+
+        }
+
+
+    }
+
+
+
+
 
 }
-
-
-
-

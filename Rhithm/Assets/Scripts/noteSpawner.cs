@@ -11,7 +11,7 @@ public class noteSpawner : MonoBehaviour
     public GameObject greenNote;
     public float max = 10f;
     public static float xAxis = 0f;
-    public static float yAxis = 0.3f;
+    public static float yAxis = -0.8f;
     public static float zAxis = 0f;
     //public float BPM = 90f;
     public  float beatCD = 60f / 128f; //seconds per beat given 90 bpm

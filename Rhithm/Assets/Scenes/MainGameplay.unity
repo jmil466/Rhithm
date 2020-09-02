@@ -193,6 +193,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2898886647505924391, guid: 08880e15fbaa88140889524d822bb10d, type: 3}
   m_PrefabInstance: {fileID: 183695494}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &382507541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 382507543}
+  - component: {fileID: 382507542}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &382507542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382507541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc5eb2cfe77d4c24f803fea17b136537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redNote: {fileID: 4726777821201800354, guid: 574b4976ce3041244a1c6c77c3441b71, type: 3}
+  blueNote: {fileID: 1896755558869317669, guid: 4f1dba5b23b427043863c2750bba5e25, type: 3}
+  greenNote: {fileID: 3191767650865381924, guid: d8c1ef00bf0ca4a4289abcc4ba484f1e, type: 3}
+  max: 10
+  beatCD: 0.46875
+  noteSpeed: 20
+  laneLength: 1000
+--- !u!4 &382507543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382507541}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.5200005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &974016243
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +611,7 @@ GameObject:
   - component: {fileID: 2004803174}
   - component: {fileID: 2004803173}
   - component: {fileID: 2004803177}
+  - component: {fileID: 2004803178}
   m_Layer: 0
   m_Name: WorldBox
   m_TagString: Untagged
@@ -656,6 +707,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6691011722a17824497510149bcd5ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ColorTransTime: 10000
+  repeatable: 1
+  speed: 0.2
+  duration: 1000
+  test: 0.02
+--- !u!114 &2004803178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004803172}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e14f0327fb8fa44aee494e52d429df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpDuration: 0.01
 --- !u!1 &2028190650
 GameObject:
   m_ObjectHideFlags: 0

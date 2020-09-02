@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
@@ -8,9 +9,22 @@ public class Score : MonoBehaviour
     private int noteStreak = 0;
     private bool missedNote = false;
 
+    public Text scoreText;
+    public Text multiplierText;
+
+    void Start()
+    { 
+
+
+        updateScoreText();
+        updateMultiplierText();
+    }
+
+
     public void increaseScore()
     {
         score += 1 * scoreMultiplier;
+        updateScoreText();
     }
 
     public void decreaseScore()
@@ -20,6 +34,9 @@ public class Score : MonoBehaviour
             score--;
         }
         scoreMultiplier = 1;
+
+        updateScoreText();
+        updateMultiplierText();
     }
 
     public int getScore()
@@ -41,6 +58,7 @@ public class Score : MonoBehaviour
     {
         noteStreak = 0;
         scoreMultiplier = 1;
+        updateMultiplierText();
     }
 
     public int getNoteStreak()
@@ -52,7 +70,18 @@ public class Score : MonoBehaviour
     public void increaseScoreMultiplier(int newMultiplier)
     {
         scoreMultiplier = newMultiplier;
-        Debug.Log("Multiplier increased!, New Multiplier = " + scoreMultiplier);
+        updateMultiplierText();
     }
+
+    private void updateScoreText()
+    {
+        scoreText.text = "Score: " + score.ToString();
+    }
+
+    private void updateMultiplierText()
+    {
+        multiplierText.text = scoreMultiplier.ToString() + "x";
+    }
+
 
 }

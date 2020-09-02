@@ -61,7 +61,7 @@ public class PlayerTestScript : MonoBehaviour
         }
         else if(other.gameObject.tag == "Obstacle")
         {
-            score.decreaseScore();
+            //score.decreaseScore();
             score.resetNoteStreak();
         }
 

@@ -8,7 +8,8 @@ public class PlayerScript : MonoBehaviour
     private Vector3 currentPos;
     public int score;
     public Text scoreText;
-
+    //private Touch touch;
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -18,29 +19,34 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentPos = gameObject.transform.position;
-        // Move Player Left
-        if (Input.GetKeyDown(KeyCode.A))
+        if (MobileInput.Instance.SwipeLeft)
         {
             if (currentPos.x >= 0)
             {
                 transform.Translate(-2, 0, 0);
+                currentPos = gameObject.transform.position;
+
                 Debug.Log("Position is now " + currentPos);
 
             }
         }
-        // Move Player Right
-        if (Input.GetKeyDown(KeyCode.D))
+
+        if (MobileInput.Instance.SwipeRight)
         {
             if (currentPos.x <= 1)
             {
                 transform.Translate(2, 0, 0);
+                currentPos = gameObject.transform.position;
 
                 Debug.Log("Position is now " + currentPos);
             }
         }
+
+
+        
     }
 
+   
 
     private void OnTriggerEnter(Collider other)
     {

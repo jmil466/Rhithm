@@ -647,6 +647,7 @@ MonoBehaviour:
   songLength: 0.05
   currentPlayedTime: 0
   startDelay: 2
+  score: {fileID: 550558749}
 --- !u!4 &1305612631
 Transform:
   m_ObjectHideFlags: 0

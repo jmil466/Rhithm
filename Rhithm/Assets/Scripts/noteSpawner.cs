@@ -31,6 +31,8 @@ public class noteSpawner : MonoBehaviour
     public float currentPlayedTime = 0; // How Long the song has currently been playing for
     public float startDelay; // Delay of spawning for songs that don't start instantly 
 
+    public Score score;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,6 @@ public class noteSpawner : MonoBehaviour
         secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
         noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
         //startDelay = currentSong.getStartDelay();
-
         //currentSong.play();
         StartCoroutine(SpawnNote()); // Starts spawning Method
     }
@@ -100,6 +101,14 @@ public class noteSpawner : MonoBehaviour
                 }
             }
 
+        }
+
+        if(score.getNoteMissed() == false)
+        {
+            yield return new WaitForSeconds(5.5f); // Waits for celebration!
+
+            //Celebrate here
+            Debug.Log("Woop");
         }
     }
 }

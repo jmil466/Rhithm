@@ -14,8 +14,6 @@ public class Score : MonoBehaviour
 
     void Start()
     { 
-
-
         updateScoreText();
         updateMultiplierText();
     }
@@ -47,6 +45,11 @@ public class Score : MonoBehaviour
     public void noteMissed()
     {
         missedNote = true;
+    }
+
+    public bool getNoteMissed()
+    {
+        return missedNote;
     }
 
     public void increaseNoteStreak()

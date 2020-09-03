@@ -23,13 +23,14 @@ public class noteSpawner : MonoBehaviour
     public GameObject noteTwo; // Note Two Prefab
     public GameObject noteThree; // Note Three Prefab
     public GameObject obstacle; // Obstacle Game Object
-    private bool end;
 
     //public Song song; // The Audio Song object being passed from the menu
     public AudioSource currentSong; // The Song being played
     public float songLength; // The Length of the song being played
     public float currentPlayedTime = 0; // How Long the song has currently been playing for
     public float startDelay; // Delay of spawning for songs that don't start instantly 
+
+    public Score score;
 
     // Start is called before the first frame update
     void Start()
@@ -40,15 +41,20 @@ public class noteSpawner : MonoBehaviour
         secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
         noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
         //startDelay = currentSong.getStartDelay();
-
         //currentSong.play();
         StartCoroutine(SpawnNote()); // Starts spawning Method
     }
 
-    private void Update()
+    void Update()
     {
         currentPlayedTime += Time.deltaTime; // Ensures accurate timekeeping
     }
+
+    public void createNote(GameObject note, Vector3 spawnPosition)
+    {
+        Instantiate(note, spawnPosition, Quaternion.identity);
+    }
+
     IEnumerator SpawnNote()
     {
         yield return new WaitForSeconds(startDelay);
@@ -61,45 +67,66 @@ public class noteSpawner : MonoBehaviour
             if (firstSpawn) // Ensures a note spawns on the first beat, rather than a gap or an obstacle
             {
                 firstSpawn = false;
-
+                
                 if (randomNum >= 0 && randomNum < 0.33)
-                {
-                    Instantiate(noteOne, noteSpawnPositions[0], Quaternion.identity);
+                {// Spawns Note 1
+                    createNote(noteOne, noteSpawnPositions[0]);
                 }
                 else if (randomNum >= 0.33 && randomNum < 0.66)
-                { // Spawns Cube 2
-                    Instantiate(noteTwo, noteSpawnPositions[1], Quaternion.identity);
+                { // Spawns Note 2
+                    createNote(noteTwo, noteSpawnPositions[1]);
                 }
                 else if (randomNum >= 0.66 && randomNum <= 1)
-                { // Spawns Cube 3
-                    Instantiate(noteThree, noteSpawnPositions[2], Quaternion.identity);
+                { // Spawns Note 3
+                    createNote(noteThree, noteSpawnPositions[2]);
                 }
             } 
+
             else // Standard Spawning Method
             {
                 yield return new WaitForSeconds(secsPerBeat / difficultyMultiplier);
-
+                
                 if (randomNum >= 0 && randomNum <= 0.25)
-                {
-                    Instantiate(noteOne, noteSpawnPositions[0], Quaternion.identity);
+                { // Spawns Note 1
+                    createNote(noteOne, noteSpawnPositions[0]);
                 }
                 else if (randomNum >= 0.30 && randomNum <= 0.55)
-                { // Spawns Cube 2
-                    Instantiate(noteTwo, noteSpawnPositions[1], Quaternion.identity);
+                { // Spawns Note 2
+                    createNote(noteTwo, noteSpawnPositions[1]);
                 }
                 else if (randomNum >= 0.60 && randomNum <= 0.85)
-                { // Spawns Cube 3
-                    Instantiate(noteThree, noteSpawnPositions[2], Quaternion.identity);
+                { // Spawns Note 3
+                    createNote(noteThree, noteSpawnPositions[2]);
                 }
                 else if (randomNum >= 0.87 && randomNum < 0.95)
                 { // Spawns Obstacle
                     int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
                     Vector3 currPos = noteSpawnPositions[index];
                     currPos.y += 0.7f; // Increases the spawn height so that the Obstacle is not in the ground.
-                    Instantiate(obstacle, currPos, Quaternion.identity);
+                    createNote(obstacle, currPos);
                 }
             }
+        }
 
+        if(score.getNoteMissed() == false)
+        {
+            yield return new WaitForSeconds(5.5f); // Waits for celebration!
+
+            //Celebrate here
+            Debug.Log("Woop");
         }
     }
+
+   
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
 
-public class noteSpawner : MonoBehaviour
+public class RandomNoteSpawner : MonoBehaviour
 {
 
     public float BPM;

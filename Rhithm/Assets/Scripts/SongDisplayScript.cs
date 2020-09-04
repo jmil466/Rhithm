@@ -17,7 +17,7 @@ public class SongDisplayScript : MonoBehaviour
         audioTextName.text = audioName;
     }
 
-    public void OnClickPlaySong()
+    public void OnClickPreviewSong()
     {
         audioSource.Play();
 

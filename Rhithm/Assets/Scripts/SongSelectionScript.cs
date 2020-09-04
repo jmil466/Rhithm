@@ -1,9 +1,12 @@
 ﻿using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SongSelectionScript : MonoBehaviour
 {
-    public GameObject[] songPanels;
+    public GameObject[] songPanels; //all the song panels
+    public GameObject selectedSongObject; //the selected song (EmptyObject form)
+    public GameObject selectedSongAudioSource; //the selected song (AudioSource form)
     public int activePanelCounter = 0; //the active panel counter
 
     // Start is called before the first frame update
@@ -54,6 +57,22 @@ public class SongSelectionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void OnClickPlaySong()
+    {
+        selectedSongObject = GameObject.FindGameObjectWithTag("SongObject");
+        selectedSongAudioSource = GameObject.FindGameObjectWithTag("Song");
+
+        UnityEngine.Debug.Log(selectedSongObject);
+
+        selectedSongObject.transform.parent = null; //destory parent object
+        selectedSongAudioSource.transform.parent = null;
+
+        DontDestroyOnLoad(selectedSongObject);
+        DontDestroyOnLoad(selectedSongAudioSource);
+
+        SceneManager.LoadScene("MainGameplay");
     }
 }

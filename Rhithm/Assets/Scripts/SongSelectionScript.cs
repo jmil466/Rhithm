@@ -9,7 +9,7 @@ public class SongSelectionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        songPanels = GameObject.FindGameObjectsWithTag("SongObject");
+        songPanels = GameObject.FindGameObjectsWithTag("SongPanel");
 
         /**
          * Hide all song panels

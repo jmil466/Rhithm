@@ -10,6 +10,7 @@ TagManager:
   - NoteBlock
   - Song
   - SongObject
+  - SongPanel
   layers:
   - Default
   - TransparentFX

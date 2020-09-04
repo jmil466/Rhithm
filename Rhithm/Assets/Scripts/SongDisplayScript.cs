@@ -2,19 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SongScript : MonoBehaviour
+public class SongDisplayScript : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip audioClip;
     public string audioName;
-    public float audioLength;
     public Text audioTextName;
 
     // Start is called before the first frame update
     void Start()
     {
         audioClip = audioSource.clip;
-        audioLength = audioClip.length;
         audioName = audioClip.name;
         audioTextName.text = audioName;
     }

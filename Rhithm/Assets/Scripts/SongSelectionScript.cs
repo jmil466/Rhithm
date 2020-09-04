@@ -70,6 +70,9 @@ public class SongSelectionScript : MonoBehaviour
         selectedSongObject.transform.parent = null; //destory parent object
         selectedSongAudioSource.transform.parent = null;
 
+        selectedSongAudioSource.SetActive(false); //stop audio if playing
+        selectedSongAudioSource.SetActive(true); //set active
+
         DontDestroyOnLoad(selectedSongObject);
         DontDestroyOnLoad(selectedSongAudioSource);
 

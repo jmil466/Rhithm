@@ -11,6 +11,11 @@ TagManager:
   - Song
   - SongObject
   - SongPanel
+  - Note
+  - Obstacle
+  - ScoreUI
+  - ScoreText
+  - MultiplierText
   layers:
   - Default
   - TransparentFX

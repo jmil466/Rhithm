@@ -11,6 +11,7 @@ public class SongObjectScript : MonoBehaviour
     public float BPM; //beats per minute
     public float startDelay;
     public float audioLength;
+    public float difficultyMultiplier;
 
     // Start is called before the first frame update
     void Start()

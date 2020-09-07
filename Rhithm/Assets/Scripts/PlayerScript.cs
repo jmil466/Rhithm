@@ -19,8 +19,16 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (MobileInput.Instance.SwipeLeft)
+=======
+        //currentPos = gameObject.transform.position;
+
+        if (Mobile_Input.Instance.SwipeLeft)
+>>>>>>> Stashed changes
         {
+            Debug.Log("LEFT SWIPE STEP IN");
+
             if (currentPos.x >= 0)
             {
                 transform.Translate(-2, 0, 0);
@@ -31,8 +39,14 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+<<<<<<< Updated upstream
         if (MobileInput.Instance.SwipeRight)
+=======
+        if (Mobile_Input.Instance.SwipeRight)
+>>>>>>> Stashed changes
         {
+            Debug.Log("RIGHT SWIPE STEP IN");
+
             if (currentPos.x <= 1)
             {
                 transform.Translate(2, 0, 0);

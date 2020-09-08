@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 40844432}
   - component: {fileID: 40844431}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 113956899}
   - component: {fileID: 113956898}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 301080070}
   - component: {fileID: 301080069}
   m_Layer: 5
-  m_Name: SongPreview
+  m_Name: SongPreviewButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 452718415}
   - component: {fileID: 452718414}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -747,7 +747,7 @@ GameObject:
   - component: {fileID: 461925485}
   - component: {fileID: 461925484}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 614696297}
   - component: {fileID: 614696296}
   m_Layer: 5
-  m_Name: SongPlay
+  m_Name: SongPlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,7 +1496,7 @@ GameObject:
   - component: {fileID: 825174752}
   - component: {fileID: 825174751}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1542,7 +1542,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1642,7 +1642,7 @@ GameObject:
   - component: {fileID: 1062395613}
   - component: {fileID: 1062395612}
   m_Layer: 5
-  m_Name: SongPreview
+  m_Name: SongPreviewButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1773,7 +1773,7 @@ GameObject:
   - component: {fileID: 1064838174}
   - component: {fileID: 1064838173}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1819,7 +1819,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1879,7 +1879,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -1932,7 +1932,7 @@ GameObject:
   - component: {fileID: 1215078941}
   - component: {fileID: 1215078940}
   m_Layer: 5
-  m_Name: SongPlay
+  m_Name: SongPlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2064,7 +2064,7 @@ GameObject:
   - component: {fileID: 1343019193}
   - component: {fileID: 1343019192}
   m_Layer: 5
-  m_Name: SongPlay
+  m_Name: SongPlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2196,7 +2196,7 @@ GameObject:
   - component: {fileID: 1348912561}
   - component: {fileID: 1348912560}
   m_Layer: 5
-  m_Name: SongPreview
+  m_Name: SongPreviewButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2583,7 +2583,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -2681,7 +2681,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -3222,7 +3222,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 73e2286947aabc047923a5c19dddb441, type: 3}
+    m_Font: {fileID: 12800000, guid: ba288972bf29eb24ca0b50a3feb364ad, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
@@ -3230,7 +3230,7 @@ MonoBehaviour:
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1

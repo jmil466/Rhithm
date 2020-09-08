@@ -8,6 +8,9 @@ TagManager:
   - Blue Beat
   - Red Beat
   - NoteBlock
+  - Song
+  - SongObject
+  - SongPanel
   - Note
   - Obstacle
   - ScoreUI

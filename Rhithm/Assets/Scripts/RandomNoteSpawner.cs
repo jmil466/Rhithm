@@ -24,7 +24,8 @@ public class RandomNoteSpawner : MonoBehaviour
     public GameObject noteThree; // Note Three Prefab
     public GameObject obstacle; // Obstacle Game Object
 
-    //public Song song; // The Audio Song object being passed from the menu
+    // SongObjectScript related
+    public SongObjectScript song;
     public AudioSource currentSong; // The Song being played
     public float songLength; // The Length of the song being played
     public float currentPlayedTime = 0; // How Long the song has currently been playing for
@@ -36,13 +37,16 @@ public class RandomNoteSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //BPM = currentSong.getBPM();
-        currentSong = GetComponent<AudioSource>();
-        songLength = currentSong.clip.length; // Gets the song's length in seconds
+        song = findSong();
+        BPM = song.getBPM(); // Gets selected Song's BPM
+        Debug.Log(BPM);
+        songLength = song.getAudioLength(); // Gets the song's length in seconds
+        Debug.Log(songLength);
         secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
         noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
-        //startDelay = currentSong.getStartDelay();
-        //currentSong.play();
+        startDelay = song.getStartDelay();
+        difficultyMultiplier = song.getDifficultyMultiplier();
+        song.playAudio();
         StartCoroutine(SpawnNote()); // Starts spawning Method
     }
 
@@ -55,6 +59,13 @@ public class RandomNoteSpawner : MonoBehaviour
     {
         Instantiate(note, spawnPosition, Quaternion.identity);
     }
+
+    private SongObjectScript findSong()
+    {
+        return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
+       
+    }
+
 
     IEnumerator SpawnNote()
     {

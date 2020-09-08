@@ -51,4 +51,10 @@ public class SongObjectScript : MonoBehaviour
     {
         return audioLength;
     }
+    
+    public float getDifficultyMultiplier()
+    {
+        return difficultyMultiplier;
+    }
+    
 }

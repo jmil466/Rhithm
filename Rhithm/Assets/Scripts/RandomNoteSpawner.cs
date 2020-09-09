@@ -7,10 +7,10 @@ using UnityEngine;
 public class RandomNoteSpawner : MonoBehaviour
 {
 
-    public float BPM; // Beats per Minute
-    public float secsPerBeat; // How long in seconds One Beat is
+    public float BPM;
+    public float secsPerBeat;
     public float difficultyMultiplier; // Adjusts the Spawn Rate, default is 1
-    public bool firstSpawn = true; // Checks if this is the first iteration of the spawning while loop
+    public bool firstSpawn = true;
 
     // Position of Note Spawns
     public Vector3[] noteSpawnPositions; // Array for spawn positions of notes
@@ -24,29 +24,24 @@ public class RandomNoteSpawner : MonoBehaviour
     public GameObject noteThree; // Note Three Prefab
     public GameObject obstacle; // Obstacle Game Object
 
-    // SongObjectScript related
-    public SongObjectScript song;
+    //public Song song; // The Audio Song object being passed from the menu
     public AudioSource currentSong; // The Song being played
     public float songLength; // The Length of the song being played
     public float currentPlayedTime = 0; // How Long the song has currently been playing for
     public float startDelay; // Delay of spawning for songs that don't start instantly 
 
-    public Score score; // Score Object
-    public ParticleSystem confetti; // Celebratory particle System
+    public Score score;
 
     // Start is called before the first frame update
     void Start()
     {
-        song = findSong();
-        BPM = song.getBPM(); // Gets selected Song's BPM
-        Debug.Log(BPM);
-        songLength = song.getAudioLength(); // Gets the song's length in seconds
-        Debug.Log(songLength);
+        //BPM = currentSong.getBPM();
+        currentSong = GetComponent<AudioSource>();
+        songLength = currentSong.clip.length; // Gets the song's length in seconds
         secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
         noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
-        startDelay = song.getStartDelay();
-        difficultyMultiplier = song.getDifficultyMultiplier();
-        song.playAudio();
+        //startDelay = currentSong.getStartDelay();
+        //currentSong.play();
         StartCoroutine(SpawnNote()); // Starts spawning Method
     }
 
@@ -60,18 +55,11 @@ public class RandomNoteSpawner : MonoBehaviour
         Instantiate(note, spawnPosition, Quaternion.identity);
     }
 
-    private SongObjectScript findSong()
-    {
-        return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
-       
-    }
-
-
     IEnumerator SpawnNote()
     {
         yield return new WaitForSeconds(startDelay);
 
-        while (songLength - currentPlayedTime > 2.5f) // Stops spawning with 2.5s of song remaining
+        while (songLength - currentPlayedTime > 2.5f) // change this to "Hey while theres more than X seconds of song left, keep spawning"
         {
 
             float randomNum = UnityEngine.Random.Range(0.0f, 1.0f);
@@ -120,12 +108,11 @@ public class RandomNoteSpawner : MonoBehaviour
             }
         }
 
-        if(score.getNoteMissed() == false) // Full Combo's reward
+        if(score.getNoteMissed() == false)
         {
             yield return new WaitForSeconds(5.5f); // Waits for celebration!
 
             //Celebrate here
-            confetti.Play(); // 
             Debug.Log("Woop");
         }
     }

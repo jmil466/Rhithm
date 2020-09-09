@@ -16,62 +16,8 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         currentPos = gameObject.transform.position;
-        // Move Player Left
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (currentPos.x >= 0)
-            {
-                transform.Translate(-2, 0, 0);
-                Debug.Log("Position is now " + currentPos);
 
-            }
-        }
-        // Move Player Right
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (currentPos.x <= 1)
-            {
-                transform.Translate(2, 0, 0);
 
-                Debug.Log("Position is now " + currentPos);
-            }
-        }
     }
-
-
-   /* private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "damage" && score > 0)
-        {
-            score--;
-        }
-        else if (other.gameObject.tag == "Score")
-        {
-            score++;
-        }
-        Destroy(other.gameObject);
-
-
-        //scoreText.text = "Score: " + score;
-    }
-    public void changeScore(string tag)
-    {
-        if (score > 0)
-        {
-            if (tag == "damage")
-            {
-                score++;
-                //scoreText.text = "Score: " + score;
-            }
-            else if (tag == "Score")
-            {
-                score--;
-                //scoreText.text = "Score: " + score;
-            }
-        }
-    }*/
-
-
-
 
 }

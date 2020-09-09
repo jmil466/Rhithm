@@ -10,6 +10,7 @@ public class PlayerTestScript : MonoBehaviour
     public int multiplierStreakThree;
     public int multiplierStreakFour;
 
+
     void Start()
     {
         if(multiplierStreakOne == 0)
@@ -32,7 +33,7 @@ public class PlayerTestScript : MonoBehaviour
 
     void Update()
     {
-        
+     
     }
 
     private void OnTriggerEnter(Collider other)

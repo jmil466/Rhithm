@@ -37,11 +37,6 @@ public class SongObjectScript : MonoBehaviour
         audioSource.Pause();
     }
 
-    public void stopAudio()
-    {
-        audioSource.Stop();
-    }
-
     public float getBPM()
     {
         return BPM;

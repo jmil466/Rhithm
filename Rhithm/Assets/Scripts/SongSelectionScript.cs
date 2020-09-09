@@ -1,12 +1,15 @@
-﻿using System.Diagnostics;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SongSelectionScript : MonoBehaviour
 {
     public GameObject[] songPanels; //all the song panels
     public GameObject selectedSongObject; //the selected song (EmptyObject form)
     public GameObject selectedSongAudioSource; //the selected song (AudioSource form)
+    public GameObject difficultyPanel;
     public int activePanelCounter = 0; //the active panel counter
 
     // Start is called before the first frame update
@@ -24,6 +27,10 @@ public class SongSelectionScript : MonoBehaviour
 
         //Set the first panel active
         songPanels[activePanelCounter].SetActive(true);
+
+        difficultyPanel = GameObject.FindGameObjectWithTag("DifficultyPanel");
+
+        difficultyPanel.SetActive(false);
     }
     
     public void nextPanel()
@@ -65,10 +72,32 @@ public class SongSelectionScript : MonoBehaviour
         selectedSongObject = GameObject.FindGameObjectWithTag("SongObject");
         selectedSongAudioSource = GameObject.FindGameObjectWithTag("Song");
 
-        UnityEngine.Debug.Log(selectedSongObject);
+        songPanels[activePanelCounter].SetActive(false); //hide panel
+        GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide panel
+        difficultyPanel.SetActive(true); //enable the difficulty panel 
+    }
 
-        selectedSongObject.transform.parent = null; //destory parent object
-        selectedSongAudioSource.transform.parent = null;
+    public void OnClickChooseDifficulty()
+    {
+        string difficulty = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text; //get the button text
+
+        if (difficulty == "NORMAL")
+        {
+            selectedSongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 1;
+        } 
+        else if (difficulty == "HARD")
+        {
+            selectedSongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 2;
+        }
+        else if (difficulty == "INSANE")
+        {
+            selectedSongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 4;
+        }
+
+        //UnityEngine.Debug.Log(selectedSongObject);
+
+        selectedSongObject.transform.parent = null; //destroy parent object
+        selectedSongAudioSource.transform.parent = null; //destroy parent object
 
         selectedSongAudioSource.SetActive(false); //stop audio if playing
         selectedSongAudioSource.SetActive(true); //set active
@@ -76,6 +105,6 @@ public class SongSelectionScript : MonoBehaviour
         DontDestroyOnLoad(selectedSongObject);
         DontDestroyOnLoad(selectedSongAudioSource);
 
-        SceneManager.LoadScene("MainGameplay");
+        SceneManager.LoadScene("MainGameplay"); //load main scene
     }
 }

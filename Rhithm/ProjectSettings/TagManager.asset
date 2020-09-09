@@ -16,6 +16,8 @@ TagManager:
   - ScoreUI
   - ScoreText
   - MultiplierText
+  - PreviousNextPanel
+  - DifficultyPanel
   layers:
   - Default
   - TransparentFX

@@ -8,11 +8,16 @@ TagManager:
   - Blue Beat
   - Red Beat
   - NoteBlock
+  - Song
+  - SongObject
+  - SongPanel
   - Note
   - Obstacle
   - ScoreUI
   - ScoreText
   - MultiplierText
+  - PreviousNextPanel
+  - DifficultyPanel
   layers:
   - Default
   - TransparentFX

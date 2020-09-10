@@ -4,24 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-  m_Scenes: []
-=======
->>>>>>> parent of 5e4a2a8... Merge branch 'master' into John-V2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f9de77607f2ec7f49a149789f5a7d68d
   - enabled: 1
     path: Assets/Scenes/SongList.unity
     guid: 52c426246ee98f54aa2e30cd78035cf9
   - enabled: 1
     path: Assets/Scenes/MainGameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-<<<<<<< HEAD
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f9de77607f2ec7f49a149789f5a7d68d
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 5e4a2a8... Merge branch 'master' into John-V2
   m_configObjects: {}

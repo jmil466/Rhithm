@@ -18,6 +18,7 @@ TagManager:
   - MultiplierText
   - PreviousNextPanel
   - DifficultyPanel
+  - PreviewPlayPanel
   layers:
   - Default
   - TransparentFX

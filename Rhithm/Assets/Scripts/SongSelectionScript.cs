@@ -7,6 +7,7 @@ using System;
 public class SongSelectionScript : MonoBehaviour
 {
     public GameObject[] songPanels; //all the song panels
+    public SongDisplayScript SDS;
     public GameObject selectedSongObject; //the selected song (EmptyObject form)
     public GameObject selectedSongAudioSource; //the selected song (AudioSource form)
     public GameObject difficultyPanel;
@@ -67,13 +68,23 @@ public class SongSelectionScript : MonoBehaviour
 
     }
 
+    public void onClickPreviewSong()
+    {
+        SDS = songPanels[activePanelCounter].GetComponent<SongDisplayScript>();
+
+        SDS.audioSource.Play();
+
+        SDS.audioSource.SetScheduledEndTime(AudioSettings.dspTime + (10)); //Play for 10 seconds from 0 seconds
+    }
+
     public void OnClickPlaySong()
     {
-        selectedSongObject = GameObject.FindGameObjectWithTag("SongObject");
-        selectedSongAudioSource = GameObject.FindGameObjectWithTag("Song");
+        selectedSongObject = GameObject.FindGameObjectWithTag("SongObject"); //Find the active song object
+        selectedSongAudioSource = GameObject.FindGameObjectWithTag("Song"); //Find the active audio source
 
         songPanels[activePanelCounter].SetActive(false); //hide panel
-        GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide panel
+        GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide Previous and Next buttons
+        GameObject.FindGameObjectWithTag("PreviewPlayPanel").SetActive(false); //hide Preview and Play buttons
         difficultyPanel.SetActive(true); //enable the difficulty panel 
     }
 
@@ -96,8 +107,10 @@ public class SongSelectionScript : MonoBehaviour
 
         //UnityEngine.Debug.Log(selectedSongObject);
 
-        selectedSongObject.transform.parent = null; //destroy parent object
-        selectedSongAudioSource.transform.parent = null; //destroy parent object
+        //selectedSongObject.transform.parent = null; //destroy parent object
+        selectedSongObject.transform.SetParent(null); //destroy parent object
+        //selectedSongAudioSource.transform.parent = null; //destroy parent object
+        selectedSongAudioSource.transform.SetParent(null); //destroy parent object
 
         selectedSongAudioSource.SetActive(false); //stop audio if playing
         selectedSongAudioSource.SetActive(true); //set active

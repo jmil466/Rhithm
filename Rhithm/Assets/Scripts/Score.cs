@@ -61,6 +61,7 @@ public class Score : MonoBehaviour
     {
         noteStreak = 0;
         scoreMultiplier = 1;
+        noteMissed();
         updateMultiplierText();
     }
 

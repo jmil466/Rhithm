@@ -114,7 +114,7 @@ public class RandomNoteSpawner : MonoBehaviour
                 { // Spawns Obstacle
                     int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
                     Vector3 currPos = noteSpawnPositions[index];
-                    currPos.y += 0.7f; // Increases the spawn height so that the Obstacle is not in the ground.
+                    //currPos.y += 0.7f; // Increases the spawn height so that the Obstacle is not in the ground.
                     createNote(obstacle, currPos);
                 }
             }

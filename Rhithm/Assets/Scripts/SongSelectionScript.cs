@@ -11,6 +11,7 @@ public class SongSelectionScript : MonoBehaviour
     public GameObject selectedSongObject; //the selected song (EmptyObject form)
     public GameObject selectedSongAudioSource; //the selected song (AudioSource form)
     public GameObject difficultyPanel;
+    public AudioSource buttonClickSound;
     public int activePanelCounter = 0; //the active panel counter
 
     // Start is called before the first frame update
@@ -34,8 +35,10 @@ public class SongSelectionScript : MonoBehaviour
         difficultyPanel.SetActive(false);
     }
     
-    public void nextPanel()
+    public void OnClickNextPanel()
     {
+        buttonClickSound.Play();
+
         songPanels[activePanelCounter].SetActive(false); //make the current panel invisible
 
         if (activePanelCounter == (songPanels.Length - 1))
@@ -48,8 +51,10 @@ public class SongSelectionScript : MonoBehaviour
         activePanelCounter++; //the next active panel will be the next one in the counter
     }
 
-    public void previousPanel()
+    public void OnClickPreviousPanel()
     {
+        buttonClickSound.Play();
+
         songPanels[activePanelCounter].SetActive(false); //make the current panel invisible
 
         if (activePanelCounter == 0)
@@ -70,6 +75,8 @@ public class SongSelectionScript : MonoBehaviour
 
     public void onClickPreviewSong()
     {
+        buttonClickSound.Play();
+
         SDS = songPanels[activePanelCounter].GetComponent<SongDisplayScript>();
 
         SDS.audioSource.Play();
@@ -79,6 +86,8 @@ public class SongSelectionScript : MonoBehaviour
 
     public void OnClickPlaySong()
     {
+        buttonClickSound.Play();
+
         selectedSongObject = GameObject.FindGameObjectWithTag("SongObject"); //Find the active song object
         selectedSongAudioSource = GameObject.FindGameObjectWithTag("Song"); //Find the active audio source
 
@@ -90,6 +99,8 @@ public class SongSelectionScript : MonoBehaviour
 
     public void OnClickChooseDifficulty()
     {
+        buttonClickSound.Play();
+
         string difficulty = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text; //get the button text
 
         if (difficulty == "NORMAL")

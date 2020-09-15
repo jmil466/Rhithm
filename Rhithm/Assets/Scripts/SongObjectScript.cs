@@ -27,6 +27,15 @@ public class SongObjectScript : MonoBehaviour
         
     }
 
+    public SongObjectScript(AudioSource song, float songBPM) // Constructor for testing
+    {
+        audioSource = song;
+        audioClip = audioSource.clip;
+        audioLength = audioClip.length;
+        BPM = songBPM;
+
+    }
+
     public void playAudio()
     {
         audioSource.Play();
@@ -61,5 +70,7 @@ public class SongObjectScript : MonoBehaviour
     {
         return difficultyMultiplier;
     }
+
+
     
 }

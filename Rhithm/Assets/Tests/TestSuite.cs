@@ -16,7 +16,7 @@ namespace Tests
             // Use the Assert class to test conditions
         }
 
-        [UnityTest]
+        [UnityTest] // Test to see if note's move when spawned
         public IEnumerator NoteMovementTest() // Unit Test Example by James
         {
             var root = new GameObject();
@@ -47,43 +47,64 @@ namespace Tests
         }
 
         [UnityTest]
-        public IEnumerator ObstacleSpawnTest() // Unit Test by James
+        public IEnumerator ObstacleSpawnTest() // Unit Test by James 
         {
-            GameObject player = Resources.Load<GameObject>("Prefabs/Player");
-            GameObject obstacle = Resources.Load<GameObject>("Prefabs/Spike");
+            var root = new GameObject();
+            root.AddComponent<Camera>();
 
-            //Canvas scoreCanvas = Resources.Load<Canvas>("Prefabs/ScoringUI Canvas");
-            Canvas scoreCanvas = AssetDatabase.LoadAssetAtPath<Canvas>("Assets/Resources/Prefabs/ScoringUI Canvas");
+            var Camera = root.GetComponent<Camera>();
 
-            player = GameObject.Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-            obstacle = GameObject.Instantiate(obstacle, new Vector3(0, 0, 20), new Quaternion(0, 0, 0, 0));
+            GameObject spawner = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Spawner"));
+            bool obstacleSpawns = false;
 
-            scoreCanvas = Canvas.Instantiate(scoreCanvas);
-            var scoreScript = AssetDatabase.LoadAssetAtPath<MonoBehaviour>("Assets/Scripts/Score.cs");
-           // scoreCanvas
-
-            var test = scoreCanvas.GetComponent<MonoBehaviour>();
-
-            var expectedScoreStreak = 0;
-
-            // Set currentScorestreak to >= 1;
-
-
-            yield return new WaitForSeconds(1.2f);
-
-
-            Assert.AreEqual(5, expectedScoreStreak);
-           
+            yield return new WaitForSeconds(10f);
             
+            if (GameObject.FindWithTag("Obstacle"))
+            {
+                obstacleSpawns = true;
+            }
 
+            Assert.IsTrue(obstacleSpawns);
+
+            GameObject.Destroy(spawner);
+
+            GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
+            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+
+            foreach (GameObject note in notes)
+            {
+                GameObject.Destroy(note);
+            }
+
+            foreach (GameObject obstacle in obstacles)
+            {
+                GameObject.Destroy(obstacle);
+            }
 
 
         }
 
+       
+
         [UnityTest]
         public IEnumerator ObstacleCollisionTest() // Unit Test by James
         {
-            yield return new WaitForSeconds(0.1f);
+
+            GameObject player = Resources.Load<GameObject>("Prefabs/player");
+            GameObject obstacle = Resources.Load<GameObject>("Prefabs/Spike");
+            player = GameObject.Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            obstacle = GameObject.Instantiate(obstacle, new Vector3(0, 0, 20), new Quaternion(0, 0, 0, 0));
+
+            var expectedNoteStreak = 0;
+            var currentNoteStreak = 2;
+            yield return new WaitForSeconds(1.2f);
+
+            // On obstacle collision, reset note streak
+
+            Assert.AreEqual(currentNoteStreak, expectedNoteStreak);
+
+            
+
 
         }
 

@@ -37,17 +37,28 @@ public class RandomNoteSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        song = findSong();
-        BPM = song.getBPM(); // Gets selected Song's BPM
-        Debug.Log(BPM);
-        songLength = song.getAudioLength(); // Gets the song's length in seconds
-        Debug.Log(songLength);
-        secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
-        noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
-        startDelay = song.getStartDelay();
-        difficultyMultiplier = song.getDifficultyMultiplier();
-        song.playAudio();
-        StartCoroutine(SpawnNote()); // Starts spawning Method
+        try
+        {
+            song = findSong();
+            BPM = song.getBPM(); // Gets selected Song's BPM
+            Debug.Log(BPM);
+            songLength = song.getAudioLength(); // Gets the song's length in seconds
+            Debug.Log(songLength);
+            secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
+            noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
+            startDelay = song.getStartDelay();
+            difficultyMultiplier = song.getDifficultyMultiplier();
+            song.playAudio();
+            StartCoroutine(SpawnNote()); // Starts spawning Method
+        } catch (Exception e) { // Catch for when song doesn't load, spawn objects with no sound (testing purposes only)
+            BPM = 60f;
+            songLength = 60f;
+            secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
+            noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
+            difficultyMultiplier = 4;
+            StartCoroutine(SpawnNote()); // Starts spawning Method
+        }
+
     }
 
     void Update()
@@ -63,7 +74,6 @@ public class RandomNoteSpawner : MonoBehaviour
     private SongObjectScript findSong()
     {
         return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
-       
     }
 
 

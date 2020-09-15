@@ -3346,10 +3346,10 @@ MonoBehaviour:
   noteOneSpawn: {x: 2, y: 0.3, z: 30}
   noteTwoSpawn: {x: 0, y: 0.3, z: 30}
   noteThreeSpawn: {x: -2, y: 0.3, z: 30}
-  noteOne: {fileID: 4726777821201800354, guid: 574b4976ce3041244a1c6c77c3441b71, type: 3}
-  noteTwo: {fileID: 1896755558869317669, guid: 4f1dba5b23b427043863c2750bba5e25, type: 3}
-  noteThree: {fileID: 3191767650865381924, guid: d8c1ef00bf0ca4a4289abcc4ba484f1e, type: 3}
-  obstacle: {fileID: 3163848203327040880, guid: 274ac3334847b2340a9ebcdc71d90f21, type: 3}
+  noteOne: {fileID: 4726777821201800354, guid: 987ba9e244161c54b87fb68903858395, type: 3}
+  noteTwo: {fileID: 1896755558869317669, guid: 863495137d16a834e88af4c30f394007, type: 3}
+  noteThree: {fileID: 3191767650865381924, guid: 06d87aca46a0b0141929fe4a847293a3, type: 3}
+  obstacle: {fileID: 3163848203327040880, guid: e3c41ed2ff68e6b47b57df435c7973fb, type: 3}
   song: {fileID: 0}
   currentSong: {fileID: 0}
   songLength: 0.05

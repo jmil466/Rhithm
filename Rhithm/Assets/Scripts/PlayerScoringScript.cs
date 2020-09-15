@@ -57,13 +57,12 @@ public class PlayerScoringScript : MonoBehaviour
             {
                 score.increaseScoreMultiplier(8);
             }
-            Debug.Log("NOTE");
 
         }
         else if(other.gameObject.tag == "Obstacle")
         {
+            //score.decreaseScore();
             score.resetNoteStreak();
-            Debug.Log("Obstacle");
         }
 
         Destroy(other.gameObject);

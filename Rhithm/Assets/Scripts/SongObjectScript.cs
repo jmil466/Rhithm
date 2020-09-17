@@ -12,6 +12,7 @@ public class SongObjectScript : MonoBehaviour
     public float startDelay;
     public float audioLength;
     public float difficultyMultiplier;
+    private int highScore; // Added by James
 
     // Start is called before the first frame update
     void Start()
@@ -27,14 +28,14 @@ public class SongObjectScript : MonoBehaviour
         
     }
 
-    public SongObjectScript(AudioSource song, float songBPM) // Constructor for testing
+   /* public SongObjectScript(AudioSource song, float songBPM) // Constructor for testing
     {
         audioSource = song;
         audioClip = audioSource.clip;
         audioLength = audioClip.length;
         BPM = songBPM;
 
-    }
+    } */
 
     public void playAudio()
     {
@@ -71,6 +72,9 @@ public class SongObjectScript : MonoBehaviour
         return difficultyMultiplier;
     }
 
-
+    public int getSongHighScore()
+    {
+        return highScore;
+    }
     
 }

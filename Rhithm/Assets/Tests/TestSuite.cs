@@ -4,19 +4,56 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEditor;
+using System;
 
 namespace Tests
 {
     public class TestSuite
     {
-        // A Test behaves as an ordinary method
+
         [Test]
-        public void TestSuiteSimplePasses()
+        public void HighScoreComparisonGreater() // TDD For Highscore user story
         {
-            // Use the Assert class to test conditions
+
+            Canvas score = MonoBehaviour.Instantiate(Resources.Load<Canvas>("Prefabs/ScoringUI"));
+            var scoreScript = score.GetComponent<Score>();
+
+            int highScore = scoreScript.getHighScore();
+            int currentScore = highScore + 10;
+
+            Assert.Greater(currentScore, highScore);
+
         }
 
-        [UnityTest] // Test to see if note's move when spawned
+
+        [Test]
+        public void HighScoreComparisonLesser()
+        {
+            Canvas score = MonoBehaviour.Instantiate(Resources.Load<Canvas>("Prefabs/ScoringUI"));
+            var scoreScript = score.GetComponent<Score>();
+
+            int highScore = scoreScript.getHighScore();
+            int currentScore = scoreScript.getScore();
+
+            Assert.LessOrEqual(highScore, currentScore);
+        }
+
+        [Test]
+        public void DisplayScores()
+        {
+            Canvas completionScreen = MonoBehaviour.Instantiate(Resources.Load<Canvas>("Prefabs/CompletionUI"));
+
+            CompletionScript completionScript = completionScreen.GetComponent<CompletionScript>();
+
+            completionScript.displayCompletionUI();
+
+            Assert.IsTrue(completionScript.highScoreIsVisible());
+            Assert.IsTrue(completionScript.userScoreIsVisible());
+
+        }
+
+
+        [UnityTest] // Test to see if notes move when spawned
         public IEnumerator NoteMovementTest() // Unit Test Example by James
         {
             var root = new GameObject();
@@ -49,42 +86,19 @@ namespace Tests
         [UnityTest]
         public IEnumerator ObstacleSpawnTest() // Unit Test by James 
         {
-            var root = new GameObject();
-            root.AddComponent<Camera>();
-
-            var Camera = root.GetComponent<Camera>();
-
+            GameObject obstacle = Resources.Load<GameObject>("Prefabs/Spike");
             GameObject spawner = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Spawner"));
-            bool obstacleSpawns = false;
+            var spawnerScript = spawner.GetComponent<RandomNoteSpawner>();
+           
+            spawnerScript.createNote(obstacle, new Vector3(0, 0, 0));
 
-            yield return new WaitForSeconds(10f);
-            
-            if (GameObject.FindWithTag("Obstacle"))
-            {
-                obstacleSpawns = true;
-            }
+            yield return new WaitForSeconds(0.1f);
 
-            Assert.IsTrue(obstacleSpawns);
-
-            GameObject.Destroy(spawner);
-
-            GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
-            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-
-            foreach (GameObject note in notes)
-            {
-                GameObject.Destroy(note);
-            }
-
-            foreach (GameObject obstacle in obstacles)
-            {
-                GameObject.Destroy(obstacle);
-            }
+            Assert.IsTrue(GameObject.FindWithTag("Obstacle"));
 
 
         }
 
-       
 
         [UnityTest]
         public IEnumerator ObstacleCollisionTest() // Unit Test by James
@@ -92,23 +106,21 @@ namespace Tests
 
             GameObject player = Resources.Load<GameObject>("Prefabs/player");
             GameObject obstacle = Resources.Load<GameObject>("Prefabs/Spike");
+            Canvas score = MonoBehaviour.Instantiate(Resources.Load<Canvas>("Prefabs/ScoringUI"));
             player = GameObject.Instantiate(player, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             obstacle = GameObject.Instantiate(obstacle, new Vector3(0, 0, 20), new Quaternion(0, 0, 0, 0));
+            var scoreScript = score.GetComponent<Score>();
 
             var expectedNoteStreak = 0;
             var currentNoteStreak = 2;
             yield return new WaitForSeconds(1.2f);
 
-            // On obstacle collision, reset note streak
+            currentNoteStreak = scoreScript.getNoteStreak();
 
             Assert.AreEqual(currentNoteStreak, expectedNoteStreak);
 
-            
-
-
         }
 
-
-
+        
     }
 }

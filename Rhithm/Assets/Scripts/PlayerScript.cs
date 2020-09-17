@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
             if (currentPos.x >= 0)
             {
                 transform.Translate(-2, 0, 0);
-                Debug.Log("Position is now " + currentPos);
+                //Debug.Log("Position is now " + currentPos);
 
             }
         }
@@ -33,7 +33,7 @@ public class PlayerScript : MonoBehaviour
             {
                 transform.Translate(2, 0, 0);
 
-                Debug.Log("Position is now " + currentPos);
+                //Debug.Log("Position is now " + currentPos);
             }
         }
     }

@@ -14,10 +14,6 @@ public class NoteRemoval : MonoBehaviour
         {
             score.resetNoteStreak();
             score.noteMissed();
-            Debug.Log("NOTE COLLISION");
-        } else
-        {
-            Debug.Log("SPIKE COLLISION");
         }
 
         Destroy(other.gameObject);

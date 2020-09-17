@@ -4,38 +4,38 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private int score = 0;
+    private int score;
     private int scoreMultiplier = 1;
     private int noteStreak = 0;
     private bool missedNote = false;
+
+
+    private SongObjectScript song;
+    private int highScore;
 
     public Text scoreText;
     public Text multiplierText;
 
     void Start()
-    { 
+    {
+        score = 0;
         updateScoreText();
         updateMultiplierText();
+    }
+
+    private void findHighScore()
+    {
+        song = (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
+        highScore = song.getSongHighScore();
     }
 
 
     public void increaseScore()
     {
-        score += 1 * scoreMultiplier;
+        score += (1 * scoreMultiplier);
         updateScoreText();
     }
 
-    public void decreaseScore()
-    {
-        if(score > 0)
-        {
-            score--;
-        }
-        scoreMultiplier = 1;
-
-        updateScoreText();
-        updateMultiplierText();
-    }
 
     public int getScore()
     {
@@ -87,5 +87,25 @@ public class Score : MonoBehaviour
         multiplierText.text = scoreMultiplier.ToString() + "x";
     }
 
+    public int getHighScore()
+    {
+        return highScore;
+    }
+
+    public int calculateHighScore()
+    {
+
+        Debug.Log("Current score: " + score + ", High Score was: " + highScore);
+        if(score > highScore)
+        {
+            highScore = score;
+            return score;
+
+        } else
+        {
+            return highScore;
+        }
+    
+    }
 
 }

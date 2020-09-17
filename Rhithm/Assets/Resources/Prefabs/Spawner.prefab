@@ -71,8 +71,9 @@ MonoBehaviour:
   songLength: 0.05
   currentPlayedTime: 0
   startDelay: 2
-  score: {fileID: 0}
+  score: {fileID: 8048320088489290013, guid: 06e4fcbf52af90f41b18083301807cb4, type: 3}
   confetti: {fileID: 5734727778330085401}
+  completionUI: {fileID: 5441063527113887724, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
 --- !u!1 &5734727779122490856
 GameObject:
   m_ObjectHideFlags: 0

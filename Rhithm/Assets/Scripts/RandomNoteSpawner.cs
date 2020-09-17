@@ -33,6 +33,7 @@ public class RandomNoteSpawner : MonoBehaviour
 
     public Score score; // Score Object
     public ParticleSystem confetti; // Celebratory particle System
+    public CompletionScript completionUI;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +82,7 @@ public class RandomNoteSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
-        while (songLength - currentPlayedTime > 2.5f) // Stops spawning with 2.5s of song remaining
+        while (songLength - currentPlayedTime > 55f) // Stops spawning with 2.5s of song remaining
         {
 
             float randomNum = UnityEngine.Random.Range(0.0f, 1.0f);
@@ -130,14 +131,27 @@ public class RandomNoteSpawner : MonoBehaviour
             }
         }
 
-        if(score.getNoteMissed() == false) // Full Combo's reward
-        {
-            yield return new WaitForSeconds(5.5f); // Waits for celebration!
+        yield return new WaitForSeconds(5.5f);
 
+        if (score.getNoteMissed() == false) // Full Combo's reward
+        {
             //Celebrate here
             confetti.Play(); // 
             Debug.Log("Woop");
         }
+
+        score.calculateHighScore();
+        Debug.Log(score.getHighScore().ToString());
+        completionUI.displayCompletionUI();
+
+        if (score.getNoteMissed() == false) // Stops celebration
+        {
+            yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
+            confetti.Stop();
+        }
+
+       
+       
     }
 
    

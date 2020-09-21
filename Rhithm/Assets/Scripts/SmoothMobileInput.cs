@@ -7,7 +7,7 @@ public class SmoothMobileInput : MonoBehaviour
     private Vector3 startTouchPos, endTouchPos;
     private Vector3 startPlayerPos, endPlayerPos;
     private float moveTime;
-    private float moveDuration = 0.1f;
+    private float moveDuration = 0.08f;
 
     // Update is called once per frame
     void Update()

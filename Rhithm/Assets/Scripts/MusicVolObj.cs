@@ -8,10 +8,17 @@ public class MusicVolObj : MonoBehaviour
     public Slider musicSlider;
     public float musicVolValue;
      
+    void Start()
+    {
+        musicVolValue = musicSlider.value;
+    }
 
     void Update()
     {
-        musicVolValue = musicSlider.value;
+        if (musicSlider != null)
+        {
+            musicVolValue = musicSlider.value;
+        }
     }
 
     public float getMusicVolValue()

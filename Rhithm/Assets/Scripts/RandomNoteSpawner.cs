@@ -33,21 +33,33 @@ public class RandomNoteSpawner : MonoBehaviour
 
     public Score score; // Score Object
     public ParticleSystem confetti; // Celebratory particle System
+    public CompletionScript completionUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        song = findSong();
-        BPM = song.getBPM(); // Gets selected Song's BPM
-        Debug.Log(BPM);
-        songLength = song.getAudioLength(); // Gets the song's length in seconds
-        Debug.Log(songLength);
-        secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
-        noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
-        startDelay = song.getStartDelay();
-        difficultyMultiplier = song.getDifficultyMultiplier();
-        song.playAudio();
-        StartCoroutine(SpawnNote()); // Starts spawning Method
+        try
+        {
+            song = findSong();
+            BPM = song.getBPM(); // Gets selected Song's BPM
+            Debug.Log(BPM);
+            songLength = song.getAudioLength(); // Gets the song's length in seconds
+            Debug.Log(songLength);
+            secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
+            noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
+            startDelay = song.getStartDelay();
+            difficultyMultiplier = song.getDifficultyMultiplier();
+            song.playAudio();
+            StartCoroutine(SpawnNote()); // Starts spawning Method
+        } catch (Exception e) { // Catch for when song doesn't load, spawn objects with no sound (testing purposes only)
+            BPM = 60f;
+            songLength = 60f;
+            secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
+            noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
+            difficultyMultiplier = 4;
+            StartCoroutine(SpawnNote()); // Starts spawning Method
+        }
+
     }
 
     void Update()
@@ -63,7 +75,6 @@ public class RandomNoteSpawner : MonoBehaviour
     private SongObjectScript findSong()
     {
         return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
-       
     }
 
 
@@ -71,7 +82,7 @@ public class RandomNoteSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
-        while (songLength - currentPlayedTime > 2.5f) // Stops spawning with 2.5s of song remaining
+        while (songLength - currentPlayedTime > 55f) // Stops spawning with 2.5s of song remaining
         {
 
             float randomNum = UnityEngine.Random.Range(0.0f, 1.0f);
@@ -114,20 +125,33 @@ public class RandomNoteSpawner : MonoBehaviour
                 { // Spawns Obstacle
                     int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
                     Vector3 currPos = noteSpawnPositions[index];
-                    currPos.y += 0.7f; // Increases the spawn height so that the Obstacle is not in the ground.
+                    //currPos.y += 0.7f; // Increases the spawn height so that the Obstacle is not in the ground.
                     createNote(obstacle, currPos);
                 }
             }
         }
 
-        if(score.getNoteMissed() == false) // Full Combo's reward
-        {
-            yield return new WaitForSeconds(5.5f); // Waits for celebration!
+        yield return new WaitForSeconds(5.5f);
 
+        if (score.getNoteMissed() == false) // Full Combo's reward
+        {
             //Celebrate here
             confetti.Play(); // 
             Debug.Log("Woop");
         }
+
+        score.calculateHighScore();
+        Debug.Log(score.getHighScore().ToString());
+        completionUI.displayCompletionUI();
+
+        if (score.getNoteMissed() == false) // Stops celebration
+        {
+            yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
+            confetti.Stop();
+        }
+
+       
+       
     }
 
    

@@ -18,6 +18,10 @@ TagManager:
   - MultiplierText
   - PreviousNextPanel
   - DifficultyPanel
+  - PreviewPlayPanel
+  - Confetti
+  - UserScoreText
+  - HighScoreText
   layers:
   - Default
   - TransparentFX

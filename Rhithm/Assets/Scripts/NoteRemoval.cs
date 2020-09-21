@@ -9,9 +9,9 @@ public class NoteRemoval : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Note")
+
+        if (other.gameObject.tag == "Note")
         {
-            //score.decreaseScore(); Do we want it to decrease score?
             score.resetNoteStreak();
             score.noteMissed();
         }

@@ -145,13 +145,17 @@ public class RandomNoteSpawner : MonoBehaviour
         Debug.Log(score.getHighScore().ToString());
         completionUI.displayCompletionUI();
 
-        if (score.getNoteMissed() == false) // Stops celebration
-        {
-            yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
-            confetti.Stop();
-        }
+        //if (score.getNoteMissed() == false) // Stops celebration
+        //{
+        //    yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
+        //    confetti.Stop();
+        //}
 
-        SceneManager.LoadScene("MainMenu"); //load main menu scene
+        yield return new WaitForSeconds(2f);
+
+
+
+        SceneManager.LoadScene("SongList"); //load main menu scene
     }
 
    

@@ -153,21 +153,6 @@ public class RandomNoteSpawner : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-
-
         SceneManager.LoadScene("SongList"); //load main menu scene
     }
-
-   
-
-
-
-
-
-
-
-
-
-
-
 }

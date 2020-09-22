@@ -76,5 +76,5 @@ public class SongObjectScript : MonoBehaviour
     {
         return highScore;
     }
-    
+   
 }

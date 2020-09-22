@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class RandomNoteSpawner : MonoBehaviour
@@ -150,8 +151,7 @@ public class RandomNoteSpawner : MonoBehaviour
             confetti.Stop();
         }
 
-       
-       
+        SceneManager.LoadScene("MainMenu"); //load main menu scene
     }
 
    

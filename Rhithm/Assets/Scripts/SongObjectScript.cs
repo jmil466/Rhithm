@@ -79,4 +79,8 @@ public class SongObjectScript : MonoBehaviour
         return highScore;
     }
     
+    public string getSongName()
+    {
+        return audioName;
+    }
 }

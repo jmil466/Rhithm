@@ -137,6 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210081463}
+  - component: {fileID: 210081464}
   m_Layer: 0
   m_Name: FinalScoreObject
   m_TagString: Untagged
@@ -158,6 +159,21 @@ Transform:
   m_Father: {fileID: 6781075986083178934}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210081464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210081462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd057fd1b0761cb41b70d7ade0203eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHighScore: 0
+  userScore: 0
+  songName: 
 --- !u!114 &550558749 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8048320088489290013, guid: 06e4fcbf52af90f41b18083301807cb4, type: 3}

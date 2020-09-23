@@ -35,6 +35,7 @@ public class RandomNoteSpawner : MonoBehaviour
     public Score score; // Score Object
     public ParticleSystem confetti; // Celebratory particle System
     public CompletionScript completionUI;
+    public GameObject FinalScoreObject;
 
     // Start is called before the first frame update
     void Start()
@@ -144,6 +145,10 @@ public class RandomNoteSpawner : MonoBehaviour
         score.calculateHighScore();
         Debug.Log(score.getHighScore().ToString());
         completionUI.displayCompletionUI();
+
+        FinalScoreObject = GameObject.Find("FinalScoreObject");
+        FinalScoreObject.transform.SetParent(null);
+        DontDestroyOnLoad(FinalScoreObject);
 
         //if (score.getNoteMissed() == false) // Stops celebration
         //{

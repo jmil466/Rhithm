@@ -19,5 +19,7 @@ public class MainMenu : MonoBehaviour
         MusicVolObjScript.musicSlider = null;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        //SceneManager.LoadScene("SongList");
     }
 }

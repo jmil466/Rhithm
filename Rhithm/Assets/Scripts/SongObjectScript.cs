@@ -8,6 +8,7 @@ public class SongObjectScript : MonoBehaviour
     //SongDisplayScript songDisplayScript;
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public string songName;
     public float BPM; //beats per minute
     public float startDelay;
     public float audioLength;
@@ -19,6 +20,7 @@ public class SongObjectScript : MonoBehaviour
     {
         audioClip = audioSource.clip;
         audioLength = audioClip.length;
+        songName = audioClip.name;
 
         //songDisplayScript = theSongPanel.GetComponent<SongDisplayScript>();
     }
@@ -76,5 +78,9 @@ public class SongObjectScript : MonoBehaviour
     {
         return highScore;
     }
-   
+
+    public string getSongName()
+    {
+        return songName;
+    }
 }

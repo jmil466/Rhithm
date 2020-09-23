@@ -14,12 +14,11 @@ public class SongDisplayScript : MonoBehaviour
     {
         audioClip = audioSource.clip;
         audioName = audioClip.name;
-        audioTextName.text = audioName;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        audioTextName.text = audioName;
     }
 }

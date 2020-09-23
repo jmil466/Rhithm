@@ -77,5 +77,15 @@ public class CompletionScript : MonoBehaviour
             return false;
         }
     }
+
+    public int getHighScore()
+    {
+        return highScoreValue;
+    }
+
+    public int getUserScore()
+    {
+        return scoreValue;
+    }
 }
 

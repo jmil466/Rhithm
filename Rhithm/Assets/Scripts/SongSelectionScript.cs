@@ -13,11 +13,13 @@ public class SongSelectionScript : MonoBehaviour
     public GameObject difficultyPanel;
     public AudioSource buttonClickSound;
     public int activePanelCounter = 0; //the active panel counter
+    public GameObject musicVolObj;
 
     // Start is called before the first frame update
     void Start()
     {
         songPanels = GameObject.FindGameObjectsWithTag("SongPanel");
+        musicVolObj = GameObject.Find("MusicVolObj");
 
         /**
          * Hide all song panels
@@ -128,6 +130,7 @@ public class SongSelectionScript : MonoBehaviour
 
         DontDestroyOnLoad(selectedSongObject);
         DontDestroyOnLoad(selectedSongAudioSource);
+        DontDestroyOnLoad(musicVolObj);
 
         SceneManager.LoadScene("MainGameplay"); //load main scene
     }

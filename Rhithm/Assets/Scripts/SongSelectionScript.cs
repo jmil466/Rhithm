@@ -35,13 +35,6 @@ public class SongSelectionScript : MonoBehaviour
         difficultyPanel.SetActive(false);
     }
     
-    public void OnClickMenu()
-    {
-        buttonClickSound.Play();
-
-        SceneManager.LoadScene("MainMenu");
-    }
-
     public void OnClickNextPanel()
     {
         buttonClickSound.Play();
@@ -72,6 +65,12 @@ public class SongSelectionScript : MonoBehaviour
         songPanels[activePanelCounter - 1].SetActive(true); //make the next panel visible
 
         activePanelCounter--; //the next active panel will be the next one in the counter
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     public void onClickPreviewSong()

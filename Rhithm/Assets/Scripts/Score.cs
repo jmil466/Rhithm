@@ -9,6 +9,7 @@ public class Score : MonoBehaviour
     private int noteStreak = 0;
     private bool missedNote = false;
 
+
     private SongObjectScript song;
     private int highScore;
 
@@ -28,11 +29,13 @@ public class Score : MonoBehaviour
         highScore = song.getSongHighScore();
     }
 
+
     public void increaseScore()
     {
         score += (1 * scoreMultiplier);
         updateScoreText();
     }
+
 
     public int getScore()
     {
@@ -66,6 +69,7 @@ public class Score : MonoBehaviour
     {
         return noteStreak;
     }
+
 
     public void increaseScoreMultiplier(int newMultiplier)
     {
@@ -101,5 +105,7 @@ public class Score : MonoBehaviour
         {
             return highScore;
         }
+    
     }
+
 }

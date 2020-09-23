@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class RandomNoteSpawner : MonoBehaviour
@@ -35,7 +34,6 @@ public class RandomNoteSpawner : MonoBehaviour
     public Score score; // Score Object
     public ParticleSystem confetti; // Celebratory particle System
     public CompletionScript completionUI;
-    public GameObject FinalScoreObject;
 
     // Start is called before the first frame update
     void Start()
@@ -146,18 +144,26 @@ public class RandomNoteSpawner : MonoBehaviour
         Debug.Log(score.getHighScore().ToString());
         completionUI.displayCompletionUI();
 
-        FinalScoreObject = GameObject.Find("FinalScoreObject");
-        FinalScoreObject.transform.SetParent(null);
-        DontDestroyOnLoad(FinalScoreObject);
+        if (score.getNoteMissed() == false) // Stops celebration
+        {
+            yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
+            confetti.Stop();
+        }
 
-        //if (score.getNoteMissed() == false) // Stops celebration
-        //{
-        //    yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
-        //    confetti.Stop();
-        //}
-
-        yield return new WaitForSeconds(2f);
-
-        SceneManager.LoadScene("SongList"); //load main menu scene
+       
+       
     }
+
+   
+
+
+
+
+
+
+
+
+
+
+
 }

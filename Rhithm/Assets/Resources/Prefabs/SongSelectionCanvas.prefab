@@ -1490,6 +1490,7 @@ MonoBehaviour:
   difficultyPanel: {fileID: 0}
   buttonClickSound: {fileID: 7543237954645159801}
   activePanelCounter: 0
+  musicVolObj: {fileID: 0}
 --- !u!1 &7543237955325586889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,14 +2539,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54bc064272d8e4a49aaa62fd97a2f311, type: 3}
---- !u!224 &408481212962468456 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2104970953161693926, guid: 54bc064272d8e4a49aaa62fd97a2f311, type: 3}
-  m_PrefabInstance: {fileID: 1773693204080339086}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &3488764095124168584 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 2952101754113160966, guid: 54bc064272d8e4a49aaa62fd97a2f311, type: 3}
+  m_PrefabInstance: {fileID: 1773693204080339086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &408481212962468456 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2104970953161693926, guid: 54bc064272d8e4a49aaa62fd97a2f311, type: 3}
   m_PrefabInstance: {fileID: 1773693204080339086}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7543237954700829763

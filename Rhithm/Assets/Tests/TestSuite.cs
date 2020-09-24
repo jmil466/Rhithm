@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEditor;
 using System;
+using Random = UnityEngine.Random;
+using UnityEngine.Audio;
 
 namespace Tests
 {
@@ -50,7 +52,44 @@ namespace Tests
             Assert.IsTrue(completionScript.userScoreIsVisible());
 
         }
+        
+        [Test]
+        public void IncreaseSFXVolume()
+        {
+            GameObject settingsMenu = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/SettingsMenu"));
+            SettingsMenu settingsMenuScript = settingsMenu.GetComponent<SettingsMenu>();
+            GameObject sfxVolObj = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/SFXVolObj"));
+            SFXVolObj sfxVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
+            AudioMixer sfxMixer = MonoBehaviour.Instantiate(Resources.Load<AudioMixer>("Audio/SFXMixer"));
 
+            float currentSfxVolValue = sfxVolObjScript.getSfxVolValue();
+            float newSfxVolValue = Random.Range(currentSfxVolValue, 0.0f);
+
+            settingsMenuScript.SetSFXVolume(newSfxVolValue);
+            float value;
+            sfxMixer.GetFloat("volume", out value);
+
+            Assert.Greater(value, currentSfxVolValue);
+        }
+
+        [Test]
+        public void DecreaseSFXVolume()
+        {
+            GameObject settingsMenu = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/SettingsMenu"));
+            SettingsMenu settingsMenuScript = settingsMenu.GetComponent<SettingsMenu>();
+            GameObject sfxVolObj = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/SFXVolObj"));
+            SFXVolObj sfxVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
+            AudioMixer sfxMixer = MonoBehaviour.Instantiate(Resources.Load<AudioMixer>("Audio/SFXMixer"));
+
+            float currentSfxVolValue = sfxVolObjScript.getSfxVolValue();
+            float newSfxVolValue = Random.Range(-40.0f, currentSfxVolValue);
+
+            settingsMenuScript.SetSFXVolume(newSfxVolValue);
+            float value;
+            sfxMixer.GetFloat("volume", out value);
+
+            Assert.Less(value, currentSfxVolValue);
+        }
 
         [UnityTest] // Test to see if notes move when spawned
         public IEnumerator NoteMovementTest() // Unit Test Example by James
@@ -127,7 +166,7 @@ namespace Tests
         }
 
         [Test]
-        public void previewSong() //Unit Test by Rafael (Testing to see if the right audio is playing and for 10 seconds)
+        public IEnumerator previewSong() //Unit Test by Rafael (Testing to see if the right audio is playing and for 10 seconds)
         {
             AudioSource AbsenceAudioSource = Resources.Load<AudioSource>("Prefabs/AbsenceAudioSource");
             Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
@@ -145,23 +184,14 @@ namespace Tests
             counter = 1; //the panel where Absence should be showing and preview that song
 
             songPanels[counter].SetActive(true);
-             
+
             songSelectionScript.onClickPreviewSong(); //play the song in that panel
 
             Assert.IsTrue(AbsenceAudioSource.isPlaying);
-        }
 
-        [Test]
-       
-        public void playSong()
-        {
-            Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
-            SongSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
+            yield return new WaitForSeconds(10f);
 
-            SongSelectionScript songSelectionScript = SongSelectionCanvas.GetComponent<SongSelectionScript>();
-
-            GameObject[] songPanels = songSelectionScript.songPanels;
-            int counter = songSelectionScript.activePanelCounter;
+            Assert.IsFalse(AbsenceAudioSource.isPlaying); //audio should have stopped playing
         }
     }
 }

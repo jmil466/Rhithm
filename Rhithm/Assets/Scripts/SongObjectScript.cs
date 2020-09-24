@@ -13,12 +13,15 @@ public class SongObjectScript : MonoBehaviour
     public float audioLength;
     public float difficultyMultiplier;
     private int highScore; // Added by James
+    public string audioName;
+    public string songKey;
 
     // Start is called before the first frame update
     void Start()
     {
         audioClip = audioSource.clip;
         audioLength = audioClip.length;
+        audioName = audioClip.name;
 
         //songDisplayScript = theSongPanel.GetComponent<SongDisplayScript>();
     }
@@ -77,4 +80,8 @@ public class SongObjectScript : MonoBehaviour
         return highScore;
     }
     
+    public string getSongName()
+    {
+        return audioName;
+    }
 }

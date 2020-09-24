@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RandomNoteSpawner : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class RandomNoteSpawner : MonoBehaviour
     public Score score; // Score Object
     public ParticleSystem confetti; // Celebratory particle System
     public CompletionScript completionUI;
+    public GameObject FinalScoreObject;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +84,7 @@ public class RandomNoteSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
-        while (songLength - currentPlayedTime > 55f) // Stops spawning with 2.5s of song remaining
+        while (songLength - currentPlayedTime > 2.5f) // Stops spawning with 2.5s of song remaining
         {
 
             float randomNum = UnityEngine.Random.Range(0.0f, 1.0f);
@@ -144,14 +146,19 @@ public class RandomNoteSpawner : MonoBehaviour
         Debug.Log(score.getHighScore().ToString());
         completionUI.displayCompletionUI();
 
-        if (score.getNoteMissed() == false) // Stops celebration
-        {
-            yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
-            confetti.Stop();
-        }
+        //if (score.getNoteMissed() == false) // Stops celebration
+        //{
+        //    yield return new WaitForSeconds(5f); // GIves time for celebration and to display UI
+        //    confetti.Stop();
+        //}
 
-       
-       
+        yield return new WaitForSeconds(5f);
+
+        FinalScoreObject = GameObject.Find("FinalScoreObject");
+        FinalScoreObject.transform.SetParent(null);
+        DontDestroyOnLoad(FinalScoreObject);
+
+        SceneManager.LoadScene("SongList");
     }
 
    

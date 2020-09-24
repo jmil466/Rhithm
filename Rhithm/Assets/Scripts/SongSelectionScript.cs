@@ -37,6 +37,13 @@ public class SongSelectionScript : MonoBehaviour
         difficultyPanel.SetActive(false);
     }
     
+    public void onClickMenu()
+    {
+        buttonClickSound.Play();
+
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void OnClickNextPanel()
     {
         buttonClickSound.Play();

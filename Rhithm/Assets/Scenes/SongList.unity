@@ -4749,7 +4749,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 619209132}
         m_TargetAssemblyTypeName: SongSelectionScript, ScriptsAssemblyRef
         m_MethodName: onClickMenu
         m_Mode: 1

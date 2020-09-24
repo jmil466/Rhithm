@@ -127,7 +127,7 @@ namespace Tests
         }
 
         [Test]
-        public IEnumerator previewSong() //Unit Test by Rafael (Testing to see if the right audio is playing and for 10 seconds)
+        public void previewSong() //Unit Test by Rafael (Testing to see if the right audio is playing and for 10 seconds)
         {
             AudioSource AbsenceAudioSource = Resources.Load<AudioSource>("Prefabs/AbsenceAudioSource");
             Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
@@ -145,14 +145,10 @@ namespace Tests
             counter = 1; //the panel where Absence should be showing and preview that song
 
             songPanels[counter].SetActive(true);
-
+             
             songSelectionScript.onClickPreviewSong(); //play the song in that panel
 
             Assert.IsTrue(AbsenceAudioSource.isPlaying);
-
-            yield return new WaitForSeconds(10f);
-
-            Assert.IsFalse(AbsenceAudioSource.isPlaying); //audio should have stopped playing
         }
 
         [Test]

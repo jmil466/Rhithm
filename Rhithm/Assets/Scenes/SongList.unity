@@ -1057,6 +1057,7 @@ MonoBehaviour:
   difficultyPanel: {fileID: 0}
   buttonClickSound: {fileID: 1236645565}
   activePanelCounter: 0
+  musicVolObj: {fileID: 0}
 --- !u!1 &625031878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -120, y: -54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1406688854
@@ -2063,7 +2064,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584235869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2073,7 +2074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -99, y: -61.1}
+  m_AnchoredPosition: {x: 120, y: -54}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584235871
@@ -2352,8 +2353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0071105957, y: -0.13943481}
-  m_SizeDelta: {x: 0.014221191, y: -0.27886963}
+  m_AnchoredPosition: {x: 5, y: 34.56}
+  m_SizeDelta: {x: -245.27655, y: -146.0895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1895387085
 MonoBehaviour:
@@ -2510,7 +2511,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.01556, y: 95}
+  m_AnchoredPosition: {x: 0.00000047684, y: 69.921}
   m_SizeDelta: {x: 799.9689, y: 99.84592}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1994535031

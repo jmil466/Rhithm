@@ -14,6 +14,7 @@ public class SongObjectScript : MonoBehaviour
     public float difficultyMultiplier;
     private int highScore; // Added by James
     public string audioName;
+    public string songKey;
 
     // Start is called before the first frame update
     void Start()

@@ -745,6 +745,8 @@ MonoBehaviour:
   startDelay: 0
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S7
 --- !u!1 &292051953
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +801,8 @@ MonoBehaviour:
   startDelay: 2
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S2
 --- !u!1 &301080067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +1956,8 @@ MonoBehaviour:
   startDelay: 0
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S5
 --- !u!1 &702641406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,6 +3179,8 @@ MonoBehaviour:
   startDelay: 0
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S6
 --- !u!1 &1343019190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,6 +3499,8 @@ MonoBehaviour:
   startDelay: 0
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S4
 --- !u!1 &1536733280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3545,6 +3555,8 @@ MonoBehaviour:
   startDelay: 0
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S7
 --- !u!1 &1538098428
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,6 +3911,8 @@ MonoBehaviour:
   startDelay: 1
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S1
 --- !u!1 &1710672263
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,6 +4427,8 @@ MonoBehaviour:
   startDelay: 0
   audioLength: 0
   difficultyMultiplier: 1
+  audioName: 
+  songKey: S3
 --- !u!1 &1895387083
 GameObject:
   m_ObjectHideFlags: 0

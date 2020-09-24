@@ -1,22 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Animations;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //public float musicVolValue { get; set; }
-    //public float musicVolValue;
     public GameObject musicVolObj;
+    public GameObject sfxVolObj;
 
     public void Play()
     {
         MusicVolObj MusicVolObjScript = musicVolObj.GetComponent<MusicVolObj>();
+        SFXVolObj SFXVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
 
         DontDestroyOnLoad(musicVolObj);
+        DontDestroyOnLoad(sfxVolObj);
 
         MusicVolObjScript.musicSlider = null;
+        SFXVolObjScript.sfxSlider = null;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

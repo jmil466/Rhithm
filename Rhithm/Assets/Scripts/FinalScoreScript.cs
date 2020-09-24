@@ -7,6 +7,7 @@ public class FinalScoreScript : MonoBehaviour
     public int currentHighScore;
     public int userScore;
     public string songName;
+    public string songKey;
 
     // Start is called before the first frame update
     void Start()

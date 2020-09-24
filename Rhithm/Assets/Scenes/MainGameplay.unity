@@ -174,6 +174,7 @@ MonoBehaviour:
   currentHighScore: 0
   userScore: 0
   songName: 
+  songKey: 
 --- !u!114 &550558749 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8048320088489290013, guid: 06e4fcbf52af90f41b18083301807cb4, type: 3}
@@ -1344,6 +1345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2200731997620044821, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2757803745223232619, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_Enabled
       value: 0

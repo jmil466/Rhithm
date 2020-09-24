@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 1799444924}
   - component: {fileID: 1799444923}
   - component: {fileID: 1799444926}
+  - component: {fileID: 1799444927}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -638,6 +639,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd3151cb8bbfb074d85cfbfdbd9fad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1799444927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1799444922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59101e6cdb164f4e8559f7e91b4115b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1853584774
@@ -1268,7 +1281,9 @@ MonoBehaviour:
   musicMixer: {fileID: 24100000, guid: bbaa46fb9a97f924d8ddb35fb9ac7685, type: 2}
   sfxMixer: {fileID: 24100000, guid: 5994545d7826ee0449db4f0018ebf4ea, type: 2}
   musicVolObj: {fileID: 0}
+  sfxVolObj: {fileID: 0}
   musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!1001 &5734727777965994544
 PrefabInstance:
   m_ObjectHideFlags: 0

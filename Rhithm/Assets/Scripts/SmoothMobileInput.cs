@@ -1,82 +1,155 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
+
 
 public class SmoothMobileInput : MonoBehaviour
 {
     private Vector3 startTouchPos, endTouchPos;
     private Vector3 startPlayerPos, endPlayerPos;
     private float moveTime;
-    private float moveDuration = 0.1f;
+    private float moveDuration = 0.08f;
+
+    private float swipeDelta;
+    //make this half of screen width
+    private float longSwipeRange = 150f;
+    public bool lerpComplete = false;
 
     // Update is called once per frame
     void Update()
     {
+        lerpComplete = false;
+        UnityEngine.Debug.Log("pos is now " + transform.position.x);
+
+
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-
             startTouchPos = Input.GetTouch(0).position;
-            UnityEngine.Debug.Log("StartTouch is " + startTouchPos);
-
-            
         }
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             endTouchPos = Input.GetTouch(0).position;
-            UnityEngine.Debug.Log("End touch is " + endTouchPos);
+            //l +
+            swipeDelta = startTouchPos.x - endTouchPos.x;
 
-            //Left Swipe                            //Checking if at left most lane
+            UnityEngine.Debug.Log("SwipeDelta ABS is " + Math.Abs(swipeDelta));
 
-            if (endTouchPos.x < startTouchPos.x && transform.position.x >= 0)
+            if ((Math.Abs(swipeDelta)) > longSwipeRange)
             {
-                StartCoroutine(Fly("left"));
+                UnityEngine.Debug.Log("Long Swipe detected");
+
+                if (transform.position.x == -2 || transform.position.x == 2)
+                {
+                    longSwipe(swipeDelta);
+                }
+                else
+                {
+                    StartCoroutine(Fly(swipeDelta));
+                }
+
             }
-
-            //Right Swipe                            //Checking if at right most lane
-
-            if (endTouchPos.x > startTouchPos.x && transform.position.x <= 1)
+            else
             {
-                StartCoroutine(Fly("right"));
+                StartCoroutine(Fly(swipeDelta));
             }
-
         }
-
-
     }
 
-    private IEnumerator Fly(string direction)
+    public void longSwipe(float SwipeDelta)
     {
-        if (direction.Equals("left"))
+        StartCoroutine(longFly(SwipeDelta));
+    }
+
+    public IEnumerator longFly(float swipeDelta)
+    {
+        UnityEngine.Debug.Log("swipe delta is " + swipeDelta);
+
+
+        if (swipeDelta > 0)
         {
-            moveTime = 0f;
-            startPlayerPos = transform.position;
-            endPlayerPos = new Vector3((startPlayerPos.x - 2f), transform.position.y, transform.position.z);
+            UnityEngine.Debug.Log("x pos is " + transform.position.x);
 
-            while(moveTime < moveDuration)
+            // check if pos is at left most lane
+            if (transform.position.x == 2)
             {
-                moveTime += Time.deltaTime;
-                transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
-                yield return null;
-            }
+                UnityEngine.Debug.Log("Stepping into first if");
 
+
+                moveTime = 0f;
+                startPlayerPos = transform.position;
+                endPlayerPos = new Vector3((startPlayerPos.x - 4f), transform.position.y, transform.position.z);
+
+                while (moveTime < moveDuration)
+                {
+                    moveTime += Time.deltaTime;
+                    transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
+                    yield return null;
+                }
+                lerpComplete = true;
+            }
         }
 
-        if (direction.Equals("right"))
+        if (swipeDelta < 0)
         {
-            moveTime = 0f;
-            startPlayerPos = transform.position;
-            endPlayerPos = new Vector3((startPlayerPos.x + 2f), transform.position.y, transform.position.z);
-
-            while (moveTime < moveDuration)
+            // check if pos is at right most lane
+            if (transform.position.x == -2)
             {
-                moveTime += Time.deltaTime;
-                transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
-                yield return null;
-            }
 
+                UnityEngine.Debug.Log("Stepping into 2nd if");
+
+                moveTime = 0f;
+                startPlayerPos = transform.position;
+                endPlayerPos = new Vector3((startPlayerPos.x + 4f), transform.position.y, transform.position.z);
+
+                while (moveTime < moveDuration)
+                {
+                    moveTime += Time.deltaTime;
+                    transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
+                    yield return null;
+                }
+            }
         }
     }
 
+    public IEnumerator Fly(float swipeDelta)
+    {
+        if (swipeDelta > 0)
+        {
+            // check if pos is at left most lane
+            if (transform.position.x >= 0)
+            {
+                moveTime = 0f;
+                startPlayerPos = transform.position;
+                endPlayerPos = new Vector3((startPlayerPos.x - 2f), transform.position.y, transform.position.z);
 
+                while (moveTime < moveDuration)
+                {
+                    moveTime += Time.deltaTime;
+                    transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
+                    yield return null;
+                }
+            }
+        }
+
+        if (swipeDelta < 0)
+        {
+            // check if pos is at right most lane
+            if (transform.position.x <= 1)
+            {
+                moveTime = 0f;
+                startPlayerPos = transform.position;
+                endPlayerPos = new Vector3((startPlayerPos.x + 2f), transform.position.y, transform.position.z);
+
+                while (moveTime < moveDuration)
+                {
+                    moveTime += Time.deltaTime;
+                    transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
+                    yield return null;
+                }
+            }
+        }
+    }
 }

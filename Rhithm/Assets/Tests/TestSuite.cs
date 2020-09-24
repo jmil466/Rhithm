@@ -142,7 +142,7 @@ namespace Tests
 
             songPanels[counter].SetActive(false);
 
-            counter = 3; //the panel where Absence should be showing and preview that song
+            counter = 1; //the panel where Absence should be showing and preview that song
 
             songPanels[counter].SetActive(true);
 

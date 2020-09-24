@@ -25,7 +25,6 @@ namespace Tests
 
         }
 
-
         [Test]
         public void HighScoreComparisonLesser()
         {
@@ -121,6 +120,17 @@ namespace Tests
 
         }
 
-        
+        [Test]
+        public void muteGame()
+        {
+
+        }
+
+        [Test]
+        public void previewSong()
+        {
+            AudioSource audioSource = Resources.Load<AudioSource>("Prefabs/AbsenceAudioSource");
+
+        }
     }
 }

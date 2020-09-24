@@ -166,32 +166,26 @@ namespace Tests
         }
 
         [Test]
-        public IEnumerator previewSong() //Unit Test by Rafael (Testing to see if the right audio is playing and for 10 seconds)
+        public void previewSong() //Unit Test by Rafael (Testing to see if the correct audio source is playing when previewing a song)
         {
-            AudioSource AbsenceAudioSource = Resources.Load<AudioSource>("Prefabs/AbsenceAudioSource");
-            Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
+            AudioSource AudioSourceDemo = Resources.Load<AudioSource>("Prefabs/AudioSourceDemo");
+            AudioSourceDemo = AudioSource.Instantiate(Resources.Load<AudioSource>("Prefabs/AudioSourceDemo"));
+            //string audioDemoName = AudioSourceDemo.clip.name;
+            //Debug.Log(audioDemoName);
 
-            AbsenceAudioSource = AudioSource.Instantiate(Resources.Load<AudioSource>("Prefabs/AbsenceAudioSource"));
+            Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
             SongSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
 
             SongSelectionScript songSelectionScript = SongSelectionCanvas.GetComponent<SongSelectionScript>();
-            
-            GameObject[] songPanels = songSelectionScript.songPanels;
-            int counter = songSelectionScript.activePanelCounter;
+            songSelectionScript.SetSongPanels();
 
-            songPanels[counter].SetActive(false);
+            songSelectionScript.onClickPreviewSong();
 
-            counter = 1; //the panel where Absence should be showing and preview that song
+            Assert.IsTrue(AudioSourceDemo.isPlaying);
 
-            songPanels[counter].SetActive(true);
+            //yield return new WaitForSeconds(1.2f);
 
-            songSelectionScript.onClickPreviewSong(); //play the song in that panel
-
-            Assert.IsTrue(AbsenceAudioSource.isPlaying);
-
-            yield return new WaitForSeconds(10f);
-
-            Assert.IsFalse(AbsenceAudioSource.isPlaying); //audio should have stopped playing
+            //Assert.IsFalse(AudioSourceDemo.isPlaying); //audio should have stopped playing
         }
     }
 }

@@ -27,7 +27,6 @@ public class RandomNoteSpawner : MonoBehaviour
 
     // SongObjectScript related
     public SongObjectScript song;
-    public AudioSource currentSong; // The Song being played
     public float songLength; // The Length of the song being played
     public float currentPlayedTime = 0; // How Long the song has currently been playing for
     public float startDelay; // Delay of spawning for songs that don't start instantly 
@@ -43,15 +42,15 @@ public class RandomNoteSpawner : MonoBehaviour
         try
         {
             song = findSong();
-            BPM = song.getBPM(); // Gets selected Song's BPM
+            BPM = song.GetBPM(); // Gets selected Song's BPM
             Debug.Log(BPM);
-            songLength = song.getAudioLength(); // Gets the song's length in seconds
+            songLength = song.GetAudioLength(); // Gets the song's length in seconds
             Debug.Log(songLength);
             secsPerBeat = 60f / BPM; // Calculates Seconds per Beat
             noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
-            startDelay = song.getStartDelay();
-            difficultyMultiplier = song.getDifficultyMultiplier();
-            song.playAudio();
+            startDelay = song.GetStartDelay();
+            difficultyMultiplier = song.GetDifficultyMultiplier();
+            song.PlayAudio();
             StartCoroutine(SpawnNote()); // Starts spawning Method
         } catch (Exception e) { // Catch for when song doesn't load, spawn objects with no sound (testing purposes only)
             BPM = 60f;

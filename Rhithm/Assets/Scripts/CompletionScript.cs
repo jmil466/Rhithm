@@ -18,15 +18,17 @@ public class CompletionScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
         completionUIObject.SetActive(false);
         uiVisible = false;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        highScoreValue = 5;
     }
 
     public void displayCompletionUI()
@@ -36,7 +38,6 @@ public class CompletionScript : MonoBehaviour
         uiVisible = true;
         displayHighScore();
         displayUserScore();
-
     }
 
 

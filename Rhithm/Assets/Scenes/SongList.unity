@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 7543237954645159801, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 5994545d7826ee0449db4f0018ebf4ea, type: 2}
     - target: {fileID: 7543237955259971683, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_Name
       value: SongSelectionCanvas

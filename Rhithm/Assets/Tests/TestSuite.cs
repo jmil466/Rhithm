@@ -71,7 +71,7 @@ namespace Tests
 
             Assert.Greater(value, currentSfxVolValue);
         }
-
+      
         [Test]
         public void DecreaseSFXVolume()
         {
@@ -186,6 +186,36 @@ namespace Tests
             //yield return new WaitForSeconds(1.2f);
 
             //Assert.IsFalse(AudioSourceDemo.isPlaying); //audio should have stopped playing
+        }
+
+
+        [UnityTest]
+        public IEnumerator longSwipeTestLeft() // Matt TDD 
+        {
+            GameObject player = Resources.Load<GameObject>("Prefabs/player");
+            player = GameObject.Instantiate(player, new Vector3(2, 0, 0), new Quaternion(0, 0, 0, 0));
+
+            var movementScript = player.GetComponent<SmoothMobileInput>();
+
+            float swipeDelta = 100;
+
+            movementScript.longSwipe(swipeDelta);
+
+            //If firstTouch - endTouch = swipeDelta
+            //If swipeDelta is positive, left swipe should be registered
+            //If swipeDelta > longSwipeRange && player is at right most position (x: 2)
+            //long swipe registered
+            //player pos should now be (x: -2)
+
+            float actualPlayerEndPos = player.transform.position.x;
+            float expectedXPos = -2;
+
+            yield return new WaitForSeconds(5.0f);
+
+            if (movementScript.lerpComplete)
+            {
+                Assert.AreEqual(expectedXPos, actualPlayerEndPos);
+            }
         }
     }
 }

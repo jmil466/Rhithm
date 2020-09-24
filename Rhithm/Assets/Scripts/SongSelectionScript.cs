@@ -9,21 +9,33 @@ public class SongSelectionScript : MonoBehaviour
     public GameObject[] songPanels; //all the song panels
     public SongDisplayScript SDS;
     public GameObject selectedSongObject; //the selected song (EmptyObject form)
-    public GameObject selectedSongAudioSource; //the selected song (AudioSource form)
+    public GameObject selectedAudioSource;
     public GameObject difficultyPanel;
     public AudioSource buttonClickSound;
-    public int activePanelCounter = 0; //the active panel counter
+    public int activePanelCounter; //the active panel counter
     public GameObject musicVolObj;
 
     // Start is called before the first frame update
     void Start()
-    {
-        songPanels = GameObject.FindGameObjectsWithTag("SongPanel");
+    {  
         musicVolObj = GameObject.Find("MusicVolObj");
 
+        SetSongPanels();
+
+        difficultyPanel = GameObject.FindGameObjectWithTag("DifficultyPanel");
+
+        difficultyPanel.SetActive(false);
+    }
+    
+    public void SetSongPanels()
+    {
+        activePanelCounter = 0;
+
+        songPanels = GameObject.FindGameObjectsWithTag("SongPanel");
+
         /**
-         * Hide all song panels
-         */
+        * Hide all song panels
+        */
         foreach (GameObject songs in songPanels)
         {
             songs.SetActive(false);
@@ -31,13 +43,9 @@ public class SongSelectionScript : MonoBehaviour
 
         //Set the first panel active
         songPanels[activePanelCounter].SetActive(true);
-
-        difficultyPanel = GameObject.FindGameObjectWithTag("DifficultyPanel");
-
-        difficultyPanel.SetActive(false);
     }
-    
-    public void onClickMenu()
+
+    public void OnClickMenu()
     {
         buttonClickSound.Play();
 
@@ -76,12 +84,6 @@ public class SongSelectionScript : MonoBehaviour
         activePanelCounter--; //the next active panel will be the next one in the counter
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void onClickPreviewSong()
     {
         buttonClickSound.Play();
@@ -98,7 +100,7 @@ public class SongSelectionScript : MonoBehaviour
         buttonClickSound.Play();
 
         selectedSongObject = GameObject.FindGameObjectWithTag("SongObject"); //Find the active song object
-        selectedSongAudioSource = GameObject.FindGameObjectWithTag("Song"); //Find the active audio source
+        selectedAudioSource = GameObject.FindGameObjectWithTag("Song"); //Find the active audio source
 
         songPanels[activePanelCounter].SetActive(false); //hide panel
         GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide Previous and Next buttons
@@ -129,15 +131,13 @@ public class SongSelectionScript : MonoBehaviour
 
         //selectedSongObject.transform.parent = null; //destroy parent object
         selectedSongObject.transform.SetParent(null); //destroy parent object
-        //selectedSongAudioSource.transform.parent = null; //destroy parent object
-        selectedSongAudioSource.transform.SetParent(null); //destroy parent object
+        selectedAudioSource.transform.SetParent(null);
 
-        selectedSongAudioSource.SetActive(false); //stop audio if playing
-        selectedSongAudioSource.SetActive(true); //set active
+        if (selectedAudioSource.GetComponent<AudioSource>().isPlaying) selectedAudioSource.GetComponent<AudioSource>().Stop();
 
         DontDestroyOnLoad(selectedSongObject);
-        DontDestroyOnLoad(selectedSongAudioSource);
-        DontDestroyOnLoad(musicVolObj);
+        DontDestroyOnLoad(selectedAudioSource);
+        if (musicVolObj != null) DontDestroyOnLoad(musicVolObj);
 
         SceneManager.LoadScene("MainGameplay"); //load main scene
     }

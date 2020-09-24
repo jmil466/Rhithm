@@ -23,19 +23,19 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-        song.playAudio();
+        song.PlayAudio();
     }
 
     public void Pause()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
-        song.pauseAudio();
+        song.PauseAudio();
     }
 
     public void Restart()
     {
-        song.stopAudio();
+        song.StopAudio();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }

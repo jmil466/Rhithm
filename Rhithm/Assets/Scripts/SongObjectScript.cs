@@ -40,47 +40,52 @@ public class SongObjectScript : MonoBehaviour
 
     } */
 
-    public void playAudio()
+    public AudioSource GetAudioSource()
+    {
+        return audioSource;
+    }
+
+    public void PlayAudio()
     {
         audioSource.Play();
     }
 
-    public void pauseAudio()
+    public void PauseAudio()
     {
         audioSource.Pause();
     }
 
-    public void stopAudio()
+    public void StopAudio()
     {
         audioSource.Stop();
     }
 
-    public float getBPM()
+    public float GetBPM()
     {
         return BPM;
     }
 
-    public float getStartDelay()
+    public float GetStartDelay()
     {
         return startDelay;
     }
 
-    public float getAudioLength()
+    public float GetAudioLength()
     {
         return audioLength;
     }
     
-    public float getDifficultyMultiplier()
+    public float GetDifficultyMultiplier()
     {
         return difficultyMultiplier;
     }
 
-    public int getSongHighScore()
+    public int GetSongHighScore()
     {
         return highScore;
     }
     
-    public string getSongName()
+    public string GetSongName()
     {
         return audioName;
     }

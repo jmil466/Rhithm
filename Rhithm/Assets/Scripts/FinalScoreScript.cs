@@ -19,7 +19,7 @@ public class FinalScoreScript : MonoBehaviour
 
             currentHighScore = completionScript.getHighScore();
             userScore = completionScript.getUserScore();
-            songName = songObjectScript.getSongName();
+            songName = songObjectScript.GetSongName();
         }
     }
 

@@ -26,7 +26,7 @@ public class Score : MonoBehaviour
     private void findHighScore()
     {
         song = (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
-        highScore = song.getSongHighScore();
+        highScore = song.GetSongHighScore();
     }
 
 

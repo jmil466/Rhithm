@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
@@ -9,7 +7,10 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer musicMixer;
     public AudioMixer sfxMixer;
     public GameObject musicVolObj;
+    public GameObject sfxVolObj;
     public Slider musicSlider;
+    public Slider sfxSlider;
+
 
     void Start()
     {
@@ -18,7 +19,12 @@ public class SettingsMenu : MonoBehaviour
 
         musicSlider.value = musicVolObj.GetComponent<MusicVolObj>().musicVolValue;
         musicVolObj.GetComponent<MusicVolObj>().musicSlider = musicSlider;
-        //selectedSongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 1;
+
+        sfxVolObj = GameObject.Find("SFXVolObj");
+        sfxSlider = (Slider)GameObject.FindObjectsOfType(typeof(Slider))[1];
+
+        sfxSlider.value = sfxVolObj.GetComponent<SFXVolObj>().sfxVolValue;
+        sfxVolObj.GetComponent<SFXVolObj>().sfxSlider = sfxSlider;
     }
 
     public void SetMusicVolume(float volume)

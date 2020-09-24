@@ -622,7 +622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799444922}
   m_LocalRotation: {x: 0.12945606, y: -0, z: -0, w: 0.9915852}
-  m_LocalPosition: {x: 0, y: 2.2199998, z: -3.8400002}
+  m_LocalPosition: {x: 0, y: 2.12, z: -6.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1174,6 +1174,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3351421786690639910, guid: 3bb25a8618f81d141a0c112cab558e73, type: 3}
+      propertyPath: m_TagString
+      value: Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 3351421786749322065, guid: 3bb25a8618f81d141a0c112cab558e73, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1194,6 +1198,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 989497549}
+    - target: {fileID: 3351421787232584212, guid: 3bb25a8618f81d141a0c112cab558e73, type: 3}
+      propertyPath: m_TagString
+      value: Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 3351421787232584214, guid: 3bb25a8618f81d141a0c112cab558e73, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1259,6 +1267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 24100000, guid: bbaa46fb9a97f924d8ddb35fb9ac7685, type: 2}
   sfxMixer: {fileID: 24100000, guid: 5994545d7826ee0449db4f0018ebf4ea, type: 2}
+  musicVolObj: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1001 &5734727777965994544
 PrefabInstance:
   m_ObjectHideFlags: 0

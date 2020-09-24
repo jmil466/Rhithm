@@ -388,6 +388,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7543237953985877512, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.007080078

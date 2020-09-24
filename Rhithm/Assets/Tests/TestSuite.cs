@@ -71,7 +71,7 @@ namespace Tests
 
             Assert.Greater(value, currentSfxVolValue);
         }
-
+      
         [Test]
         public void DecreaseSFXVolume()
         {

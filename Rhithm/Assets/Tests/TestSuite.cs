@@ -154,5 +154,18 @@ namespace Tests
 
             Assert.IsFalse(AbsenceAudioSource.isPlaying); //audio should have stopped playing
         }
+
+        [Test]
+       
+        public void playSong()
+        {
+            Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
+            SongSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
+
+            SongSelectionScript songSelectionScript = SongSelectionCanvas.GetComponent<SongSelectionScript>();
+
+            GameObject[] songPanels = songSelectionScript.songPanels;
+            int counter = songSelectionScript.activePanelCounter;
+        }
     }
 }

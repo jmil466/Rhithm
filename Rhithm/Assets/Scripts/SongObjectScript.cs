@@ -22,6 +22,8 @@ public class SongObjectScript : MonoBehaviour
         audioClip = audioSource.clip;
         audioLength = audioClip.length;
         audioName = audioClip.name;
+        string savedScoreName = audioName + "_highscore";
+        highScore = PlayerPrefs.GetInt(savedScoreName);
 
         //songDisplayScript = theSongPanel.GetComponent<SongDisplayScript>();
     }
@@ -30,15 +32,6 @@ public class SongObjectScript : MonoBehaviour
     {
         
     }
-
-   /* public SongObjectScript(AudioSource song, float songBPM) // Constructor for testing
-    {
-        audioSource = song;
-        audioClip = audioSource.clip;
-        audioLength = audioClip.length;
-        BPM = songBPM;
-
-    } */
 
     public AudioSource GetAudioSource()
     {

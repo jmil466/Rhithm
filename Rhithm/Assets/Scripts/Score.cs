@@ -106,6 +106,7 @@ public class Score : MonoBehaviour
 
         } else
         {
+            songData.saveHighScore(highScore);
             return highScore;
         }
     

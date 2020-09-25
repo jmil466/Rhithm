@@ -84,7 +84,7 @@ public class RandomNoteSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(startDelay);
 
-        while (songLength - currentPlayedTime > 2.5f) // Stops spawning with 2.5s of song remaining
+        while (songLength - currentPlayedTime > 2.5) // Stops spawning with 2.5s of song remaining
         {
 
             float randomNum = UnityEngine.Random.Range(0.0f, 1.0f);

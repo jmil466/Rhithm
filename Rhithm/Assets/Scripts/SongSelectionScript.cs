@@ -12,6 +12,7 @@ public class SongSelectionScript : MonoBehaviour
     public GameObject selectedAudioSource;
     public GameObject difficultyMenu;
     public GameObject songMenu;
+    public AudioSource currentSongAudioSource;
     public AudioSource buttonClickSound;
     public int activePanelCounter; //the active panel counter
     public GameObject musicVolObj;
@@ -29,6 +30,9 @@ public class SongSelectionScript : MonoBehaviour
     
     public void SetSongPanels()
     {
+        songMenu.SetActive(true);
+        difficultyMenu.SetActive(false);
+
         activePanelCounter = 0;
 
         songPanels = GameObject.FindGameObjectsWithTag("SongPanel");
@@ -57,7 +61,8 @@ public class SongSelectionScript : MonoBehaviour
         buttonClickSound.Play();
 
         buttonClickSound.mute = !buttonClickSound.mute;
-        songPanels[activePanelCounter].GetComponentInChildren<AudioSource>().mute = !songPanels[activePanelCounter].GetComponentInChildren<AudioSource>().mute;
+        currentSongAudioSource = songPanels[activePanelCounter].GetComponentInChildren<AudioSource>();
+        currentSongAudioSource.mute = !currentSongAudioSource.mute;
     }
 
     public void OnClickNextPanel()

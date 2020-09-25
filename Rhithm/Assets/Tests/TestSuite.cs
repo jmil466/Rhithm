@@ -7,6 +7,8 @@ using UnityEditor;
 using System;
 using Random = UnityEngine.Random;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Tests
 {
@@ -181,23 +183,86 @@ namespace Tests
             Assert.IsFalse(currentSongAudioSource.mute);
         }
 
+        //[Test]
+        //public void previewSongTest() //Unit Test by Rafael (Testing to see if the correct audio source is playing when previewing a song)
+        //{
+        //    AudioSource AudioSourceDemo = Resources.Load<AudioSource>("Prefabs/AudioSourceDemo");
+        //    AudioSourceDemo = AudioSource.Instantiate(Resources.Load<AudioSource>("Prefabs/AudioSourceDemo"));
+
+        //    Canvas songSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
+        //    songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
+
+        //    SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
+        //    songSelectionScript.SetSongPanels();
+
+        //    songSelectionScript.onClickPreviewSong();
+
+        //    Assert.IsTrue(AudioSourceDemo.isPlaying);
+        //}
+
         [Test]
         public void previewSongTest() //Unit Test by Rafael (Testing to see if the correct audio source is playing when previewing a song)
         {
-            AudioSource AudioSourceDemo = Resources.Load<AudioSource>("Prefabs/AudioSourceDemo");
-            AudioSourceDemo = AudioSource.Instantiate(Resources.Load<AudioSource>("Prefabs/AudioSourceDemo"));
-
             Canvas songSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
             songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
 
             SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
             songSelectionScript.SetSongPanels();
 
+            GameObject[] songPanels = songSelectionScript.songPanels;
+
+            int numOfPanels = songSelectionScript.numOfPanels; //get the number of songPanels in the canvas
+            int randPanel = Random.Range(0, numOfPanels - 1); //get a random song panel
+            int activePanel = songSelectionScript.activePanelCounter; //get the active song panel
+
+            songPanels[activePanel].SetActive(false); //hide the current active song panel
+
+            songSelectionScript.activePanelCounter = randPanel;
+            activePanel = randPanel;
+
+            songPanels[activePanel].SetActive(true);
+
+            AudioSource audioSource = songPanels[activePanel].GetComponentInChildren<AudioSource>();
+
             songSelectionScript.onClickPreviewSong();
 
-            Assert.IsTrue(AudioSourceDemo.isPlaying);
+            Assert.IsTrue(audioSource.isPlaying);
         }
 
+        //[Test]
+        //public void playSongTest()
+        //{
+        //    Canvas songSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
+        //    songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
+
+        //    SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
+        //    songSelectionScript.SetSongPanels();
+
+        //    GameObject[] songPanels = songSelectionScript.songPanels;
+
+        //    int numOfPanels = songSelectionScript.numOfPanels; //get the number of songPanels in the canvas
+        //    int randPanel = Random.Range(0, numOfPanels - 1); //get a random song panel
+        //    int activePanel = songSelectionScript.activePanelCounter; //get the active song panel
+
+        //    songPanels[activePanel].SetActive(false); //hide the current active song panel
+
+        //    songSelectionScript.activePanelCounter = randPanel;
+        //    activePanel = randPanel;
+
+        //    songPanels[activePanel].SetActive(true);
+
+        //    songSelectionScript.OnClickPlaySong();
+
+        //    GameObject difficultyMenu = GameObject.Find("DifficultyMenu");
+
+        //    Assert.IsTrue(difficultyMenu.activeSelf);
+
+        //    string difficulty = "HARD";
+
+        //    EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text = difficulty;
+
+        //    songSelectionScript.OnClickChooseDifficulty();
+        //}
 
         [UnityTest]
         public IEnumerator longSwipeTestLeft() // Matt TDD 

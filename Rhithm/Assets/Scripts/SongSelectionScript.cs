@@ -7,6 +7,7 @@ using System;
 public class SongSelectionScript : MonoBehaviour
 {
     public GameObject[] songPanels; //all the song panels
+    public int numOfPanels;
     public SongDisplayScript SDS;
     public GameObject selectedSongObject; //the selected song (EmptyObject form)
     public GameObject selectedAudioSource;
@@ -33,6 +34,7 @@ public class SongSelectionScript : MonoBehaviour
         activePanelCounter = 0;
 
         songPanels = GameObject.FindGameObjectsWithTag("SongPanel");
+        numOfPanels = songPanels.Length;
 
         /**
         * Hide all song panels

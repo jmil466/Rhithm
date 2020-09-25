@@ -35,7 +35,6 @@ public class RandomNoteSpawner : MonoBehaviour
     public ParticleSystem confetti; // Celebratory particle System
     public CompletionScript completionUI;
     public GameObject FinalScoreObject;
-    public SaveSongData songData;
 
     // Start is called before the first frame update
     void Start()
@@ -140,7 +139,6 @@ public class RandomNoteSpawner : MonoBehaviour
             //Celebrate here
             confetti.Play(); // 
             Debug.Log("Woop");
-            songData.savePerfectScore();
         }
 
         score.calculateHighScore();

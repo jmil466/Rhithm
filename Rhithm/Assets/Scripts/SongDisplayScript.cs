@@ -8,11 +8,6 @@ public class SongDisplayScript : MonoBehaviour
     public AudioClip audioClip;
     public string audioName;
     public Text audioTextName;
-    public int highScore;
-    public Text highScoreText;
-    public string perfectScore;
-    public GameObject perfectScoreStar;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -33,11 +28,5 @@ public class SongDisplayScript : MonoBehaviour
     void Update()
     {
         audioTextName.text = audioName;
-        highScoreText.text = "Highscore: " + highScore.ToString();
-        if (perfectScore == "true")
-        {
-            perfectScoreStar.SetActive(true);
-        }
-
     }
 }

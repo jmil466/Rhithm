@@ -1,15 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public Button pauseButton;
     public GameObject pauseMenu;
     public SongObjectScript song;
     public AudioSource buttonClickSound;
-    public RawImage soundImage;
-    private bool isMute = false;
 
     void Start()
     {
@@ -24,7 +22,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseButton.interactable = true;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         song.PlayAudio();
@@ -32,7 +29,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        pauseButton.interactable = false;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         song.PauseAudio();
@@ -56,30 +52,14 @@ public class PauseMenu : MonoBehaviour
     {
         buttonClickSound.Play();
 
-        if(isMute)
-        {
-            buttonClickSound.mute = !buttonClickSound.mute;
+        buttonClickSound.mute = !buttonClickSound.mute;
 
-            GameObject songObject = GameObject.Find("SongObject");
-            SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
-            AudioSource currentSong = songObjectScript.GetAudioSource();
-            currentSong.mute = !currentSong.mute;
+        GameObject songObject = GameObject.Find("SongObject");
 
-            soundImage.GetComponent<RawImage>().color = new Color32(255, 255, 255, 255);
-            isMute = !isMute;
-        }
-        else
-        {
-            buttonClickSound.mute = !buttonClickSound.mute;
+        SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
 
-            GameObject songObject = GameObject.Find("SongObject");
-            SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
-            AudioSource currentSong = songObjectScript.GetAudioSource();
-            currentSong.mute = !currentSong.mute;
+        AudioSource currentSong = songObjectScript.GetAudioSource();
 
-            soundImage.GetComponent<RawImage>().color = new Color32(0, 0, 0, 74);
-            isMute = !isMute;
-        }
-        
+        currentSong.mute = !currentSong.mute;
     }
 }

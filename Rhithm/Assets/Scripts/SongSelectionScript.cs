@@ -16,8 +16,6 @@ public class SongSelectionScript : MonoBehaviour
     public AudioSource buttonClickSound;
     public int activePanelCounter; //the active panel counter
     public GameObject musicVolObj;
-    public RawImage soundImage;
-    private bool isMute = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,24 +60,9 @@ public class SongSelectionScript : MonoBehaviour
     {
         buttonClickSound.Play();
 
-        if(isMute)
-        {
-            buttonClickSound.mute = !buttonClickSound.mute;
-            currentSongAudioSource = songPanels[activePanelCounter].GetComponentInChildren<AudioSource>();
-            currentSongAudioSource.mute = !currentSongAudioSource.mute;
-
-            soundImage.GetComponent<RawImage>().color = new Color32(255, 255, 255, 255);
-            isMute = !isMute;
-        }
-        else
-        {
-            buttonClickSound.mute = !buttonClickSound.mute;
-            currentSongAudioSource = songPanels[activePanelCounter].GetComponentInChildren<AudioSource>();
-            currentSongAudioSource.mute = !currentSongAudioSource.mute;
-
-            soundImage.GetComponent<RawImage>().color = new Color32(0, 0, 0, 74);
-            isMute = !isMute;
-        }
+        buttonClickSound.mute = !buttonClickSound.mute;
+        currentSongAudioSource = songPanels[activePanelCounter].GetComponentInChildren<AudioSource>();
+        currentSongAudioSource.mute = !currentSongAudioSource.mute;
     }
 
     public void OnClickNextPanel()

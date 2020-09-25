@@ -11,8 +11,16 @@ public class SaveSongData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        song = FindObjectOfType<SongObjectScript>();
-        songName = song.GetSongName();
+        try
+        {
+            song = FindObjectOfType<SongObjectScript>();
+            songName = song.GetSongName();
+        }
+        catch (System.Exception e)
+        { // Catch for when song doesn't load, spawn objects with no sound (testing purposes only)
+
+            songName = "test";
+        }
     }
 
     // Update is called once per frame

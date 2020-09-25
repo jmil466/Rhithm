@@ -258,7 +258,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: bbaa46fb9a97f924d8ddb35fb9ac7685, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 04fe21975b7db834594b779f2c32f304, type: 3}
+  m_audioClip: {fileID: 8300000, guid: db220d7b49b508941baa3d52befbefd9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -857,10 +857,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8167246619711948285, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
-      propertyPath: soundImage
-      value: 
-      objectReference: {fileID: 8167246620301763666}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
 --- !u!4 &8167246620301763666 stripped
@@ -871,7 +867,6 @@ Transform:
 --- !u!114 &8167246620301763667 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8167246618403968038, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
-
   m_PrefabInstance: {fileID: 8167246620301763665}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

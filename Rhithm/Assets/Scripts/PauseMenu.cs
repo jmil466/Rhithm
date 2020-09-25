@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public SongObjectScript song;
     public AudioSource buttonClickSound;
+    public RawImage soundImage;
+    private bool isMute = false;
 
     void Start()
     {
@@ -54,14 +56,30 @@ public class PauseMenu : MonoBehaviour
     {
         buttonClickSound.Play();
 
-        buttonClickSound.mute = !buttonClickSound.mute;
+        if(isMute)
+        {
+            buttonClickSound.mute = !buttonClickSound.mute;
 
-        GameObject songObject = GameObject.Find("SongObject");
+            GameObject songObject = GameObject.Find("SongObject");
+            SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
+            AudioSource currentSong = songObjectScript.GetAudioSource();
+            currentSong.mute = !currentSong.mute;
 
-        SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
+            soundImage.GetComponent<RawImage>().color = new Color32(255, 255, 255, 255);
+            isMute = !isMute;
+        }
+        else
+        {
+            buttonClickSound.mute = !buttonClickSound.mute;
 
-        AudioSource currentSong = songObjectScript.GetAudioSource();
+            GameObject songObject = GameObject.Find("SongObject");
+            SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
+            AudioSource currentSong = songObjectScript.GetAudioSource();
+            currentSong.mute = !currentSong.mute;
 
-        currentSong.mute = !currentSong.mute;
+            soundImage.GetComponent<RawImage>().color = new Color32(0, 0, 0, 74);
+            isMute = !isMute;
+        }
+        
     }
 }

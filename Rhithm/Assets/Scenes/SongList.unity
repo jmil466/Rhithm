@@ -516,5 +516,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8167246619711948285, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: soundImage
+      value: 
+      objectReference: {fileID: 8167246620301763666}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+--- !u!114 &8167246620301763666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8167246618417282925, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+  m_PrefabInstance: {fileID: 8167246620301763665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

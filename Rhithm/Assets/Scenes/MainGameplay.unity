@@ -1476,6 +1476,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   song: {fileID: 0}
   buttonClickSound: {fileID: 989497549}
+  soundImage: {fileID: 0}
 --- !u!1001 &1662307605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2061,6 +2062,10 @@ PrefabInstance:
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 3351421787229006154}
+    - target: {fileID: 3351421786531010256, guid: 3bb25a8618f81d141a0c112cab558e73, type: 3}
+      propertyPath: soundImage
+      value: 
+      objectReference: {fileID: 713517177}
     - target: {fileID: 3351421786531010257, guid: 3bb25a8618f81d141a0c112cab558e73, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

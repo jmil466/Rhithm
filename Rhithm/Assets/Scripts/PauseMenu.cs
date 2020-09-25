@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public SongObjectScript song;
+    public AudioSource buttonClickSound;
 
     void Start()
     {
@@ -43,5 +44,18 @@ public class PauseMenu : MonoBehaviour
     public void Exit()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void OnClickMute()
+    {
+        buttonClickSound.mute = !buttonClickSound.mute;
+
+        GameObject songObject = GameObject.Find("SongObject");
+
+        SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
+
+        AudioSource currentSong = songObjectScript.GetAudioSource();
+
+        currentSong.mute = !currentSong.mute;
     }
 }

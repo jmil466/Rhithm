@@ -14,6 +14,14 @@ public class SongDisplayScript : MonoBehaviour
     {
         audioClip = audioSource.clip;
         audioName = audioClip.name;
+        string savedScoreName = audioName + "_highscore";
+        string savedPerfectScoreName = audioName + "_perfectScore";
+
+        highScore = PlayerPrefs.GetInt(savedScoreName);
+        perfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
+
+        perfectScoreStar.SetActive(false);
+
     }
 
     // Update is called once per frame

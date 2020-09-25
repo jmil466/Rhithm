@@ -298,6 +298,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4730e037838544cb3eed385546ccc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1435109000 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7543237954645159801, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+  m_PrefabInstance: {fileID: 7543237955862387140}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1960639950
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +393,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1435109000}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543237953749024878, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7543237953985877512, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.007080078

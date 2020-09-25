@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
     public SongObjectScript song;
+    public GameObject pauseMenu;
+    public Button pauseButton;
 
     void Start()
     {
@@ -21,6 +21,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        pauseButton.interactable = true;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         song.PlayAudio();
@@ -28,6 +29,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        pauseButton.interactable = false;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         song.PauseAudio();

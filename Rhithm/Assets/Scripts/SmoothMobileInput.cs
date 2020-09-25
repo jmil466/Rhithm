@@ -14,7 +14,7 @@ public class SmoothMobileInput : MonoBehaviour
 
     private float swipeDelta;
     //make this half of screen width
-    private float longSwipeRange = (Screen.width/2);
+    private float longSwipeRange = 150f;
     public bool lerpComplete = false;
 
     // Update is called once per frame

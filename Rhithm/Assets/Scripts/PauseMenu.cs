@@ -42,8 +42,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Exit()
     {
-        song.StopAudio();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Time.timeScale = 1f;
     }
 }

@@ -174,6 +174,11 @@ namespace Tests
 
             Assert.IsTrue(buttonClickSound.mute);
             Assert.IsTrue(currentSongAudioSource.mute);
+
+            songSelectionScript.OnClickMute();
+
+            Assert.IsFalse(buttonClickSound.mute);
+            Assert.IsFalse(currentSongAudioSource.mute);
         }
 
         [Test]
@@ -181,8 +186,6 @@ namespace Tests
         {
             AudioSource AudioSourceDemo = Resources.Load<AudioSource>("Prefabs/AudioSourceDemo");
             AudioSourceDemo = AudioSource.Instantiate(Resources.Load<AudioSource>("Prefabs/AudioSourceDemo"));
-            //string audioDemoName = AudioSourceDemo.clip.name;
-            //Debug.Log(audioDemoName);
 
             Canvas songSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
             songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
@@ -193,10 +196,6 @@ namespace Tests
             songSelectionScript.onClickPreviewSong();
 
             Assert.IsTrue(AudioSourceDemo.isPlaying);
-
-            //yield return new WaitForSeconds(1.2f);
-
-            //Assert.IsFalse(AudioSourceDemo.isPlaying); //audio should have stopped playing
         }
 
 

@@ -16,13 +16,13 @@ TagManager:
   - ScoreUI
   - ScoreText
   - MultiplierText
-  - PreviousNextPanel
   - DifficultyPanel
-  - PreviewPlayPanel
   - Confetti
   - UserScoreText
   - HighScoreText
   - Slider
+  - PreviewPlayPanel
+  - PreviousNextPanel
   layers:
   - Default
   - TransparentFX

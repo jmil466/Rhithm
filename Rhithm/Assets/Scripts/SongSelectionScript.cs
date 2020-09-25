@@ -10,7 +10,8 @@ public class SongSelectionScript : MonoBehaviour
     public SongDisplayScript SDS;
     public GameObject selectedSongObject; //the selected song (EmptyObject form)
     public GameObject selectedAudioSource;
-    public GameObject difficultyPanel;
+    public GameObject difficultyMenu;
+    public GameObject songMenu;
     public AudioSource buttonClickSound;
     public int activePanelCounter; //the active panel counter
     public GameObject musicVolObj;
@@ -22,9 +23,8 @@ public class SongSelectionScript : MonoBehaviour
 
         SetSongPanels();
 
-        difficultyPanel = GameObject.FindGameObjectWithTag("DifficultyPanel");
-
-        difficultyPanel.SetActive(false);
+        songMenu.SetActive(true);
+        difficultyMenu.SetActive(false);
     }
     
     public void SetSongPanels()
@@ -102,10 +102,12 @@ public class SongSelectionScript : MonoBehaviour
         selectedSongObject = GameObject.FindGameObjectWithTag("SongObject"); //Find the active song object
         selectedAudioSource = GameObject.FindGameObjectWithTag("Song"); //Find the active audio source
 
-        songPanels[activePanelCounter].SetActive(false); //hide panel
-        GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide Previous and Next buttons
-        GameObject.FindGameObjectWithTag("PreviewPlayPanel").SetActive(false); //hide Preview and Play buttons
-        difficultyPanel.SetActive(true); //enable the difficulty panel 
+        //songPanels[activePanelCounter].SetActive(false); //hide panel
+        //GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide Previous and Next buttons
+        //GameObject.FindGameObjectWithTag("PreviewPlayPanel").SetActive(false); //hide Preview and Play buttons
+
+        songMenu.SetActive(false);
+        difficultyMenu.SetActive(true); //enable the difficulty panel
     }
 
     public void OnClickChooseDifficulty()

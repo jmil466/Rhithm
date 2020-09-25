@@ -215,6 +215,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &84737331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8167246619356841461, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+  m_PrefabInstance: {fileID: 8167246620301763665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &589151920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5436906005220808673, guid: 40a9ccad2cae478489d30d87f6b5c699, type: 3}
+  m_PrefabInstance: {fileID: 4040955564663647032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &841810594
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +435,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star
       objectReference: {fileID: 0}
+    - target: {fileID: 5436906005220808673, guid: 40a9ccad2cae478489d30d87f6b5c699, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40a9ccad2cae478489d30d87f6b5c699, type: 3}
 --- !u!1001 &8167246620301763665
@@ -428,6 +448,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3143056523902177999, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: highScoreText
+      value: 
+      objectReference: {fileID: 84737331}
+    - target: {fileID: 3143056523902177999, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: perfectScoreStar
+      value: 
+      objectReference: {fileID: 589151920}
+    - target: {fileID: 6606212375820058208, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: highScoreText
+      value: 
+      objectReference: {fileID: 84737331}
+    - target: {fileID: 6606212375820058208, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: perfectScoreStar
+      value: 
+      objectReference: {fileID: 589151920}
+    - target: {fileID: 6606212376007768274, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: highScoreText
+      value: 
+      objectReference: {fileID: 84737331}
+    - target: {fileID: 6606212376007768274, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: perfectScoreStar
+      value: 
+      objectReference: {fileID: 589151920}
+    - target: {fileID: 6606212377165536770, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: highScoreText
+      value: 
+      objectReference: {fileID: 84737331}
+    - target: {fileID: 6606212377165536770, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: perfectScoreStar
+      value: 
+      objectReference: {fileID: 589151920}
+    - target: {fileID: 6606212377231396724, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: highScoreText
+      value: 
+      objectReference: {fileID: 84737331}
+    - target: {fileID: 6606212377231396724, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: perfectScoreStar
+      value: 
+      objectReference: {fileID: 589151920}
     - target: {fileID: 8167246619711948278, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_Name
       value: SongSelectionCanvas

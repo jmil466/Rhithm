@@ -484,8 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4432603b12c9ca4f80fd89e22f684b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolObj: {fileID: 62061407}
-  sfxVolObj: {fileID: 706586395}
+  musicVolObj: {fileID: 0}
+  sfxVolObj: {fileID: 0}
 --- !u!114 &338816089 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 189268912286175211, guid: 9af5053afece0f945b02d4edeaf7ce7b, type: 3}
@@ -589,11 +589,6 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 189268911973847196, guid: 9af5053afece0f945b02d4edeaf7ce7b, type: 3}
   m_PrefabInstance: {fileID: 189268912622691250}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &706586395 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5406130857376921964, guid: 1f4edf6b5788d9648854155366142624, type: 3}
-  m_PrefabInstance: {fileID: 5406130856939429495}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &803655991
 GameObject:

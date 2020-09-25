@@ -8,6 +8,9 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
+        musicVolObj = GameObject.Find("MusicVolObj");
+        sfxVolObj = GameObject.Find("SFXVolObj");
+
         MusicVolObj MusicVolObjScript = musicVolObj.GetComponent<MusicVolObj>();
         SFXVolObj SFXVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
 

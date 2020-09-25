@@ -52,12 +52,6 @@ public class SongSelectionScript : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void OnClickMute()
-    {
-        buttonClickSound.mute = !buttonClickSound.mute;
-        songPanels[activePanelCounter].GetComponentInChildren<AudioSource>().mute = !songPanels[activePanelCounter].GetComponentInChildren<AudioSource>().mute;
-    }
-
     public void OnClickNextPanel()
     {
         buttonClickSound.Play();

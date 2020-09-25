@@ -17,6 +17,6 @@ public class MainMenu : MonoBehaviour
         MusicVolObjScript.musicSlider = null;
         SFXVolObjScript.sfxSlider = null;
 
-        SceneManager.LoadScene("SongList");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

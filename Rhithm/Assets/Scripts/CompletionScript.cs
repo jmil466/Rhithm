@@ -50,7 +50,7 @@ public class CompletionScript : MonoBehaviour
     public void displayUserScore()
     {
         scoreValue = score.getScore();
-        userScoreText.text = "User Score: " + scoreValue;
+        userScoreText.text = "User Score: " + scoreValue.ToString();
     }
 
     public bool highScoreIsVisible()

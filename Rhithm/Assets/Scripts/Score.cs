@@ -15,6 +15,8 @@ public class Score : MonoBehaviour
 
     public Text scoreText;
     public Text multiplierText;
+    public SaveSongData songData;
+
 
     void Start()
     {
@@ -98,11 +100,13 @@ public class Score : MonoBehaviour
         Debug.Log("Current score: " + score + ", High Score was: " + highScore);
         if(score > highScore)
         {
+            songData.saveHighScore(score);
             highScore = score;
             return score;
 
         } else
         {
+            songData.saveHighScore(highScore);
             return highScore;
         }
     

@@ -11,12 +11,12 @@ public class MainMenu : MonoBehaviour
         MusicVolObj MusicVolObjScript = musicVolObj.GetComponent<MusicVolObj>();
         SFXVolObj SFXVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
 
-        DontDestroyOnLoad(musicVolObj);
-        DontDestroyOnLoad(sfxVolObj);
-
         MusicVolObjScript.musicSlider = null;
         SFXVolObjScript.sfxSlider = null;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        DontDestroyOnLoad(musicVolObj);
+        DontDestroyOnLoad(sfxVolObj);
+
+        SceneManager.LoadScene("SongList");
     }
 }

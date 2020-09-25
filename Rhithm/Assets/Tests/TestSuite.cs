@@ -160,23 +160,34 @@ namespace Tests
         }
 
         [Test]
-        public void muteGame()
+        public void muteGameTest()
         {
+            Canvas songSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
+            songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
 
+            SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
+            songSelectionScript.SetSongPanels();
+
+            AudioSource buttonClickSound = songSelectionScript.buttonClickSound;
+            songSelectionScript.OnClickMute();
+            AudioSource currentSongAudioSource = songSelectionScript.currentSongAudioSource;
+
+            Assert.IsTrue(buttonClickSound.mute);
+            Assert.IsTrue(currentSongAudioSource.mute);
         }
 
         [Test]
-        public void previewSong() //Unit Test by Rafael (Testing to see if the correct audio source is playing when previewing a song)
+        public void previewSongTest() //Unit Test by Rafael (Testing to see if the correct audio source is playing when previewing a song)
         {
             AudioSource AudioSourceDemo = Resources.Load<AudioSource>("Prefabs/AudioSourceDemo");
             AudioSourceDemo = AudioSource.Instantiate(Resources.Load<AudioSource>("Prefabs/AudioSourceDemo"));
             //string audioDemoName = AudioSourceDemo.clip.name;
             //Debug.Log(audioDemoName);
 
-            Canvas SongSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
-            SongSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
+            Canvas songSelectionCanvas = Resources.Load<Canvas>("Prefabs/SongSelectionCanvas");
+            songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
 
-            SongSelectionScript songSelectionScript = SongSelectionCanvas.GetComponent<SongSelectionScript>();
+            SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
             songSelectionScript.SetSongPanels();
 
             songSelectionScript.onClickPreviewSong();

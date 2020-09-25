@@ -613,7 +613,7 @@ Camera:
   m_GameObject: {fileID: 1960639950}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -769,6 +769,46 @@ PrefabInstance:
       propertyPath: perfectScoreStar
       value: 
       objectReference: {fileID: 589151920}
+    - target: {fileID: 8167246618403968038, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246618691178522, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246618889927256, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246618889927256, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246618889927256, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246618959314150, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 124.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246618959314150, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619111789992, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619356841461, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619515260558, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8167246619711948278, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_Name
       value: SongSelectionCanvas
@@ -856,6 +896,30 @@ PrefabInstance:
     - target: {fileID: 8167246619711948282, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619842154382, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619842154383, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 19.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619842154383, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 39.196045
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619957315645, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246620063873621, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246620063873621, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 109.48547
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}

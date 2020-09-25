@@ -37,6 +37,9 @@ public class SongDisplayScript : MonoBehaviour
         if (perfectScore == "true")
         {
             perfectScoreStar.SetActive(true);
+        } else
+        {
+            perfectScoreStar.SetActive(false);
         }
 
     }

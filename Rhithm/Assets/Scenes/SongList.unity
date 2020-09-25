@@ -801,9 +801,29 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontSize
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 8167246619356841458, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619356841458, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619356841458, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619356841458, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 950
+      objectReference: {fileID: 0}
     - target: {fileID: 8167246619356841461, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167246619356841461, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8167246619515260558, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: m_FontData.m_FontSize

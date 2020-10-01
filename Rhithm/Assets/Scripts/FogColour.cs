@@ -13,9 +13,6 @@ public class FogColour : MonoBehaviour
     public float duration = 5f;
     public float magic = 0.02F;
 
-
-    int looper = 0;
-
     // Use this for initialization
     IEnumerator Start()
     {
@@ -31,8 +28,6 @@ public class FogColour : MonoBehaviour
             // lerp down scale
 
         }
-
-
     }
 
     public IEnumerator RepeatLerp(Color start, Color end, float time)
@@ -46,12 +41,5 @@ public class FogColour : MonoBehaviour
             yield return null;
 
         }
-
-
     }
-
-
-
-
-
 }

@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     Vector3 moveToPosition; // This is where the camera will move after the start
     float speed = 0.5f; // this is the speed at which the camera moves
-    bool started = true; // stops the movement until we want it
+    //bool started = true; // stops the movement until we want it
 
     /* functions */
     void Start()

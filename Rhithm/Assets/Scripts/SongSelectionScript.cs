@@ -23,7 +23,7 @@ public class SongSelectionScript : MonoBehaviour
     {  
         musicVolObj = GameObject.Find("MusicVolObj");
 
-        SetSongPanels();
+        //SetSongPanels();
     }
     
     public void SetSongPanels()

@@ -11,7 +11,6 @@ public class SettingsMenu : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
-
     void Start()
     {
         musicVolObj = GameObject.Find("MusicVolObj");

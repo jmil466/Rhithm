@@ -22,4 +22,9 @@ public class MainMenu : MonoBehaviour
 
         SceneManager.LoadScene("SongList");
     }
+
+    public void Shop()
+    {
+        SceneManager.LoadScene("Shop");
+    }
 }

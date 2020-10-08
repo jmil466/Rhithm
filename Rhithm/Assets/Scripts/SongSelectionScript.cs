@@ -23,13 +23,12 @@ public class SongSelectionScript : MonoBehaviour
     {  
         musicVolObj = GameObject.Find("MusicVolObj");
 
-        //SetSongPanels();
+        SetSongPanels();
     }
     
     public void SetSongPanels()
     {
         songMenu.SetActive(true);
-        difficultyMenu.SetActive(false);
 
         activePanelCounter = 0;
 
@@ -109,6 +108,7 @@ public class SongSelectionScript : MonoBehaviour
 
     public void OnClickPlaySong()
     {
+        difficultyMenu.SetActive(true);
         buttonClickSound.Play();
 
         selectedSongObject = GameObject.FindGameObjectWithTag("SongObject"); //Find the active song object

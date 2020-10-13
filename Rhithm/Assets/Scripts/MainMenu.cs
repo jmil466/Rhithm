@@ -20,6 +20,6 @@ public class MainMenu : MonoBehaviour
         DontDestroyOnLoad(musicVolObj);
         DontDestroyOnLoad(sfxVolObj);
 
-        SceneManager.LoadScene("SongList");
+        SceneManager.LoadScene("SongListDemo");
     }
 }

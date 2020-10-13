@@ -23,6 +23,7 @@ TagManager:
   - Slider
   - PreviewPlayPanel
   - PreviousNextPanel
+  - Item
   layers:
   - Default
   - TransparentFX

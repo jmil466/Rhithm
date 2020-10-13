@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlotController : MonoBehaviour {
@@ -16,12 +17,19 @@ public class PlotController : MonoBehaviour {
 
 	public float elapsedTime = 0;
 
+	float largestFlux = 0;
+	float nothingFlux = 0.025f;
+	float obstacleFlux = 0.05f;
+	float noteOneFlux = 0.1f;
+	float noteTwoFlux = 0.15f;
 
 	// Use this for initialization
 	void Start () {
-		plotPoints = new List<Transform> ();
 
 		secondsPerBeat = 60 / BPM;
+		plotPoints = new List<Transform> ();
+
+		
 
 		float localWidth = transform.Find("Point/BasePoint").localScale.x;
 		// -n/2...0...n/2
@@ -57,78 +65,35 @@ public class PlotController : MonoBehaviour {
 			windowStart = Mathf.Max (0, pointInfo.Count - displayWindowSize - 1);
 			windowEnd = Mathf.Min (windowStart + displayWindowSize, pointInfo.Count);
 		}
-
-
 		
-
-
+		float currentFlux;
+		
 
 		for (int i = windowStart; i < windowEnd; i++) {
 			int plotIndex = numPlotted;
 			numPlotted++;
 
-			/* Transform fluxPoint = plotPoints [plotIndex].Find ("FluxPoint");
-			Transform threshPoint = plotPoints [plotIndex].Find ("ThreshPoint");
-			Transform peakPoint = plotPoints [plotIndex].Find ("PeakPoint");*/
 
-
-			if (elapsedTime % (secondsPerBeat / 4) <= 0.015)
+			if (pointInfo[i].spectralFlux > largestFlux)
 			{
-				
+				largestFlux = pointInfo[i].spectralFlux;
 
-				if (pointInfo[i].spectralFlux <= 0.025)
-				{
-					//Produce Nothing!
-					//Debug.Log("Flux " + pointInfo[i].spectralFlux);
-				}
-				else if (pointInfo[i].spectralFlux > 0.025 && pointInfo[i].spectralFlux <= 0.05)
-				{
-					//Produce Obstacle
-					//Debug.Log("Flux " + pointInfo[i].spectralFlux);
-				}
-				else if (pointInfo[i].spectralFlux > 0.05 && pointInfo[i].spectralFlux <= 0.1)
-				{
-					//Produce Green
-					Debug.Log("Flux " + pointInfo[i].spectralFlux);
-					setNotePosition(noteTwo, 0.05f, 0.01f, 2f);
-				}
-				else if (pointInfo[i].spectralFlux > 0.1 && pointInfo[i].spectralFlux <= 0.15)
-				{
-					//Produce Blue
-					Debug.Log("Flux " + pointInfo[i].spectralFlux);
-					setNotePosition(noteOne, pointInfo[i].threshold, -0.01f, 0f);
-				}
-				else
-				{
-					// Produce Red Note
-					Debug.Log("Flux " + pointInfo[i].spectralFlux);
-					setNotePosition(noteThree, pointInfo[i].spectralFlux, 0f, -2f);
-				}
+				float fluxDiv = largestFlux / 5;
 
-				StartCoroutine(WaitForBeat());
+				nothingFlux = fluxDiv;
+				obstacleFlux = fluxDiv * 2;
+				noteOneFlux = fluxDiv * 3;
+				noteTwoFlux = fluxDiv * 4;
+
 			}
 
 
 
-			/*
-
-			if (pointInfo[i].isPeak)
-				{
-					setPointHeight(peakPoint, pointInfo[i].spectralFlux);
-					setPointHeight(fluxPoint, 0f);
-
-					Debug.Log("PointInfo" + pointInfo[i].spectralFlux);
-
-				}
-				else
-				{
-					setPointHeight(fluxPoint, pointInfo[i].spectralFlux);
-					setPointHeight(peakPoint, 0f);
-				}
-				setPointHeight(threshPoint, pointInfo[i].threshold);
-		
-	*/
-
+			if (elapsedTime % (secondsPerBeat / 4) <= 0.015)
+			{
+				currentFlux = pointInfo[i].spectralFlux;
+				spawnNote(currentFlux);
+			}
 		}
 	}
 
@@ -137,22 +102,36 @@ public class PlotController : MonoBehaviour {
 		yield return new WaitForSeconds(secondsPerBeat);
 	}
 
-	public void setPointHeight(Transform point, float height) {
-		float displayMultiplier = 0.06f;
+	public void spawnNote(float currentFlux)
+	{
+		if (currentFlux > nothingFlux && currentFlux < obstacleFlux)
+		{
+			//Spawn Obstacle
+		}
+		else if (currentFlux > obstacleFlux && currentFlux <= noteOneFlux)
+		{
+			setNotePosition(noteOne, 0, -0.01f);
+		}
+		else if (currentFlux > noteOneFlux && currentFlux < noteTwoFlux)
+		{
+			setNotePosition(noteTwo, 2, 0.01f);
+		}
+		else if (currentFlux > noteTwoFlux)
+		{
+			setNotePosition(noteThree, -2, 0f);
+		}
 
-		point.localPosition = new Vector3(point.localPosition.x, height * displayMultiplier, point.localPosition.z);
+
+		StartCoroutine(WaitForBeat());
+
 	}
 
-	public void setNotePosition(GameObject note, float height, float pointZ, float pointX)
+	public void setNotePosition(GameObject note, float pointX, float pointZ)
 	{
 		float displayMultiplier = 2f;
 
-		Vector3 SpawnPosition = new Vector3(pointX, height * displayMultiplier, pointZ);
+		Vector3 SpawnPosition = new Vector3(pointX, pointZ);
 		Instantiate(note, SpawnPosition, Quaternion.identity);
-
-		//point.localPosition = new Vector3(point.localPosition.x, height * displayMultiplier, pointZ);
-
-		//Debug.Log("Help " + point.localPosition.x);
 	}
 
 }

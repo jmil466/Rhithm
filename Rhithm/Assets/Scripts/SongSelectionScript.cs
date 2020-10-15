@@ -25,6 +25,11 @@ public class SongSelectionScript : MonoBehaviour
 
     public AudioSource buttonClickSound;
 
+    public int highScore;
+    public Text highScoreText;
+    public string perfectScore;
+    public GameObject perfectScoreStar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +43,24 @@ public class SongSelectionScript : MonoBehaviour
         musicVolObj = GameObject.Find("MusicVolObj");
 
         FindSongs();
+
+        string savedScoreName = songNameText + "_highscore";
+        string savedPerfectScoreName = songNameText + "_perfectScore";
+
+        highScore = PlayerPrefs.GetInt(savedScoreName);
+        perfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
+
+        perfectScoreStar.SetActive(false);
+
+        highScoreText.text = "Highscore: " + highScore.ToString();
+        if (perfectScore == "true")
+        {
+            perfectScoreStar.SetActive(true);
+        }
+        else
+        {
+            perfectScoreStar.SetActive(false);
+        }
     }   
     
     public void FindSongs()
@@ -101,7 +124,16 @@ public class SongSelectionScript : MonoBehaviour
         songObjectScript = currentSong.GetComponent<SongObjectScript>();
         songObjectScript.setupSong();
         songNameText.text = songObjectScript.audioName;
-        currentSong.GetComponent<AudioSource>().clip.LoadAudioData();
+
+        highScoreText.text = "Highscore: " + highScore.ToString();
+        if (perfectScore == "true")
+        {
+            perfectScoreStar.SetActive(true);
+        }
+        else
+        {
+            perfectScoreStar.SetActive(false);
+        }
     }
 
     public void OnClickPreviousPanel()
@@ -123,27 +155,34 @@ public class SongSelectionScript : MonoBehaviour
         songObjectScript = currentSong.GetComponent<SongObjectScript>();
         songObjectScript.setupSong();
         songNameText.text = songObjectScript.audioName;
-        currentSong.GetComponent<AudioSource>().clip.LoadAudioData();
+
+        highScoreText.text = "Highscore: " + highScore.ToString();
+        if (perfectScore == "true")
+        {
+            perfectScoreStar.SetActive(true);
+        }
+        else
+        {
+            perfectScoreStar.SetActive(false);
+        }
     }
 
     public void onClickPreviewSong()
     {
         buttonClickSound.Play();
 
+        currentSong.GetComponent<AudioSource>().clip.LoadAudioData();
+
+        currentSong.GetComponent<AudioSource>().Play();
+
         currentSong.GetComponent<AudioSource>().SetScheduledEndTime(AudioSettings.dspTime + (30-20)); //Play for 10 seconds from 0 seconds
     }
 
     public void OnClickPlaySong()
     {
+        currentSong.GetComponent<AudioSource>().clip.LoadAudioData();
         difficultyMenu.SetActive(true);
         buttonClickSound.Play();
-
-        //selectedSongObject = GameObject.FindGameObjectWithTag("SongObject"); //Find the active song object
-        //selectedAudioSource = GameObject.FindGameObjectWithTag("Song"); //Find the active audio source
-
-        //songPanels[activePanelCounter].SetActive(false); //hide panel
-        //GameObject.FindGameObjectWithTag("PreviousNextPanel").SetActive(false); //hide Previous and Next buttons
-        //GameObject.FindGameObjectWithTag("PreviewPlayPanel").SetActive(false); //hide Preview and Play buttons
 
         SongObject = currentSong;
         selectedAudioSource = SongObject;
@@ -171,8 +210,6 @@ public class SongSelectionScript : MonoBehaviour
             SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 4;
         }
 
-        //UnityEngine.Debug.Log(selectedSongObject);
-        //selectedSongObject.transform.parent = null; //destroy parent object
         SongObject.transform.SetParent(null); //destroy parent object
         selectedAudioSource.transform.SetParent(null);
 

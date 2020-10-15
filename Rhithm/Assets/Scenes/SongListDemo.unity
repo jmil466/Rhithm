@@ -1795,6 +1795,10 @@ MonoBehaviour:
   difficultyMenu: {fileID: 1524552783417484014}
   songNameText: {fileID: 1524552782425058224}
   buttonClickSound: {fileID: 1524552782505373050}
+  highScore: 0
+  highScoreText: {fileID: 1524552783351233123}
+  perfectScore: 
+  perfectScoreStar: {fileID: 5436906005359775858}
 --- !u!224 &1524552783264299628
 RectTransform:
   m_ObjectHideFlags: 0

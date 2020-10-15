@@ -23,6 +23,8 @@ public class PlotController : MonoBehaviour {
 	float noteOneFlux = 0.1f;
 	float noteTwoFlux = 0.15f;
 
+	int previousTime;
+
 	// Use this for initialization
 	void Start () {
 
@@ -87,28 +89,29 @@ public class PlotController : MonoBehaviour {
 
 			}
 
-
-
-			if (elapsedTime % (secondsPerBeat / 4) <= 0.015)
+			if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && (int)elapsedTime != previousTime) 
 			{
+				previousTime = (int)elapsedTime;
+				Debug.Log("In if " + elapsedTime);
+
+
 				currentFlux = pointInfo[i].spectralFlux;
 				spawnNote(currentFlux);
 			}
 		}
 	}
 
-	public IEnumerator WaitForBeat()
-	{
-		yield return new WaitForSeconds(secondsPerBeat);
-	}
 
 	public void spawnNote(float currentFlux)
 	{
-		if (currentFlux > nothingFlux && currentFlux < obstacleFlux)
+		Debug.Log("Spawn!!");
+
+		/*if (currentFlux > nothingFlux && currentFlux < obstacleFlux)
 		{
 			//Spawn Obstacle
-		}
-		else if (currentFlux > obstacleFlux && currentFlux <= noteOneFlux)
+		}*/
+		//else currentFlux > obstacleFlux && 
+		if (currentFlux <= noteOneFlux)
 		{
 			setNotePosition(noteOne, 0, -0.01f);
 		}
@@ -121,15 +124,10 @@ public class PlotController : MonoBehaviour {
 			setNotePosition(noteThree, -2, 0f);
 		}
 
-
-		StartCoroutine(WaitForBeat());
-
 	}
 
 	public void setNotePosition(GameObject note, float pointX, float pointZ)
 	{
-		float displayMultiplier = 2f;
-
 		Vector3 SpawnPosition = new Vector3(pointX, pointZ);
 		Instantiate(note, SpawnPosition, Quaternion.identity);
 	}

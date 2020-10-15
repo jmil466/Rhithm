@@ -12,11 +12,12 @@ public class SongDisplayScript : MonoBehaviour
     public Text highScoreText;
     public string perfectScore;
     public GameObject perfectScoreStar;
-    
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GameObject.FindGameObjectWithTag("Song").GetComponent<AudioSource>();
+
         audioClip = audioSource.clip;
         audioName = audioClip.name;
         string savedScoreName = audioName + "_highscore";
@@ -26,7 +27,6 @@ public class SongDisplayScript : MonoBehaviour
         perfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
 
         perfectScoreStar.SetActive(false);
-
     }
 
     // Update is called once per frame

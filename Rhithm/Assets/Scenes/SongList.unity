@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 210.68704
       objectReference: {fileID: 0}
+    - target: {fileID: 3196288672945884461, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4598830585139151190, guid: 2198c7c06f585ed428e06ea1644864ff, type: 3}
       propertyPath: perfectScoreStar
       value: 

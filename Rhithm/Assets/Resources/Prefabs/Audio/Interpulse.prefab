@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5567012696140062802}
   - component: {fileID: 8342609098594063586}
+  - component: {fileID: 1215964230273153333}
   m_Layer: 0
   m_Name: Interpulse
   m_TagString: Song
@@ -43,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: bbaa46fb9a97f924d8ddb35fb9ac7685, type: 2}
   m_audioClip: {fileID: 8300000, guid: b8429c9d7105da64cb379bbd2a5374c4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.842
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -127,3 +128,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1215964230273153333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2405438911304643372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de19ff5289b5bc438935ddfb0e853d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 8342609098594063586}
+  audioClip: {fileID: 0}
+  audioName: 
+  BPM: 120
+  startDelay: 0
+  audioLength: 0
+  difficultyMultiplier: 0

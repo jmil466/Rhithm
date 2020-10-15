@@ -8,29 +8,30 @@ public class SongObjectScript : MonoBehaviour
     //SongDisplayScript songDisplayScript;
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public string audioName;
     public float BPM; //beats per minute
     public float startDelay;
     public float audioLength;
     public float difficultyMultiplier;
     private int highScore; // Added by James
-    public string audioName;
-    public string songKey;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioClip = audioSource.clip;
-        audioLength = audioClip.length;
-        audioName = audioClip.name;
-        string savedScoreName = audioName + "_highscore";
-        highScore = PlayerPrefs.GetInt(savedScoreName);
+        //audioSource = GameObject.FindGameObjectWithTag("Song").GetComponent<AudioSource>();
+        setupSong();
 
         //songDisplayScript = theSongPanel.GetComponent<SongDisplayScript>();
     }
     // Update is called once per frame
-    void Update()
+
+    public void setupSong()
     {
-        
+        audioClip = audioSource.clip;
+        audioName = audioClip.name;
+        audioLength = audioClip.length;
+        string savedScoreName = audioName + "_highscore";
+        highScore = PlayerPrefs.GetInt(savedScoreName);
     }
 
     public AudioSource GetAudioSource()

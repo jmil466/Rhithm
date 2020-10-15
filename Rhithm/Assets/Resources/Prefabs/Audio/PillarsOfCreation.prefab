@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2742680995368704766}
   - component: {fileID: 1768528848351800910}
+  - component: {fileID: 7626938124115812942}
   m_Layer: 0
   m_Name: PillarsOfCreation
   m_TagString: Song
@@ -127,3 +128,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7626938124115812942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5344682771318638976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de19ff5289b5bc438935ddfb0e853d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1768528848351800910}
+  audioClip: {fileID: 0}
+  audioName: 
+  BPM: 120
+  startDelay: 0
+  audioLength: 0
+  difficultyMultiplier: 0

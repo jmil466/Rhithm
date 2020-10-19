@@ -17,8 +17,8 @@ public class PlotController : MonoBehaviour {
 
 	public float elapsedTime = 0;
 	float previousTime;
+	int counter;
 
-	float largestFlux = 0;
 	float nothingFlux = 0.025f;
 	float obstacleFlux = 0.05f;
 	float noteOneFlux = 0.1f;
@@ -68,14 +68,39 @@ public class PlotController : MonoBehaviour {
 		}
 		
 		float currentFlux;
-		
+		noteOneFlux = 0.05f;
+		noteTwoFlux = 0.1f;
+
+		/*float largestFlux = 0;
+
+		for(int i = 0; i < pointInfo.Count; i++)
+		{
+			if(pointInfo[i].spectralFlux > largestFlux)
+			{
+				largestFlux = pointInfo[i].spectralFlux;
+			}
+
+		}
+
+		float fluxDiv = largestFlux / 5;
+
+		nothingFlux = fluxDiv;
+		obstacleFlux = fluxDiv * 2;
+		noteOneFlux = fluxDiv * 3;
+		noteTwoFlux = fluxDiv * 4;
+
+
+		Debug.Log(largestFlux); */
 
 		for (int i = windowStart; i < windowEnd; i++) {
 			int plotIndex = numPlotted;
 			numPlotted++;
 
+			
 
-			if (pointInfo[i].spectralFlux > largestFlux)
+
+
+			/*if (pointInfo[i].spectralFlux > largestFlux)
 			{
 				largestFlux = pointInfo[i].spectralFlux;
 
@@ -86,17 +111,19 @@ public class PlotController : MonoBehaviour {
 				noteOneFlux = fluxDiv * 3;
 				noteTwoFlux = fluxDiv * 4;
 
-			}
+			} */
 
 
-			if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && (int)elapsedTime != previousTime) 
+
+			if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / 8)) 
 			{
-				previousTime = (int)elapsedTime;
-				Debug.Log("In if " + elapsedTime);
+				previousTime = elapsedTime;
 				spawnNote(pointInfo[i].spectralFlux);
 			}
 		}
 	}
+
+
 
 	public IEnumerator WaitForBeat()
 	{

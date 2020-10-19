@@ -650,7 +650,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b1bcf9513b1e5f64686d5b7fc7f31aad, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 011903a47b70002479ab7619fb564f5c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plotPoints: []
   displayWindowSize: 150
-  BPM: 58
+  BPM: 145
   secondsPerBeat: 0
   noteOne: {fileID: 8561280124667043553, guid: 987ba9e244161c54b87fb68903858395, type: 3}
   noteTwo: {fileID: 8768606949392112094, guid: 863495137d16a834e88af4c30f394007, type: 3}

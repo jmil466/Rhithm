@@ -28,7 +28,11 @@ public class SongController : MonoBehaviour {
 	public bool preProcessSamples = false;
 
 	void Start() {
-		audioSource = GetComponent<AudioSource> ();
+		SongObjectScript song = findSong();
+
+		audioSource = song.GetAudioSource();
+		song.PlayAudio();
+
 
 		// Process audio as it plays
 		if (realTimeSamples) {
@@ -147,5 +151,10 @@ public class SongController : MonoBehaviour {
 			// Catch exceptions here since the background thread won't always surface the exception to the main thread
 			Debug.Log (e.ToString ());
 		}
+	}
+
+	private SongObjectScript findSong()
+	{
+		return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
 	}
 }

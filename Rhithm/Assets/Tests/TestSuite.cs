@@ -166,11 +166,11 @@ namespace Tests
             songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
 
             SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
-            songSelectionScript.SetSongPanels();
+            songSelectionScript.FindSongs();
 
             AudioSource buttonClickSound = songSelectionScript.buttonClickSound;
             songSelectionScript.OnClickMute();
-            AudioSource currentSongAudioSource = songSelectionScript.currentSongAudioSource;
+            AudioSource currentSongAudioSource = songSelectionScript.currentSong.GetComponent<AudioSource>();
 
             Assert.IsTrue(buttonClickSound.mute);
             Assert.IsTrue(currentSongAudioSource.mute);
@@ -205,9 +205,9 @@ namespace Tests
             songSelectionCanvas = Canvas.Instantiate(Resources.Load<Canvas>("Prefabs/SongSelectionCanvas"));
 
             SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
-            songSelectionScript.SetSongPanels();
+            songSelectionScript.FindSongs();
 
-            GameObject[] songPanels = songSelectionScript.songPanels;
+            GameObject[] songPanels = songSelectionScript.songs;
 
             int numOfPanels = songSelectionScript.numOfPanels; //get the number of songPanels in the canvas
             int randPanel = Random.Range(0, numOfPanels - 1); //get a random song panel

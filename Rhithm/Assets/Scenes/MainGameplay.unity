@@ -771,6 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636dcb22d3a3165418764a1af2abe5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completionScript: {fileID: 1049073902}
 --- !u!4 &851210810
 Transform:
   m_ObjectHideFlags: 0
@@ -2451,6 +2452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636dcb22d3a3165418764a1af2abe5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completionScript: {fileID: 0}
 --- !u!1001 &6781075986083178933
 PrefabInstance:
   m_ObjectHideFlags: 0

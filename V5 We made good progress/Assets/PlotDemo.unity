@@ -222,6 +222,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2142178373}
     m_Modifications:
+    - target: {fileID: 1700265148678854, guid: 8a552ee8d4e985f4eb965c1dbd8cb815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4536838457428552, guid: 8a552ee8d4e985f4eb965c1dbd8cb815, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -452,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1151287536
 Transform:
   m_ObjectHideFlags: 0
@@ -908,7 +912,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102209729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c4537fa49e29be49a11e10e73efd93c, type: 3}
   m_Name: 
@@ -921,6 +925,7 @@ MonoBehaviour:
   noteTwo: {fileID: 8768606949392112094, guid: 863495137d16a834e88af4c30f394007, type: 3}
   noteThree: {fileID: 7373918200243591559, guid: 06d87aca46a0b0141929fe4a847293a3,
     type: 3}
+  obstacle: {fileID: 0}
   elapsedTime: 0
 --- !u!4 &2102209731
 Transform:
@@ -964,7 +969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142178370}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4c4537fa49e29be49a11e10e73efd93c, type: 3}
   m_Name: 
@@ -976,6 +981,8 @@ MonoBehaviour:
   noteOne: {fileID: 8561280124667043553, guid: 987ba9e244161c54b87fb68903858395, type: 3}
   noteTwo: {fileID: 8768606949392112094, guid: 863495137d16a834e88af4c30f394007, type: 3}
   noteThree: {fileID: 7373918200243591559, guid: 06d87aca46a0b0141929fe4a847293a3,
+    type: 3}
+  obstacle: {fileID: 5489105908115317196, guid: 36d08dd6885689d4ab096cf69a7cbdf9,
     type: 3}
   elapsedTime: 0
 --- !u!4 &2142178373

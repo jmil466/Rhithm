@@ -31,8 +31,6 @@ public class PlotController : MonoBehaviour {
 		secondsPerBeat = 60 / BPM;
 		plotPoints = new List<Transform> ();
 
-		
-
 		float localWidth = transform.Find("Point/BasePoint").localScale.x;
 		// -n/2...0...n/2
 		for (int i = 0; i < displayWindowSize; i++) {
@@ -108,7 +106,7 @@ public class PlotController : MonoBehaviour {
 	public void spawnNote(float currentFlux)
 	{
 
-		if(currentFlux > 0 && currentFlux <= noteOneFlux)
+		if(currentFlux == 0)
 		{
 			setNotePosition(noteOne, 0, -0.01f);
 		} else if (currentFlux > noteOneFlux && currentFlux <= obstacleFlux)
@@ -123,23 +121,6 @@ public class PlotController : MonoBehaviour {
 		{
 			setNotePosition(noteThree, -2, 0f);
 		}
-		
-
-
-
-		/*
-		if (currentFlux <= noteOneFlux)
-		{
-			setNotePosition(noteOne, 0, -0.01f);
-		}
-		else if (currentFlux > noteOneFlux && currentFlux < noteTwoFlux)
-		{
-			setNotePosition(noteTwo, 2, 0.01f);
-		}
-		else if (currentFlux > noteTwoFlux)
-		{
-			setNotePosition(noteThree, -2, 0f);
-		}*/
 
 	}
 

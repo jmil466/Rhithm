@@ -21,17 +21,17 @@ public class PriceScript : MonoBehaviour
     public void PriceButton()
     {
         priceText = selectedButton.GetComponentInChildren<Text>();
-        if (int.Parse(currencyText.text) >= int.Parse(priceText.text))
+        if (priceText.text == "Equip")
+        {
+            EquipItem();
+        }
+        else if (int.Parse(currencyText.text) >= int.Parse(priceText.text))
         {
             ItemBought();
         }
         else if (int.Parse(currencyText.text) < int.Parse(priceText.text))
         {
             insufficientCoins.SetActive(true);
-        }
-        else
-        {
-            //EquipItem();
         }
     }
 
@@ -46,7 +46,7 @@ public class PriceScript : MonoBehaviour
         priceText.text = "Equip";
         //otherText1.color = new Color32(65, 65, 65, 255);
     }
-    /*
+    
     void EquipItem()
     {
         ColorBlock colors = selectedButton.colors;
@@ -57,11 +57,14 @@ public class PriceScript : MonoBehaviour
 
         items = GameObject.FindGameObjectsWithTag("Item");
         //if isBought loop inside for loop
-
+        /*
         for (int i = 0; i < items.Length; i++)
         {
-            private Text otherText = items[i].Find("PriceButton").GetComponentInChildren<Text>();
-            private Button otherButton = items[i].Find("PriceButton");
+            //private Text otherText = items[i].GameObject.Transform.Find("PriceButton").GetComponentInChildren<Text>();
+            //private Button otherButton = items[i].GameObject.Transform.Find("PriceButton");
+
+            private Button otherButton = items[i].GameObject.FindGameObjectsWithTag("PriceButton");
+            private Text otherText = otherButton.GetComponentInChildren<Text>();
 
             if (otherText.text == "Equipped")
             {
@@ -73,12 +76,11 @@ public class PriceScript : MonoBehaviour
                 otherButton.colors = colors;
             }
         }
-        
+        /*
         if (isBought == true)
         {
 
         }
-        
+        */
     }
-    */
 }

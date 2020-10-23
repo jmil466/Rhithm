@@ -337,7 +337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Currency
+  m_Text: 100
 --- !u!222 &91196730
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -355,8 +355,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 114776087}
+  - component: {fileID: 114776088}
   m_Layer: 5
-  m_Name: Item (5)
+  m_Name: PlayerCubeBlack
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,6 +384,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000076293945, y: -184}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &114776088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114776086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerCubeBlack
+  itemPrice: 0
+  equipped: 0
+  purchased: 0
 --- !u!1 &131189304
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,8 +481,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131385401}
+  - component: {fileID: 131385402}
   m_Layer: 5
-  m_Name: Item (3)
+  m_Name: PlayerCubeBlue
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,6 +510,22 @@ RectTransform:
   m_AnchoredPosition: {x: 126.999985, y: -73.99999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &131385402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131385400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerCubeBlue
+  itemPrice: 0
+  equipped: 0
+  purchased: 0
 --- !u!1 &167991874
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,8 +535,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167991875}
+  - component: {fileID: 167991876}
   m_Layer: 5
-  m_Name: Item (1)
+  m_Name: PlayerCubeRed
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,6 +564,22 @@ RectTransform:
   m_AnchoredPosition: {x: -130.00002, y: -73.99996}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &167991876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167991874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerCubeRed
+  itemPrice: 0
+  equipped: 0
+  purchased: 0
 --- !u!1 &208798734
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,8 +877,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250206857}
+  - component: {fileID: 250206858}
   m_Layer: 5
-  m_Name: Item (6)
+  m_Name: PlayerTurtle
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,6 +906,22 @@ RectTransform:
   m_AnchoredPosition: {x: 126.99998, y: -184}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &250206858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250206856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerTurtle
+  itemPrice: 0
+  equipped: 0
+  purchased: 0
 --- !u!1 &272094281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1797,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2069714488}
         m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: Close
+        m_MethodName: OnClickClose
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1801,7 +1869,6 @@ GameObject:
   - component: {fileID: 886953401}
   - component: {fileID: 886953400}
   - component: {fileID: 886953399}
-  - component: {fileID: 886953402}
   m_Layer: 5
   m_Name: PriceButton
   m_TagString: Untagged
@@ -1872,7 +1939,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 886953402}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
         m_MethodName: PriceButton
         m_Mode: 1
@@ -1934,29 +2001,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886953397}
   m_CullTransparentMesh: 0
---- !u!114 &886953402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 886953397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 803764b088274834885860cd5ddc5d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedButton: {fileID: 886953399}
-  otherButton1: {fileID: 0}
-  otherButton2: {fileID: 0}
-  otherButton3: {fileID: 0}
-  otherButton4: {fileID: 0}
-  otherButton5: {fileID: 0}
-  otherButton6: {fileID: 0}
-  priceText: {fileID: 299210691}
-  currencyText: {fileID: 91196729}
-  insufficientCoins: {fileID: 1755378885}
-  items: []
 --- !u!1 &960434560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,8 +2154,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049370161}
+  - component: {fileID: 1049370162}
   m_Layer: 5
-  m_Name: Item (2)
+  m_Name: PlayerCubeGreen
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2138,6 +2183,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0000076293945, y: -73.99997}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1049370162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049370160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PayerCubeGreen
+  itemPrice: 0
+  equipped: 0
+  purchased: 0
 --- !u!1 &1184688823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,8 +2617,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1266047971}
+  - component: {fileID: 1266047972}
   m_Layer: 5
-  m_Name: Item
+  m_Name: PlayerCubeWhite
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2584,6 +2646,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 38.000015}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1266047972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266047970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerCubeWhite
+  itemPrice: 0
+  equipped: 1
+  purchased: 0
 --- !u!1 &1273753374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,6 +2750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1288184763}
+  - component: {fileID: 1288184764}
   m_Layer: 5
   m_Name: Items
   m_TagString: Untagged
@@ -2705,6 +2784,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1288184764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288184762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 803764b088274834885860cd5ddc5d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyText: {fileID: 91196729}
+  insufficientCoins: {fileID: 1755378885}
+  items: []
+  colors:
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
+    m_ColorMultiplier: 0
+    m_FadeDuration: 0
+  Items: {fileID: 0}
+  priceButtonText: {fileID: 0}
+  shopScript: {fileID: 2069714488}
 --- !u!1 &1306507134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,7 +3292,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2069714488}
         m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: Back
+        m_MethodName: OnClickBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3887,8 +3992,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858122061}
+  - component: {fileID: 1858122062}
   m_Layer: 5
-  m_Name: Item (4)
+  m_Name: PlayerCubeYellow
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3915,6 +4021,22 @@ RectTransform:
   m_AnchoredPosition: {x: -130, y: -184}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1858122062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858122060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabName: PlayerCubeYellow
+  itemPrice: 0
+  equipped: 0
+  purchased: 0
 --- !u!1 &1871342866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4186,5 +4308,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f68e2e011f6e44d91509f1b0bd843b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
   insufficientCoins: {fileID: 0}

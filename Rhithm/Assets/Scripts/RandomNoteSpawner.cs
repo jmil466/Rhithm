@@ -146,7 +146,7 @@ public class RandomNoteSpawner : MonoBehaviour
         score.calculateHighScore();
         Debug.Log(score.getHighScore().ToString());
         completionUI.displayCompletionUI();
-        songData.CalculateCoins();
+        songData.CalculateCoins(); //calculate amount of coins based on score and add to their current amount
 
         //if (score.getNoteMissed() == false) // Stops celebration
         //{

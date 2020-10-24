@@ -23,7 +23,8 @@ public class PriceScript : MonoBehaviour
     public ColorBlock colors;
 
     public GameObject Items;
-    public Text priceButtonText;
+    public Button itemButton;
+    public Text itemButtonText;
     public ShopScript shopScript;
     private string playerPrefabLocation;
     private ItemScript itemScript;
@@ -33,9 +34,12 @@ public class PriceScript : MonoBehaviour
         items = shopScript.getShopItems();
     }
 
-    public void PriceButton()
+    public void OnClickItemButton()
     {
-        priceButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
+        itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component
+        itemScript = itemButton.GetComponentInParent<ItemScript>();
+
         //priceText = selectedButton.GetComponentInChildren<Text>();
         //Debug.Log(priceText);
 
@@ -51,17 +55,20 @@ public class PriceScript : MonoBehaviour
         //{
         //    insufficientCoins.SetActive(true);
         //}
-        int currency = int.Parse(currencyText.text);
-        int price = int.Parse(priceButtonText.text);
+        int currency = PlayerPrefs.GetInt("Coins");
+        int price = itemScript.itemPrice;
 
-        if (priceButtonText.text == "Equip")
+        if (itemButtonText.text == "Equip")
         {
             EquipItem();
         }
         else if (currency >= price)
         {
             //currency - price;
-            ItemBought();
+            currency = currency - price;
+            PlayerPrefs.SetInt("Coins", currency);
+
+            PurchaseItem();
         }
         else if (currency < price)
         {
@@ -69,17 +76,25 @@ public class PriceScript : MonoBehaviour
         }
     }
 
-    void ItemBought()
+    void PurchaseItem()
     {
-        Button selectedButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
+        itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component of the clicked button
+        itemScript = itemButton.GetComponentInParent<ItemScript>();
+
+        string itemName = itemScript.playerPrefabName;
+        string itemPurchased = itemName + "Purchased";
+        PlayerPrefs.SetInt(itemPurchased, 1); //purchases the item 0-false, 1-true
+        itemScript.setPurchased(true);
+
         //selectedButton.interactable = false;
         //isBought = true;
-        colors = selectedButton.colors;
+        colors = itemButton.colors;
         //priceText = selectedButton.GetComponentInChildren<Text>();
         //Make button lighter and text darker than before bought but not as much as when Equipped
         colors.normalColor = new Color32(115, 115, 115, 255);
-        priceButtonText.color = new Color32(85, 85, 85, 255);
-        priceButtonText.text = "Equip";
+        itemButtonText.color = new Color32(85, 85, 85, 255);
+        itemButtonText.text = "Equip";
         //otherText1.color = new Color32(65, 65, 65, 255);
     }
 
@@ -92,9 +107,8 @@ public class PriceScript : MonoBehaviour
         //this loop checks if an item is already equipped by checking the Text of the items corresponding button
         foreach (GameObject item in items)
         {
-            Button aButton = item.transform.Find("PriceButton").GetComponent<Button>();
-            Text aButtonText = item.transform.Find("PriceButton").GetComponentInChildren<Text>();
-
+            Button anItemButton = item.transform.Find("PriceButton").GetComponent<Button>();
+            Text anItemButtonText = item.transform.Find("PriceButton").GetComponentInChildren<Text>();
             itemScript = item.GetComponent<ItemScript>();
             
             if (itemScript.isEquipped())
@@ -104,24 +118,23 @@ public class PriceScript : MonoBehaviour
 
                 PlayerPrefs.SetInt(itemEquipped, 0); //unequip the item 0-false, 1-true
                 itemScript.setEquipped(false);
-                aButton.interactable = true;
+                anItemButton.interactable = true;
 
-                Debug.Log(aButtonText.text);
-                aButtonText.text = "Equip";
-                aButtonText.color = new Color32(255, 255, 255, 255);
+                Debug.Log(anItemButtonText.text);
+                anItemButtonText.text = "Equip";
+                anItemButtonText.color = new Color32(255, 255, 255, 255);
 
-                colors = aButton.colors;
+                colors = anItemButton.colors;
                 colors.normalColor = new Color32(75, 75, 75, 255);
-                aButton.colors = colors;
+                anItemButton.colors = colors;
             }
         }
 
-        Button selectedButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>(); //get the Button component of the clicked button
-        Text clickedButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component of the clicked button
-   
-        itemScript = selectedButton.GetComponentInParent<ItemScript>();
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>(); //get the Button component of the clicked button
+        itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component of the clicked button
+        itemScript = itemButton.GetComponentInParent<ItemScript>();
 
-        playerPrefabLocation = selectedButton.GetComponentInParent<ItemScript>().getPrefabLocation();
+        playerPrefabLocation = itemButton.GetComponentInParent<ItemScript>().getPrefabLocation();
         //Instantiate(Resources.Load<GameObject>(playerPrefabLocation), Items.transform);
 
         itemName = itemScript.playerPrefabName;
@@ -129,12 +142,12 @@ public class PriceScript : MonoBehaviour
 
         PlayerPrefs.SetInt(itemEquipped, 1); //equips the item 0-false, 1-true
         itemScript.setEquipped(true);
-        selectedButton.interactable = false;
+        itemButton.interactable = false;
 
-        colors = selectedButton.colors;
+        colors = itemButton.colors;
         colors.normalColor = new Color32(185, 185, 185, 255);
-        clickedButtonText.color = new Color32(75, 75, 75, 255);
-        clickedButtonText.text = "Equipped";
+        itemButtonText.color = new Color32(75, 75, 75, 255);
+        itemButtonText.text = "Equipped";
         //set player == item
             
         //if isBought loop inside for loop
@@ -180,5 +193,12 @@ public class PriceScript : MonoBehaviour
 
         }
         */
+    }
+
+    public void assignItemComponents()
+    {
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
+        itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component
+        itemScript = itemButton.GetComponentInParent<ItemScript>();
     }
 }

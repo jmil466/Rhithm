@@ -2808,7 +2808,8 @@ MonoBehaviour:
     m_ColorMultiplier: 0
     m_FadeDuration: 0
   Items: {fileID: 0}
-  priceButtonText: {fileID: 0}
+  itemButton: {fileID: 0}
+  itemButtonText: {fileID: 0}
   shopScript: {fileID: 2069714488}
 --- !u!1 &1306507134
 GameObject:
@@ -4308,4 +4309,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f68e2e011f6e44d91509f1b0bd843b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  insufficientCoins: {fileID: 0}
+  insufficientCoins: {fileID: 1755378885}
+  userCurrencyText: {fileID: 91196729}

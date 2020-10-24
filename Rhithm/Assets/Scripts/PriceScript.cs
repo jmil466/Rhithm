@@ -51,16 +51,19 @@ public class PriceScript : MonoBehaviour
         //{
         //    insufficientCoins.SetActive(true);
         //}
+        int currency = int.Parse(currencyText.text);
+        int price = int.Parse(priceButtonText.text);
 
         if (priceButtonText.text == "Equip")
         {
             EquipItem();
         }
-        else if (int.Parse(currencyText.text) >= int.Parse(priceButtonText.text))
+        else if (currency >= price)
         {
+            //currency - price;
             ItemBought();
         }
-        else if (int.Parse(currencyText.text) < int.Parse(priceButtonText.text))
+        else if (currency < price)
         {
             insufficientCoins.SetActive(true);
         }
@@ -73,8 +76,9 @@ public class PriceScript : MonoBehaviour
         //isBought = true;
         colors = selectedButton.colors;
         //priceText = selectedButton.GetComponentInChildren<Text>();
-        colors.normalColor = new Color32(75, 75, 75, 255);
-        priceButtonText.color = new Color32(65, 65, 65, 255);
+        //Make button lighter and text darker than before bought but not as much as when Equipped
+        colors.normalColor = new Color32(115, 115, 115, 255);
+        priceButtonText.color = new Color32(85, 85, 85, 255);
         priceButtonText.text = "Equip";
         //otherText1.color = new Color32(65, 65, 65, 255);
     }

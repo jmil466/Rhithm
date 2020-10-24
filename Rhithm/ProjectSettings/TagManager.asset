@@ -24,6 +24,7 @@ TagManager:
   - PreviewPlayPanel
   - PreviousNextPanel
   - Item
+  - PriceButton
   layers:
   - Default
   - TransparentFX

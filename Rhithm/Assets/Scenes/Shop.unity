@@ -205,9 +205,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069714488}
-        m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+      - m_Target: {fileID: 1288184764}
+        m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -337,7 +337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: Coins
 --- !u!222 &91196730
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeBlack
-  itemPrice: 0
+  itemPrice: 1000
   equipped: 0
   purchased: 0
 --- !u!1 &131189304
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeBlue
-  itemPrice: 0
+  itemPrice: 1000
   equipped: 0
   purchased: 0
 --- !u!1 &167991874
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeRed
-  itemPrice: 0
+  itemPrice: 1000
   equipped: 0
   purchased: 0
 --- !u!1 &208798734
@@ -662,9 +662,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069714488}
-        m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+      - m_Target: {fileID: 1288184764}
+        m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -806,9 +806,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069714488}
-        m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+      - m_Target: {fileID: 1288184764}
+        m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerTurtle
-  itemPrice: 0
+  itemPrice: 9999
   equipped: 0
   purchased: 0
 --- !u!1 &272094281
@@ -1939,9 +1939,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1288184764}
         m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2083,9 +2083,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069714488}
-        m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+      - m_Target: {fileID: 1288184764}
+        m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2196,7 +2196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: PayerCubeGreen
-  itemPrice: 0
+  itemPrice: 1000
   equipped: 0
   purchased: 0
 --- !u!1 &1184688823
@@ -2546,9 +2546,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069714488}
-        m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+      - m_Target: {fileID: 1288184764}
+        m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2661,7 +2661,7 @@ MonoBehaviour:
   playerPrefabName: PlayerCubeWhite
   itemPrice: 0
   equipped: 1
-  purchased: 0
+  purchased: 1
 --- !u!1 &1273753374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3641,9 +3641,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069714488}
-        m_TargetAssemblyTypeName: ShopScript, ScriptsAssemblyRef
-        m_MethodName: PriceButton
+      - m_Target: {fileID: 1288184764}
+        m_TargetAssemblyTypeName: PriceScript, ScriptsAssemblyRef
+        m_MethodName: OnClickItemButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4035,7 +4035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeYellow
-  itemPrice: 0
+  itemPrice: 1000
   equipped: 0
   purchased: 0
 --- !u!1 &1871342866

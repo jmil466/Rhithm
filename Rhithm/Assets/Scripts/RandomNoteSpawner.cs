@@ -160,6 +160,9 @@ public class RandomNoteSpawner : MonoBehaviour
         FinalScoreObject.transform.SetParent(null);
         DontDestroyOnLoad(FinalScoreObject);
 
+        GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
+        Destroy(songGameObject);
+
         SceneManager.LoadScene("SongList");
     }
 

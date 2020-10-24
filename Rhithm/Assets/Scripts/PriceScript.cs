@@ -36,7 +36,7 @@ public class PriceScript : MonoBehaviour
 
     public void OnClickItemButton()
     {
-        itemButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>(); //get the Button component
         itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component
         itemScript = itemButton.GetComponentInParent<ItemScript>();
 
@@ -62,23 +62,23 @@ public class PriceScript : MonoBehaviour
         {
             EquipItem();
         }
-        else if (currency >= price)
+        else if ((currency >= price) && (itemButtonText.text == price.ToString()))
         {
             //currency - price;
-            currency = currency - price;
+            currency -= price;
             PlayerPrefs.SetInt("Coins", currency);
 
             PurchaseItem();
         }
-        else if (currency < price)
+        else if ((currency < price) && (itemButtonText.text == price.ToString()))
         {
             insufficientCoins.SetActive(true);
         }
     }
 
-    void PurchaseItem()
+    protected void PurchaseItem()
     {
-        itemButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>(); //get the Button component
         itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component of the clicked button
         itemScript = itemButton.GetComponentInParent<ItemScript>();
 
@@ -98,7 +98,7 @@ public class PriceScript : MonoBehaviour
         //otherText1.color = new Color32(65, 65, 65, 255);
     }
 
-    void EquipItem()
+    protected void EquipItem()
     {
         ColorBlock colors;
         string itemName;
@@ -195,10 +195,10 @@ public class PriceScript : MonoBehaviour
         */
     }
 
-    public void assignItemComponents()
+    public void AssignItemComponents()
     {
-        itemButton = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Button>(); //get the Button component
-        itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component
-        itemScript = itemButton.GetComponentInParent<ItemScript>();
+        itemButton = EventSystem.current.currentSelectedGameObject.GetComponent<Button>(); //get the Button component when a button is clicked
+        itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component when a button is clicked
+        itemScript = itemButton.GetComponentInParent<ItemScript>(); //get the ItemScript component from the Parent gameObject (Item)
     }
 }

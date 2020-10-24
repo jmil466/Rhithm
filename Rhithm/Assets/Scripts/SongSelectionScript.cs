@@ -6,7 +6,7 @@ using System;
 
 public class SongSelectionScript : MonoBehaviour
 {
-    public GameObject musicVolObj;
+    //public GameObject musicVolObj;
 
     public GameObject[] songs; //all the songs
     public GameObject songDatabase;
@@ -40,7 +40,7 @@ public class SongSelectionScript : MonoBehaviour
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PillarsOfCreation"), songDatabase.transform);
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PianoCommercialSong"), songDatabase.transform);
 
-        musicVolObj = GameObject.Find("MusicVolObj");
+        //musicVolObj = GameObject.Find("MusicVolObj");
 
         FindSongs();
 
@@ -217,7 +217,7 @@ public class SongSelectionScript : MonoBehaviour
 
         DontDestroyOnLoad(SongObject);
         DontDestroyOnLoad(selectedAudioSource);
-        if (musicVolObj != null) DontDestroyOnLoad(musicVolObj);
+        //if (musicVolObj != null) DontDestroyOnLoad(musicVolObj);
 
         SceneManager.LoadScene("MainGameplay"); //load main scene
     }

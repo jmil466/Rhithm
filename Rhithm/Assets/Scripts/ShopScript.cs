@@ -18,7 +18,7 @@ public class ShopScript : MonoBehaviour
 
     public void SetShop()
     {
-        userCurrencyText.text = PlayerPrefs.GetInt("Coins").ToString(); //Get user coins
+        userCurrencyText.text = "$" + PlayerPrefs.GetInt("Coins").ToString(); //Get user coins
 
         items = GameObject.FindGameObjectsWithTag("Item"); //Find all items in the shop
 
@@ -69,7 +69,7 @@ public class ShopScript : MonoBehaviour
                 }
             } else //If the item has NOT been purchased
             {
-                itemButtonText.text = itemScript.itemPrice.ToString();
+                itemButtonText.text = "$" + itemScript.itemPrice.ToString();
             }
         }
     }

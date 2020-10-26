@@ -134,11 +134,11 @@ public class NoteGenerator : MonoBehaviour
                 //Debug.Log("SMALLER " + largestFlux);
             }
 
-           if(elapsedTime < songLength - 2.5f)
+           if(elapsedTime < songLength + 2f)
            {
                 if (elapsedTime > startDelay)
                 {
-                    if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / difficultyMultiplier))
+                    if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / difficultyMultiplier) && (songLength - elapsedTime > 2.5f))
                     {
                         previousTime = elapsedTime;
                         spawnNote(pointInfo[i].spectralFlux);
@@ -152,7 +152,7 @@ public class NoteGenerator : MonoBehaviour
                 if (score.getNoteMissed() == false) // Full Combo's reward
                 {
                     //Celebrate here
-                    confetti.Play(); // 
+                    confetti.Play(); 
                     Debug.Log("Woop");
                     songData.savePerfectScore();
                 }

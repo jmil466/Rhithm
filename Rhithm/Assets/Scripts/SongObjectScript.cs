@@ -74,7 +74,7 @@ public class SongObjectScript : MonoBehaviour
     {
         return audioLength;
     }
-    
+
     public float GetDifficultyMultiplier()
     {
         return difficultyMultiplier;
@@ -84,7 +84,7 @@ public class SongObjectScript : MonoBehaviour
     {
         return highScore;
     }
-    
+
     public string GetSongName()
     {
         return audioName;
@@ -98,7 +98,7 @@ public class SongObjectScript : MonoBehaviour
         }
         else
         {
-            return false;      
-        }       
+            return false;
+        }
     }
 }

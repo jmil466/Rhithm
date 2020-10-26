@@ -38,6 +38,7 @@ public class SongSelectionScript : MonoBehaviour
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PillarsOfCreation"), songDatabase.transform);
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PianoCommercialSong"), songDatabase.transform);
 
+        Debug.Log("Coins: " + PlayerPrefs.GetInt("Coins"));
 
         FindSongs();
         AssignCurrentSong();

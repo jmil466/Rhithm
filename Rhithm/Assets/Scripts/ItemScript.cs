@@ -17,27 +17,27 @@ public class ItemScript : MonoBehaviour
         playerPrefabLocation = "Prefabs/" + playerPrefabName;
     }
     
-    public string getPrefabLocation()
+    public string GetPrefabLocation()
     {
         return playerPrefabLocation;
     }
 
-    public bool isEquipped()
+    public bool IsEquipped()
     {
         return equipped;
     }
 
-    public void setEquipped(bool state)
+    public void SetEquipped(bool state)
     {
         equipped = state;
     }
 
-    public bool isPurchased()
+    public bool IsPurchased()
     {
         return purchased;
     }
 
-    public void setPurchased(bool state)
+    public void SetPurchased(bool state)
     {
         purchased = state;
     }

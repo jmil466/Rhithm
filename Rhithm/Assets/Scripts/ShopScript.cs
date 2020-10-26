@@ -9,10 +9,20 @@ public class ShopScript : MonoBehaviour
     public Text userCurrencyText;
     private int userCoins;
 
+    void Awake()
+    {
+        //PlayerPrefs.SetInt("PlayerCubeWhitePurchased", 0);
+        //PlayerPrefs.SetInt("PlayerCubeWhiteEquipped", 0);
+
+        //PlayerPrefs.SetInt("PlayerCubeRedPurchased", 0);
+        //PlayerPrefs.SetInt("PlayerCubeRedEquipped", 0);
+
+        SetShop();
+    }
+
     void Start()
     {
-        SetShop();
-
+        PlayerPrefs.SetInt("Coins", 1000);
         userCoins = PlayerPrefs.GetInt("Coins");
     }
 
@@ -21,6 +31,7 @@ public class ShopScript : MonoBehaviour
         userCurrencyText.text = "$" + PlayerPrefs.GetInt("Coins").ToString(); //Get user coins
 
         items = GameObject.FindGameObjectsWithTag("Item"); //Find all items in the shop
+        Debug.Log("Running SetShop() of ShopScript... Num of items = " + items.Length);
 
         ItemScript itemScript; //ItemScript for an item in the shop
         Button itemButton; //Button component of corresponding item in the shop
@@ -42,16 +53,18 @@ public class ShopScript : MonoBehaviour
             //This part is only applicable to the user very first opening of the game
             if (itemName.Equals("PlayerCubeWhite")) //The first playable player model
             {
-                if (!intToBool(PlayerPrefs.GetInt(itemPurchased))) //If the item has not been purchased (Auto-purchase it for the user)
+                if (!IntToBool(PlayerPrefs.GetInt(itemPurchased))) //If the item has not been purchased (Auto-purchase it for the user)
                 {
                     PlayerPrefs.SetInt(itemPurchased, 1); //Save purchase
+                    itemScript.SetPurchased(true);
                     PlayerPrefs.SetInt(itemEquipped, 1); //Auto-equip and save equipped state
+                    itemScript.SetEquipped(true);
                 }
             }
 
-            if (intToBool(PlayerPrefs.GetInt(itemPurchased))) //If the item has been purchased
+            if (IntToBool(PlayerPrefs.GetInt(itemPurchased))) //If the item has been purchased
             {
-                if (intToBool(PlayerPrefs.GetInt(itemEquipped))) //If the item is equipped from previous visit
+                if (IntToBool(PlayerPrefs.GetInt(itemEquipped))) //If the item is equipped from previous visit
                 {
                     itemButton.interactable = false;
                     colors = itemButton.colors;
@@ -84,7 +97,7 @@ public class ShopScript : MonoBehaviour
         insufficientCoins.SetActive(false);
     }
 
-    public int getCoins()
+    public int GetCoins()
     {
         return userCoins;
     }
@@ -94,7 +107,7 @@ public class ShopScript : MonoBehaviour
         return items;
     }
 
-    public int boolToInt(bool value)
+    public int BoolToInt(bool value)
     {
         if (value)
         {
@@ -106,7 +119,7 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    public bool intToBool(int value)
+    public bool IntToBool(int value)
     {
         if (value != 0)
         {

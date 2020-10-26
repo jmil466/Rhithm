@@ -37,6 +37,7 @@ public class NoteGenerator : MonoBehaviour
     public CompletionScript completionUI;
     public GameObject FinalScoreObject;
     public SaveSongData songData;
+    private bool ending = false;
 
     //SpectrumFlux data
     float largestFlux = 0f;
@@ -148,35 +149,48 @@ public class NoteGenerator : MonoBehaviour
            } else
             {
 
-                if (score.getNoteMissed() == false) // Full Combo's reward
+                if(ending == false)
                 {
-                    //Celebrate here
-                    confetti.Play();
-                    Debug.Log("Woop");
-                    songData.savePerfectScore();
-                    StartCoroutine(WaitTime(4));
+                    ending = true;
+
+
+                    if (score.getNoteMissed() == false) // Full Combo's reward
+                    {
+                        //Celebrate here
+                        confetti.Play();
+                        Debug.Log("Woop");
+                        songData.savePerfectScore();
+                        StartCoroutine(WaitTime(4));
+                    }
+
+                    score.calculateHighScore();
+                    Debug.Log(score.getHighScore().ToString());
+                    completionUI.displayCompletionUI();
+                    songData.CalculateCoins();
+
+                    StartCoroutine(WaitTime(10));
+
+                    FinalScoreObject = GameObject.Find("FinalScoreObject");
+                    FinalScoreObject.transform.SetParent(null);
+                    DontDestroyOnLoad(FinalScoreObject);
+
+                    GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
+                    Destroy(songGameObject);
+
+                    StartCoroutine(WaitTime(1000));
+
+
+
+                    SceneManager.LoadScene("SongListDemo");
                 }
-
-                score.calculateHighScore();
-                Debug.Log(score.getHighScore().ToString());
-                completionUI.displayCompletionUI();
-                songData.CalculateCoins();
-
-                StartCoroutine(WaitTime(10));
-
-                FinalScoreObject = GameObject.Find("FinalScoreObject");
-                FinalScoreObject.transform.SetParent(null);
-                DontDestroyOnLoad(FinalScoreObject);
-
-                GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
-                Destroy(songGameObject);
-
-                SceneManager.LoadScene("SongListDemo");
+               
             }
 
 
         }
     }
+
+
 
     public void spawnNote(float currentFlux)
     {

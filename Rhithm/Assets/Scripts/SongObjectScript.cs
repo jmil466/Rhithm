@@ -31,7 +31,8 @@ public class SongObjectScript : MonoBehaviour
         audioClip = audioSource.clip;
         audioName = audioClip.name;
         Debug.Log("setupSong(): audioName = " + audioName);
-        audioLength = audioClip.length;
+        //audioLength = audioClip.length;
+        audioLength = 10f;
         string savedScoreName = audioName + "_highscore";
         highScore = PlayerPrefs.GetInt(savedScoreName);
         Debug.Log(highScore);

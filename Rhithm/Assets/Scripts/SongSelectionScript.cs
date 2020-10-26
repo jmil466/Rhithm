@@ -13,6 +13,7 @@ public class SongSelectionScript : MonoBehaviour
     public int numOfSongs;
     public int activeSongCounter; //the active song counter
 
+    public Text songNameText;
     public GameObject currentSong;
     public SongObjectScript songObjectScript;
     public GameObject SongObject; //the selected song (EmptyObject form)
@@ -20,8 +21,6 @@ public class SongSelectionScript : MonoBehaviour
 
     public GameObject songMenu;
     public GameObject difficultyMenu;
-
-    public Text songNameText;
 
     public AudioSource buttonClickSound;
 

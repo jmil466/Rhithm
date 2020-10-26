@@ -430,6 +430,18 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6736947088866718158, guid: fc168a1df3cfa694780df7419b4e8e9d, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6736947088866718158, guid: fc168a1df3cfa694780df7419b4e8e9d, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6736947088866718158, guid: fc168a1df3cfa694780df7419b4e8e9d, type: 3}
+      propertyPath: lengthInSec
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc168a1df3cfa694780df7419b4e8e9d, type: 3}
 --- !u!198 &253568133 stripped
@@ -1648,15 +1660,15 @@ PrefabInstance:
       objectReference: {fileID: 210081462}
     - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
       propertyPath: noteOneSpawn.z
-      value: 23
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
       propertyPath: noteTwoSpawn.z
-      value: 23
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
       propertyPath: noteThreeSpawn.z
-      value: 23
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
       propertyPath: completionUI
@@ -1670,6 +1682,18 @@ PrefabInstance:
       propertyPath: score
       value: 
       objectReference: {fileID: 550558749}
+    - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
+      propertyPath: noteOneSpawn.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
+      propertyPath: noteTwoSpawn.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344090166648962804, guid: d224400632d865a4286a428e5d3123dc, type: 3}
+      propertyPath: noteThreeSpawn.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5344090166648962805, guid: d224400632d865a4286a428e5d3123dc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.375
@@ -2611,11 +2635,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1040029594934147136, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -200
+      value: -265.9
       objectReference: {fileID: 0}
     - target: {fileID: 1040029594934147136, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 46.199997
+      value: 158.40001
       objectReference: {fileID: 0}
     - target: {fileID: 2200731997620044821, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_UiScaleMode
@@ -2663,7 +2687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709463466364164463, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -200
+      value: -265.9
       objectReference: {fileID: 0}
     - target: {fileID: 8709463466364164463, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2671,7 +2695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8709463466364164463, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.8
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 8862740658141306923, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_LocalPosition.x

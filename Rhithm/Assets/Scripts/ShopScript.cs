@@ -22,7 +22,7 @@ public class ShopScript : MonoBehaviour
         //PlayerPrefs.SetInt("PlayerCubeGreenPurchased", 0);
         //PlayerPrefs.SetInt("PlayerCubeGreenEquipped", 0);
 
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
 
         //PlayerPrefs.SetInt("Coins", 99999);
 
@@ -75,14 +75,13 @@ public class ShopScript : MonoBehaviour
                     colors.normalColor = new Color32(185, 185, 185, 255);
                     itemButtonText.color = new Color32(75, 75, 75, 255);
                     itemButtonText.text = "Equipped";
-                    //Instantiate(Resources.Load<GameObject>(itemScript.GetPrefabLocation()), itemSect.transform); //load the player model
                 }
                 else //If the item is NOT equipped from previous visit
                 {
                     itemButton.interactable = true;
                     colors = itemButton.colors;
-                    colors.normalColor = new Color32(115, 115, 115, 255);
-                    itemButtonText.color = new Color32(85, 85, 85, 255);
+                    colors.normalColor = new Color32(75, 75, 75, 255);
+                    itemButtonText.color = new Color32(255, 255, 255, 255);
                     itemButtonText.text = "Equip";
                 }
             } else //If the item has NOT been purchased

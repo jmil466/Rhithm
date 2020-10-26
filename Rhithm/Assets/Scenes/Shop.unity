@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9bb0419af23934384fa6685cbed780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabName: PayerCubeGreen
+  playerPrefabName: PlayerCubeGreen
   itemPrice: 1000
   equipped: 0
   purchased: 0

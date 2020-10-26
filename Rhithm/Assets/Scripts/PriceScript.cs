@@ -7,18 +7,8 @@ using UnityEngine.EventSystems;
 
 public class PriceScript : MonoBehaviour
 {
-    //public Button selectedButton;
-    //public Button otherButton1;
-    //public Button otherButton2;
-    //public Button otherButton3;
-    //public Button otherButton4;
-    //public Button otherButton5;
-    //public Button otherButton6;
-    //public Text priceText;
     public Text currencyText;
     public GameObject insufficientCoins;
-    //maybe unnecessary
-    //private bool isBought = false;
     public GameObject[] items;
     public ColorBlock colors;
 
@@ -41,21 +31,6 @@ public class PriceScript : MonoBehaviour
         itemButtonText = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>(); //get the Text component
         itemScript = itemButton.GetComponentInParent<ItemScript>();
 
-        //priceText = selectedButton.GetComponentInChildren<Text>();
-        //Debug.Log(priceText);
-
-        //if (priceText.text == "Equip")
-        //{
-        //    EquipItem();
-        //}
-        //else if (int.Parse(currencyText.text) >= int.Parse(priceText.text))
-        //{
-        //    ItemBought();
-        //}
-        //else if (int.Parse(currencyText.text) < int.Parse(priceText.text))
-        //{
-        //    insufficientCoins.SetActive(true);
-        //}
         int currency = PlayerPrefs.GetInt("Coins");
         int price = itemScript.itemPrice;
 
@@ -69,7 +44,6 @@ public class PriceScript : MonoBehaviour
         }
         else if ((currency >= price) && (itemButtonText.text == ("$" + price.ToString())))
         {
-            //currency - price;
             currency -= price;
             PlayerPrefs.SetInt("Coins", currency);
             currencyText.text = currency.ToString();
@@ -92,15 +66,10 @@ public class PriceScript : MonoBehaviour
         PlayerPrefs.SetInt(itemPurchased, 1); //purchases the item 0-false, 1-true
         itemScript.SetPurchased(true);
 
-        //selectedButton.interactable = false;
-        //isBought = true;
         colors = itemButton.colors;
-        //priceText = selectedButton.GetComponentInChildren<Text>();
-        //Make button lighter and text darker than before bought but not as much as when Equipped
         colors.normalColor = new Color32(115, 115, 115, 255);
         itemButtonText.color = new Color32(85, 85, 85, 255);
         itemButtonText.text = "Equip";
-        //otherText1.color = new Color32(65, 65, 65, 255);
     }
 
     protected void EquipItem()
@@ -140,7 +109,6 @@ public class PriceScript : MonoBehaviour
         itemScript = itemButton.GetComponentInParent<ItemScript>();
 
         playerPrefabLocation = itemButton.GetComponentInParent<ItemScript>().GetPrefabLocation();
-        //Instantiate(Resources.Load<GameObject>(playerPrefabLocation), Items.transform);
 
         itemName = itemScript.playerPrefabName;
         itemEquipped = itemName + "Equipped";
@@ -154,51 +122,6 @@ public class PriceScript : MonoBehaviour
         colors.normalColor = new Color32(185, 185, 185, 255);
         itemButtonText.color = new Color32(75, 75, 75, 255);
         itemButtonText.text = "Equipped";
-        //set player == item
-            
-        //if isBought loop inside for loop
-        //foreach (GameObject item in items)
-        //{
-        //    Button otherButton = item.transform.Find("PriceButton").GetComponent<Button>();
-        //    Text otherText = item.transform.Find("PriceButton").GetComponentInChildren<Text>();
-
-        //    if (otherText.text == "Equipped")
-        //    {
-        //        Debug.Log(otherText.text);
-        //        otherText.text = "Equip";
-        //        otherText.color = new Color32(255, 255, 255, 255);
-
-        //        colors = otherButton.colors;
-        //        colors.normalColor = new Color32(75, 75, 75, 255);
-        //        otherButton.colors = colors;
-        //    }
-        //}
-
-        /*
-        for (int i = 0; i < items.Length; i++)
-        {
-            //private Text otherText = items[i].GameObject.Transform.Find("PriceButton").GetComponentInChildren<Text>();
-            //private Button otherButton = items[i].GameObject.Transform.Find("PriceButton");
-
-            private Button otherButton = items[i].GameObject.FindGameObjectsWithTag("PriceButton");
-            private Text otherText = otherButton.GetComponentInChildren<Text>();
-
-            if (otherText.text == "Equipped")
-            {
-                otherText.text = "Equip";
-                otherText.color = new Color32(255, 255, 255, 255);
-
-                ColorBlock colors = otherButton.colors;
-                colors.normalColor = new Color32(75, 75, 75, 255);
-                otherButton.colors = colors;
-            }
-        }
-        /*
-        if (isBought == true)
-        {
-
-        }
-        */
     }
 
     public void AssignItemComponents()

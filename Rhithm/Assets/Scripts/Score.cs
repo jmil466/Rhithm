@@ -23,10 +23,9 @@ public class Score : MonoBehaviour
         score = 0;
         updateScoreText();
         updateMultiplierText();
-        findHighScore();
     }
 
-    private void findHighScore()
+    private void FindHighScore()
     {
         song = (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
         highScore = song.GetSongHighScore();
@@ -96,7 +95,8 @@ public class Score : MonoBehaviour
     }
 
     public int calculateHighScore()
-    { 
+    {
+        FindHighScore();
 
         Debug.Log("Current score: " + score + ", High Score was: " + highScore);
         if(score > highScore)

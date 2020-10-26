@@ -28,8 +28,8 @@ public class NoteGenerator : MonoBehaviour
     public SongObjectScript song;
     public float songLength; // The Length of the song being played
     public float startDelay; // Delay of spawning for songs that don't start instantly 
-    float elapsedTime = 0;
-    float previousTime;
+    private float elapsedTime = 0;
+    private float previousTime;
 
     // Score Related
     public Score score; // Score Object
@@ -40,17 +40,17 @@ public class NoteGenerator : MonoBehaviour
     private bool ending = false;
 
     //SpectrumFlux data
-    float largestFlux = 0f;
-    float obstacleFlux;
-    float noteOneFlux;
-    float noteTwoFlux;
+    private float largestFlux = 0f;
+    private float obstacleFlux;
+    private float noteOneFlux;
+    private float noteTwoFlux;
 
     // Start is called before the first frame update
     void Start()
     {
         try
         {
-            song = findSong();
+            song = findSong(); // Finds SongObject in scene
             BPM = song.GetBPM(); // Gets selected Song's BPM
             songLength = song.GetAudioLength(); // Gets the song's length in seconds
             secondsPerBeat = 60f / BPM; // Calculates Seconds per Beat
@@ -116,40 +116,42 @@ public class NoteGenerator : MonoBehaviour
 
 
         for (int i = windowStart; i < windowEnd; i++)
-        { 
+        {
 
             int plotIndex = numPlotted;
             numPlotted++;
 
-            if (pointInfo[i].spectralFlux > largestFlux && (pointInfo[i].spectralFlux / largestFlux) >= 4)
+            if (pointInfo[i].spectralFlux > largestFlux && (pointInfo[i].spectralFlux / largestFlux) >= 4) // If currentFlux is larger than existing largestflux, AND if the currentFlux is 4x larger than the current largestFlux
             {
                 largestFlux = pointInfo[i].spectralFlux;
                 calculateFlux(largestFlux);
 
                 //Debug.Log("BIGGER " + largestFlux);
 
-            } else if (largestFlux / pointInfo[i].spectralFlux >= 10)
+            }
+            else if (largestFlux / pointInfo[i].spectralFlux >= 10) // If largestFlux is 10x larger than the currentFlux
             {
                 largestFlux = pointInfo[i].spectralFlux;
                 calculateFlux(largestFlux);
                 //Debug.Log("SMALLER " + largestFlux);
             }
 
-           if(elapsedTime < songLength + 2f)
-           {
-                if (elapsedTime > startDelay)
+            if (elapsedTime < songLength + 2f) // Determines if song is ending
+            {
+                if (elapsedTime > startDelay) // Determines if starting Delay has been completed
                 {
-                    if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / difficultyMultiplier) && (songLength - elapsedTime > 2.5f))
+                    if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / difficultyMultiplier) && (songLength - elapsedTime > 2.5f)) // To prevent multiple notes spawn for each 'beat', as well as stopping spawning prior to audio end
                     {
                         previousTime = elapsedTime;
                         spawnNote(pointInfo[i].spectralFlux);
                     }
 
                 }
-           } else
+            }
+            else
             {
 
-                if(ending == false)
+                if (ending == false)
                 {
                     ending = true;
 
@@ -183,7 +185,7 @@ public class NoteGenerator : MonoBehaviour
 
                     SceneManager.LoadScene("SongListDemo");
                 }
-               
+
             }
 
 
@@ -201,7 +203,7 @@ public class NoteGenerator : MonoBehaviour
         }
         else if (currentFlux > noteOneFlux && currentFlux <= obstacleFlux)
         {
-            int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
+            int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length); // Selects lane for Obstacle to be spawned in
             setNotePosition(obstacle, noteSpawnPositions[index]);
         }
         else if (currentFlux > obstacleFlux && currentFlux < noteTwoFlux * 1.25)

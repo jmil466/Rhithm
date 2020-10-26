@@ -62,18 +62,17 @@ namespace Tests
             SettingsMenu settingsMenuScript = settingsMenu.GetComponent<SettingsMenu>();
             GameObject sfxVolObj = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/SFXVolObj"));
             SFXVolObj sfxVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
-            AudioMixer sfxMixer = MonoBehaviour.Instantiate(Resources.Load<AudioMixer>("Audio/SFXMixer"));
 
             float currentSfxVolValue = sfxVolObjScript.getSfxVolValue();
-            float newSfxVolValue = Random.Range(currentSfxVolValue, 0.0f);
+            float newSfxVolValue = Random.Range(currentSfxVolValue, 10.0f);
 
             settingsMenuScript.SetSFXVolume(newSfxVolValue);
-            float value;
-            sfxMixer.GetFloat("volume", out value);
+            float value = settingsMenuScript.GetSFXVolume();
 
-            Assert.Greater(value, currentSfxVolValue);
+            Assert.AreEqual(value, newSfxVolValue);
+            Assert.Greater(newSfxVolValue, currentSfxVolValue);
         }
-      
+
         [Test]
         public void DecreaseSFXVolume()
         {
@@ -81,15 +80,14 @@ namespace Tests
             SettingsMenu settingsMenuScript = settingsMenu.GetComponent<SettingsMenu>();
             GameObject sfxVolObj = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/SFXVolObj"));
             SFXVolObj sfxVolObjScript = sfxVolObj.GetComponent<SFXVolObj>();
-            AudioMixer sfxMixer = MonoBehaviour.Instantiate(Resources.Load<AudioMixer>("Audio/SFXMixer"));
 
             float currentSfxVolValue = sfxVolObjScript.getSfxVolValue();
             float newSfxVolValue = Random.Range(-40.0f, currentSfxVolValue);
 
             settingsMenuScript.SetSFXVolume(newSfxVolValue);
-            float value;
-            sfxMixer.GetFloat("volume", out value);
+            float value = settingsMenuScript.GetSFXVolume();
 
+            Assert.AreEqual(value, newSfxVolValue);
             Assert.Less(value, currentSfxVolValue);
         }
 
@@ -211,13 +209,13 @@ namespace Tests
 
             GameObject[] songPanels = songSelectionScript.songs;
 
-            int numOfPanels = songSelectionScript.numOfPanels; //get the number of songPanels in the canvas
+            int numOfPanels = songSelectionScript.numOfSongs; //get the number of songPanels in the canvas
             int randPanel = Random.Range(0, numOfPanels - 1); //get a random song panel
-            int activePanel = songSelectionScript.activePanelCounter; //get the active song panel
+            int activePanel = songSelectionScript.activeSongCounter; //get the active song panel
 
             songPanels[activePanel].SetActive(false); //hide the current active song panel
 
-            songSelectionScript.activePanelCounter = randPanel;
+            songSelectionScript.activeSongCounter = randPanel;
             activePanel = randPanel;
 
             songPanels[activePanel].SetActive(true);

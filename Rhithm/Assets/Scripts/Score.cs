@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
         updateMultiplierText();
     }
 
-    private void findHighScore()
+    private void FindHighScore()
     {
         song = (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
         highScore = song.GetSongHighScore();
@@ -94,20 +94,20 @@ public class Score : MonoBehaviour
         return highScore;
     }
 
-    public int calculateHighScore()
+    public void calculateHighScore()
     {
-
-        Debug.Log("Current score: " + score + ", High Score was: " + highScore);
+        FindHighScore();
+        Debug.Log("Current score: " + score + ", Current High Score: " + highScore);
         if(score > highScore)
         {
             songData.saveHighScore(score);
             highScore = score;
-            return score;
+            //return score;
 
         } else
         {
-            songData.saveHighScore(highScore);
-            return highScore;
+            //songData.saveHighScore(highScore);
+            //return highScore;
         }
     
     }

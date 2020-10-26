@@ -35,4 +35,12 @@ public class SettingsMenu : MonoBehaviour
     {
         sfxMixer.SetFloat("volume", volume);
     }
+
+    public float GetSFXVolume()
+    {
+        float currentVolume;
+        sfxMixer.GetFloat("volume", out currentVolume);
+
+        return currentVolume;
+    }
 }

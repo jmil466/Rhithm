@@ -7,6 +7,8 @@ public class SaveSongData : MonoBehaviour
 
     private SongObjectScript song;
     private string songName;
+    public CompletionScript completionScript;
+    private int coins;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,15 @@ public class SaveSongData : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void CalculateCoins()
+    {
+        int currentSavedCoins = PlayerPrefs.GetInt("Coins");
+        Debug.Log("CalculatingCoins(): Userscore: " + completionScript.getUserScore());
+        coins = completionScript.getUserScore() * 2;
+        PlayerPrefs.SetInt("Coins", currentSavedCoins+coins);
+        Debug.Log(PlayerPrefs.GetInt("Coins"));
     }
 
     public void saveHighScore(int highScore)

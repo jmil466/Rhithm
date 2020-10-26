@@ -22,4 +22,14 @@ public class MainMenu : MonoBehaviour
 
         SceneManager.LoadScene("SongListDemo");
     }
+
+    public void Shop()
+    {
+        SceneManager.LoadScene("Shop");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
 }

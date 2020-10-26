@@ -14,6 +14,7 @@ public class CompletionScript : MonoBehaviour
     public Text userScoreText;
     public Score score;
     public GameObject scoreUI;
+    public FinalScoreScript finalScoreScript;
 
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class CompletionScript : MonoBehaviour
         uiVisible = true;
         displayHighScore();
         displayUserScore();
+        finalScoreScript.CalculateFinalScore();
     }
 
 

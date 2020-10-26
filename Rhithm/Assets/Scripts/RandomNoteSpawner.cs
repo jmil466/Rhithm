@@ -139,13 +139,14 @@ public class RandomNoteSpawner : MonoBehaviour
         {
             //Celebrate here
             confetti.Play(); // 
-            Debug.Log("Woop");
+            Debug.Log("You received a perfect score! (no misses)");
             songData.savePerfectScore();
         }
 
         score.calculateHighScore();
-        Debug.Log(score.getHighScore().ToString());
+        //Debug.Log(score.getHighScore().ToString());
         completionUI.displayCompletionUI();
+        songData.CalculateCoins(); //calculate amount of coins based on score and add to their current amount
 
         //if (score.getNoteMissed() == false) // Stops celebration
         //{
@@ -158,6 +159,9 @@ public class RandomNoteSpawner : MonoBehaviour
         FinalScoreObject = GameObject.Find("FinalScoreObject");
         FinalScoreObject.transform.SetParent(null);
         DontDestroyOnLoad(FinalScoreObject);
+
+        GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
+        Destroy(songGameObject);
 
         SceneManager.LoadScene("SongList");
     }

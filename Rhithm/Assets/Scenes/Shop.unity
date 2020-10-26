@@ -4309,4 +4309,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   insufficientCoins: {fileID: 1755378885}
   userCurrencyText: {fileID: 91196729}
-  itemSect: {fileID: 0}
+  itemSect: {fileID: 1288184762}

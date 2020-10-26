@@ -12,19 +12,16 @@ public class ShopScript : MonoBehaviour
 
     void Awake()
     {
+        //PlayerPrefs.SetInt("Coins", 999);
+
         //PlayerPrefs.SetInt("PlayerCubeWhitePurchased", 0);
         //PlayerPrefs.SetInt("PlayerCubeWhiteEquipped", 0);
 
-        //PlayerPrefs.SetInt("PlayerCubeRedPurchased", 0);
-        //PlayerPrefs.SetInt("PlayerCubeRedEquipped", 0);
+        PlayerPrefs.SetInt("PlayerCubeRedPurchased", 0);
+        PlayerPrefs.SetInt("PlayerCubeRedEquipped", 0);
 
-        SetShop();
-    }
-
-    void Start()
-    {
-        PlayerPrefs.SetInt("Coins", 1000);
         userCoins = PlayerPrefs.GetInt("Coins");
+        SetShop();
     }
 
     public void SetShop()

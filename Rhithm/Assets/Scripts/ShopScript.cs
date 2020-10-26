@@ -59,6 +59,7 @@ public class ShopScript : MonoBehaviour
                     itemScript.SetPurchased(true);
                     PlayerPrefs.SetInt(itemEquipped, 1); //Auto-equip and save equipped state
                     itemScript.SetEquipped(true);
+                    //Instantiate(Resources.Load<GameObject>(itemScript.GetPrefabLocation()));
                 }
             }
 

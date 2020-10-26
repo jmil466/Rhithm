@@ -24,7 +24,8 @@ public class ItemScript : MonoBehaviour
 
     public bool IsEquipped()
     {
-        return equipped;
+        string key = playerPrefabName + "Equipped";
+        return IntToBool(PlayerPrefs.GetInt(key));
     }
 
     public void SetEquipped(bool state)
@@ -34,11 +35,36 @@ public class ItemScript : MonoBehaviour
 
     public bool IsPurchased()
     {
-        return purchased;
+        string key = playerPrefabName + "Purhcased";
+        return IntToBool(PlayerPrefs.GetInt(key));
     }
 
     public void SetPurchased(bool state)
     {
         purchased = state;
+    }
+
+    public int BoolToInt(bool value)
+    {
+        if (value)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public bool IntToBool(int value)
+    {
+        if (value != 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

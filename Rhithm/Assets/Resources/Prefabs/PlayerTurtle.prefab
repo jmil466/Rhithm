@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3126192163085914412}
   - component: {fileID: 3126192163085914400}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
+  m_Name: PlayerTurtle
+  m_TagString: PlayerModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae10dd44b380a8d4cb81f95175907843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpComplete: 0
 --- !u!65 &3126192163085914400
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class ShopScript : MonoBehaviour
 
         PlayerPrefs.DeleteAll();
 
-        //PlayerPrefs.SetInt("Coins", 99999);
+        PlayerPrefs.SetInt("Coins", 99999);
 
         userCoins = PlayerPrefs.GetInt("Coins");
         SetShop();

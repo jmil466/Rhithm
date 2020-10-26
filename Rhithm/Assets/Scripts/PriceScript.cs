@@ -67,8 +67,8 @@ public class PriceScript : MonoBehaviour
         itemScript.SetPurchased(true);
 
         colors = itemButton.colors;
-        colors.normalColor = new Color32(115, 115, 115, 255);
-        itemButtonText.color = new Color32(85, 85, 85, 255);
+        colors.normalColor = new Color32(75, 75, 75, 255);
+        itemButtonText.color = new Color32(255, 255, 255, 255);
         itemButtonText.text = "Equip";
     }
 

@@ -398,8 +398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeBlack
   itemPrice: 5000
-  equipped: 0
-  purchased: 0
 --- !u!1 &131189304
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +522,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeBlue
   itemPrice: 1000
-  equipped: 0
-  purchased: 0
 --- !u!1 &167991874
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,8 +574,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeRed
   itemPrice: 1000
-  equipped: 0
-  purchased: 0
 --- !u!1 &208798734
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,8 +914,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerTurtle
   itemPrice: 9999
-  equipped: 0
-  purchased: 0
 --- !u!1 &272094281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.29411766, g: 0.29411766, b: 0.29411766, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1981,7 +1973,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.7254902, g: 0.7254902, b: 0.7254902, a: 1}
+    m_NormalColor: {r: 0.29411766, g: 0.29411766, b: 0.29411766, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.23529412}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.47058824}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1999,7 +1991,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 886953400}
   m_OnClick:
     m_PersistentCalls:
@@ -2262,8 +2254,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeGreen
   itemPrice: 1000
-  equipped: 0
-  purchased: 0
 --- !u!1 &1184688823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2725,8 +2715,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeWhite
   itemPrice: 0
-  equipped: 1
-  purchased: 1
 --- !u!1 &1273753374
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,8 +4087,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefabName: PlayerCubeGold
   itemPrice: 2500
-  equipped: 0
-  purchased: 0
 --- !u!1 &1871342866
 GameObject:
   m_ObjectHideFlags: 0

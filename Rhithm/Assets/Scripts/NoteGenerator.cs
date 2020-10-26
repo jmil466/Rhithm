@@ -147,14 +147,14 @@ public class NoteGenerator : MonoBehaviour
                 }
            } else
             {
-                StartCoroutine(WaitTime(8));
 
                 if (score.getNoteMissed() == false) // Full Combo's reward
                 {
                     //Celebrate here
-                    confetti.Play(); 
+                    confetti.Play();
                     Debug.Log("Woop");
                     songData.savePerfectScore();
+                    StartCoroutine(WaitTime(4));
                 }
 
                 score.calculateHighScore();
@@ -162,7 +162,7 @@ public class NoteGenerator : MonoBehaviour
                 completionUI.displayCompletionUI();
                 songData.CalculateCoins();
 
-                StartCoroutine(WaitTime(3));
+                StartCoroutine(WaitTime(10));
 
                 FinalScoreObject = GameObject.Find("FinalScoreObject");
                 FinalScoreObject.transform.SetParent(null);

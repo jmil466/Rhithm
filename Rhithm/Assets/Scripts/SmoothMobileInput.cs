@@ -21,7 +21,7 @@ public class SmoothMobileInput : MonoBehaviour
     void Update()
     {
         lerpComplete = false;
-        UnityEngine.Debug.Log("pos is now " + transform.position.x);
+        //UnityEngine.Debug.Log("pos is now " + transform.position.x);
 
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)

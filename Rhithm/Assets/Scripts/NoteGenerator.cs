@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NoteGenerator : MonoBehaviour
 {
@@ -30,12 +31,12 @@ public class NoteGenerator : MonoBehaviour
     float elapsedTime = 0;
     float previousTime;
 
-    // public Score score;
-    // Score Object
+    // Score Related
+    public Score score; // Score Object
     public ParticleSystem confetti; // Celebratory particle System
-    // public CompletionScript completionUI;
+    public CompletionScript completionUI;
     public GameObject FinalScoreObject;
-    // public SaveSongData songData;
+    public SaveSongData songData;
 
     //SpectrumFlux data
     float largestFlux = 0f;
@@ -55,6 +56,7 @@ public class NoteGenerator : MonoBehaviour
             noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
             startDelay = song.GetStartDelay();
             difficultyMultiplier = song.GetDifficultyMultiplier();
+            Debug.Log("START A");
         }
         catch (System.Exception e)
         { // Catch for when song doesn't load, spawn objects with no sound (testing purposes only)
@@ -63,6 +65,7 @@ public class NoteGenerator : MonoBehaviour
             secondsPerBeat = 60f / BPM; // Calculates Seconds per Beat
             noteSpawnPositions = new Vector3[] { noteOneSpawn, noteTwoSpawn, noteThreeSpawn };
             difficultyMultiplier = 4;
+            Debug.Log("START B");
         }
 
         plotPoints = new List<Transform>();
@@ -72,7 +75,7 @@ public class NoteGenerator : MonoBehaviour
         for (int i = 0; i < displayWindowSize; i++)
         {
             //Instantiate point
-            Transform t = (Instantiate(Resources.Load("Point"), transform) as GameObject).transform;
+            Transform t = (Instantiate(Resources.Load("Prefabs/Point"), transform) as GameObject).transform;
 
             // Set position
             float pointX = (displayWindowSize / 2) * -1 * localWidth + i * localWidth;
@@ -110,14 +113,10 @@ public class NoteGenerator : MonoBehaviour
             windowEnd = Mathf.Min(windowStart + displayWindowSize, pointInfo.Count);
         }
 
-        float currentFlux;
-        noteOneFlux = 0.001f;
-        noteTwoFlux = 0.01f;
-
-
 
         for (int i = windowStart; i < windowEnd; i++)
-        {
+        { 
+
             int plotIndex = numPlotted;
             numPlotted++;
 
@@ -126,25 +125,55 @@ public class NoteGenerator : MonoBehaviour
                 largestFlux = pointInfo[i].spectralFlux;
                 calculateFlux(largestFlux);
 
-                Debug.Log("BIGGER " + largestFlux);
+                //Debug.Log("BIGGER " + largestFlux);
 
-            }
-            else if (largestFlux / pointInfo[i].spectralFlux >= 10)
+            } else if (largestFlux / pointInfo[i].spectralFlux >= 10)
             {
                 largestFlux = pointInfo[i].spectralFlux;
                 calculateFlux(largestFlux);
-                Debug.Log("SMALLER " + largestFlux);
+                //Debug.Log("SMALLER " + largestFlux);
             }
 
-
-            if (elapsedTime > startDelay)
-            {
-                if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / difficultyMultiplier))
+           if(elapsedTime < songLength - 2.5f)
+           {
+                if (elapsedTime > startDelay)
                 {
-                    previousTime = elapsedTime;
-                    spawnNote(pointInfo[i].spectralFlux);
+                    if ((int)(elapsedTime * 100) % ((int)(100 * secondsPerBeat / 4)) == 0 && elapsedTime != previousTime && (elapsedTime - previousTime > secondsPerBeat / difficultyMultiplier))
+                    {
+                        previousTime = elapsedTime;
+                        spawnNote(pointInfo[i].spectralFlux);
+                    }
+
                 }
+           } else
+            {
+                StartCoroutine(WaitTime(8));
+
+                if (score.getNoteMissed() == false) // Full Combo's reward
+                {
+                    //Celebrate here
+                    confetti.Play(); // 
+                    Debug.Log("Woop");
+                    songData.savePerfectScore();
+                }
+
+                score.calculateHighScore();
+                Debug.Log(score.getHighScore().ToString());
+                completionUI.displayCompletionUI();
+                songData.CalculateCoins();
+
+                StartCoroutine(WaitTime(3));
+
+                FinalScoreObject = GameObject.Find("FinalScoreObject");
+                FinalScoreObject.transform.SetParent(null);
+                DontDestroyOnLoad(FinalScoreObject);
+
+                GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
+                Destroy(songGameObject);
+
+                SceneManager.LoadScene("SongListDemo");
             }
+
 
         }
     }
@@ -161,11 +190,11 @@ public class NoteGenerator : MonoBehaviour
             int index = UnityEngine.Random.Range(0, noteSpawnPositions.Length);
             setNotePosition(obstacle, noteSpawnPositions[index]);
         }
-        else if (currentFlux > noteOneFlux && currentFlux < noteTwoFlux)
+        else if (currentFlux > obstacleFlux && currentFlux < noteTwoFlux * 1.25)
         {
             setNotePosition(noteTwo, noteSpawnPositions[1]);
         }
-        else if (currentFlux > noteTwoFlux)
+        else if (currentFlux > noteTwoFlux * 1.25)
         {
             setNotePosition(noteThree, noteSpawnPositions[2]);
         }
@@ -193,7 +222,10 @@ public class NoteGenerator : MonoBehaviour
         return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
     }
 
-
+    private IEnumerator WaitTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+    }
 
 
 

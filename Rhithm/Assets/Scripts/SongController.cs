@@ -12,7 +12,8 @@ public class SongController : MonoBehaviour {
 
 	float[] realTimeSpectrum;
 	SpectralFluxAnalyzer realTimeSpectralFluxAnalyzer;
-	PlotController realTimePlotController;
+	//PlotController realTimePlotController;
+	NoteGenerator realTimePlotController;
 
 	int numChannels;
 	int numTotalSamples;
@@ -20,7 +21,7 @@ public class SongController : MonoBehaviour {
 	float clipLength;
 	float[] multiChannelSamples;
 	SpectralFluxAnalyzer preProcessedSpectralFluxAnalyzer;
-	PlotController preProcessedPlotController;
+	NoteGenerator preProcessedPlotController;
 
 	AudioSource audioSource;
 
@@ -29,16 +30,15 @@ public class SongController : MonoBehaviour {
 
 	void Start() {
 		SongObjectScript song = findSong();
-
 		audioSource = song.GetAudioSource();
+		Debug.Log(song.GetBPM());
 		song.PlayAudio();
-
 
 		// Process audio as it plays
 		if (realTimeSamples) {
 			realTimeSpectrum = new float[1024];
 			realTimeSpectralFluxAnalyzer = new SpectralFluxAnalyzer ();
-			realTimePlotController = GameObject.Find ("RealtimePlot").GetComponent<PlotController> ();
+			realTimePlotController = GameObject.Find ("RealtimePlot").GetComponent<NoteGenerator> ();
 
 			this.sampleRate = AudioSettings.outputSampleRate;
 		}
@@ -46,7 +46,7 @@ public class SongController : MonoBehaviour {
 		// Preprocess entire audio file upfront
 		if (preProcessSamples) {
 			preProcessedSpectralFluxAnalyzer = new SpectralFluxAnalyzer ();
-			preProcessedPlotController = GameObject.Find ("PreprocessedPlot").GetComponent<PlotController> ();
+			preProcessedPlotController = GameObject.Find ("PreprocessedPlot").GetComponent<NoteGenerator>();
 
 			// Need all audio samples.  If in stereo, samples will return with left and right channels interweaved
 			// [L,R,L,R,L,R]
@@ -77,10 +77,10 @@ public class SongController : MonoBehaviour {
 		}
 
 		// Preprocessed
-		if (preProcessSamples) {
+		/*if (preProcessSamples) {
 			int indexToPlot = getIndexFromTime (audioSource.time) / 1024;
 			preProcessedPlotController.updatePlot (preProcessedSpectralFluxAnalyzer.spectralFluxSamples, indexToPlot);
-		}
+		}*/
 	}
 
 	public int getIndexFromTime(float curTime) {

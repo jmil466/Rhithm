@@ -15,7 +15,7 @@ public class FinalScoreScript : MonoBehaviour
         if (GameObject.Find("CompletionUI") != null)
         {
             CompletionScript completionScript = GameObject.Find("CompletionUI").GetComponent<CompletionScript>();
-            SongObjectScript songObjectScript = GameObject.Find("SongObject").GetComponent<SongObjectScript>();
+            SongObjectScript songObjectScript = (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
 
             currentHighScore = completionScript.getHighScore();
             userScore = completionScript.getUserScore();

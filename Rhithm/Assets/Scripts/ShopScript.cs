@@ -8,6 +8,7 @@ public class ShopScript : MonoBehaviour
     public GameObject insufficientCoins;
     public Text userCurrencyText;
     private int userCoins;
+    public GameObject itemSect; 
 
     void Awake()
     {
@@ -53,25 +54,25 @@ public class ShopScript : MonoBehaviour
             //This part is only applicable to the user very first opening of the game
             if (itemName.Equals("PlayerCubeWhite")) //The first playable player model
             {
-                if (!IntToBool(PlayerPrefs.GetInt(itemPurchased))) //If the item has not been purchased (Auto-purchase it for the user)
+                if (!itemScript.IsPurchased()) //If the item has not been purchased (Auto-purchase it for the user)
                 {
                     PlayerPrefs.SetInt(itemPurchased, 1); //Save purchase
                     itemScript.SetPurchased(true);
                     PlayerPrefs.SetInt(itemEquipped, 1); //Auto-equip and save equipped state
                     itemScript.SetEquipped(true);
-                    //Instantiate(Resources.Load<GameObject>(itemScript.GetPrefabLocation()));
                 }
             }
 
-            if (IntToBool(PlayerPrefs.GetInt(itemPurchased))) //If the item has been purchased
+            if (itemScript.IsPurchased()) //If the item has been purchased
             {
-                if (IntToBool(PlayerPrefs.GetInt(itemEquipped))) //If the item is equipped from previous visit
+                if (itemScript.IsEquipped()) //If the item is equipped from previous visit
                 {
                     itemButton.interactable = false;
                     colors = itemButton.colors;
                     colors.normalColor = new Color32(185, 185, 185, 255);
                     itemButtonText.color = new Color32(75, 75, 75, 255);
                     itemButtonText.text = "Equipped";
+                    Instantiate(Resources.Load<GameObject>(itemScript.GetPrefabLocation()), itemSect.transform); //load the player model
                 }
                 else //If the item is NOT equipped from previous visit
                 {
@@ -106,29 +107,5 @@ public class ShopScript : MonoBehaviour
     public GameObject[] getShopItems()
     {
         return items;
-    }
-
-    public int BoolToInt(bool value)
-    {
-        if (value)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    public bool IntToBool(int value)
-    {
-        if (value != 0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

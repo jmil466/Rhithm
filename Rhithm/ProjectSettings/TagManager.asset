@@ -17,6 +17,7 @@ TagManager:
   - Confetti
   - Slider
   - Item
+  - PlayerModel
   layers:
   - Default
   - TransparentFX

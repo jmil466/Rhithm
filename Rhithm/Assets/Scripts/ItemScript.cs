@@ -11,21 +11,24 @@ public class ItemScript : MonoBehaviour
     public int itemPrice;
     public bool equipped;
     public bool purchased;
-
+    
     void Start()
     {
-        playerPrefabLocation = "Prefabs/" + playerPrefabName;
+
     }
     
     public string GetPrefabLocation()
     {
+        playerPrefabLocation = "Prefabs/PlayerPrefabs/" + playerPrefabName;
+        Debug.Log(playerPrefabLocation);
         return playerPrefabLocation;
     }
 
     public bool IsEquipped()
     {
         string key = playerPrefabName + "Equipped";
-        return IntToBool(PlayerPrefs.GetInt(key));
+        bool result = IntToBool(PlayerPrefs.GetInt(key));
+        return result;
     }
 
     public void SetEquipped(bool state)
@@ -35,8 +38,9 @@ public class ItemScript : MonoBehaviour
 
     public bool IsPurchased()
     {
-        string key = playerPrefabName + "Purhcased";
-        return IntToBool(PlayerPrefs.GetInt(key));
+        string key = playerPrefabName + "Purchased";
+        bool result = IntToBool(PlayerPrefs.GetInt(key));
+        return result;
     }
 
     public void SetPurchased(bool state)

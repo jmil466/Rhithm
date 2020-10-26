@@ -2311,7 +2311,7 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!1 &1191465377
 GameObject:
@@ -2807,9 +2807,7 @@ MonoBehaviour:
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 0
     m_FadeDuration: 0
-  Items: {fileID: 0}
-  itemButton: {fileID: 0}
-  itemButtonText: {fileID: 0}
+  Items: {fileID: 1288184762}
   shopScript: {fileID: 2069714488}
 --- !u!1 &1306507134
 GameObject:
@@ -3130,7 +3128,7 @@ RectTransform:
   - {fileID: 272094282}
   - {fileID: 2069714487}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3865,7 +3863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!1 &1755378885
 GameObject:
@@ -4253,7 +4251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069714486
 GameObject:
@@ -4311,3 +4309,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   insufficientCoins: {fileID: 1755378885}
   userCurrencyText: {fileID: 91196729}
+  itemSect: {fileID: 0}

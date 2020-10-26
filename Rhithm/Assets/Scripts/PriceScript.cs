@@ -23,8 +23,8 @@ public class PriceScript : MonoBehaviour
     public ColorBlock colors;
 
     public GameObject Items;
-    public Button itemButton;
-    public Text itemButtonText;
+    private Button itemButton;
+    private Text itemButtonText;
     public ShopScript shopScript;
     private string playerPrefabLocation;
     private ItemScript itemScript;

@@ -10,8 +10,8 @@ public class SongSelectionScript : MonoBehaviour
 
     public GameObject[] songs; //all the songs
     public GameObject songDatabase;
-    public int numOfPanels;
-    public int activePanelCounter; //the active panel counter
+    public int numOfSongs;
+    public int activeSongCounter; //the active song counter
 
     public GameObject currentSong;
     public SongObjectScript songObjectScript;
@@ -25,9 +25,7 @@ public class SongSelectionScript : MonoBehaviour
 
     public AudioSource buttonClickSound;
 
-    public int highScore;
     public Text highScoreText;
-    public string perfectScore;
     public GameObject perfectScoreStar;
 
     // Start is called before the first frame update
@@ -40,37 +38,20 @@ public class SongSelectionScript : MonoBehaviour
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PillarsOfCreation"), songDatabase.transform);
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PianoCommercialSong"), songDatabase.transform);
 
-        //musicVolObj = GameObject.Find("MusicVolObj");
 
         FindSongs();
-
-        string savedScoreName = songNameText + "_highscore";
-        string savedPerfectScoreName = songNameText + "_perfectScore";
-
-        highScore = PlayerPrefs.GetInt(savedScoreName);
-        perfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
-
-        perfectScoreStar.SetActive(false);
-
-        highScoreText.text = "Highscore: " + highScore.ToString();
-        if (perfectScore == "true")
-        {
-            perfectScoreStar.SetActive(true);
-        }
-        else
-        {
-            perfectScoreStar.SetActive(false);
-        }
+        AssignCurrentSong();
+        ShowSongHighScore();
     }   
     
     public void FindSongs()
     {
         songMenu.SetActive(true);
 
-        activePanelCounter = 0;
+        activeSongCounter = 0;
 
         songs = GameObject.FindGameObjectsWithTag("Song");
-        numOfPanels = songs.Length;
+        numOfSongs = songs.Length;
 
         /**
         * Hide all song panels
@@ -80,14 +61,8 @@ public class SongSelectionScript : MonoBehaviour
             song.SetActive(false);
         }
 
-        //Set the first panel active
-        songs[activePanelCounter].SetActive(true);
-
-        currentSong = songs[activePanelCounter];
-        songObjectScript = currentSong.GetComponent<SongObjectScript>();
-        songObjectScript.setupSong();
-        songNameText.text = songObjectScript.audioName;
-        currentSong.GetComponent<AudioSource>().clip.LoadAudioData();
+        //Show the first song
+        songs[activeSongCounter].SetActive(true);
     }
 
     public void OnClickMenu()
@@ -109,62 +84,38 @@ public class SongSelectionScript : MonoBehaviour
     {
         buttonClickSound.Play();
 
-        songs[activePanelCounter].SetActive(false); //make the current panel invisible
+        songs[activeSongCounter].SetActive(false); //make the current panel invisible
 
-        if (activePanelCounter == (songs.Length - 1))
+        if (activeSongCounter == (songs.Length - 1))
         {
-            activePanelCounter = -1;
+            activeSongCounter = -1;
         }
 
-        songs[activePanelCounter + 1].SetActive(true); //make the next panel visible
+        songs[activeSongCounter + 1].SetActive(true); //make the next panel visible
 
-        activePanelCounter++; //the next active panel will be the next one in the counter
+        activeSongCounter++; //the next active panel will be the next one in the counter
 
-        currentSong = songs[activePanelCounter];
-        songObjectScript = currentSong.GetComponent<SongObjectScript>();
-        songObjectScript.setupSong();
-        songNameText.text = songObjectScript.audioName;
-
-        highScoreText.text = "Highscore: " + highScore.ToString();
-        if (perfectScore == "true")
-        {
-            perfectScoreStar.SetActive(true);
-        }
-        else
-        {
-            perfectScoreStar.SetActive(false);
-        }
+        AssignCurrentSong();
+        ShowSongHighScore();
     }
 
     public void OnClickPreviousPanel()
     {
         buttonClickSound.Play();
 
-        songs[activePanelCounter].SetActive(false); //make the current panel invisible
+        songs[activeSongCounter].SetActive(false); //make the current panel invisible
 
-        if (activePanelCounter == 0)
+        if (activeSongCounter == 0)
         {
-            activePanelCounter = songs.Length;
+            activeSongCounter = songs.Length;
         }
 
-        songs[activePanelCounter - 1].SetActive(true); //make the next panel visible
+        songs[activeSongCounter - 1].SetActive(true); //make the next panel visible
 
-        activePanelCounter--; //the next active panel will be the next one in the counter
+        activeSongCounter--; //the next active panel will be the next one in the counter
 
-        currentSong = songs[activePanelCounter];
-        songObjectScript = currentSong.GetComponent<SongObjectScript>();
-        songObjectScript.setupSong();
-        songNameText.text = songObjectScript.audioName;
-
-        highScoreText.text = "Highscore: " + highScore.ToString();
-        if (perfectScore == "true")
-        {
-            perfectScoreStar.SetActive(true);
-        }
-        else
-        {
-            perfectScoreStar.SetActive(false);
-        }
+        AssignCurrentSong();
+        ShowSongHighScore();
     }
 
     public void onClickPreviewSong()
@@ -195,7 +146,7 @@ public class SongSelectionScript : MonoBehaviour
     {
         buttonClickSound.Play();
 
-        string difficulty = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text; //get the button text
+        string difficulty = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text; //get the button text of clicked button
 
         if (difficulty == "NORMAL")
         {
@@ -217,8 +168,28 @@ public class SongSelectionScript : MonoBehaviour
 
         DontDestroyOnLoad(SongObject);
         DontDestroyOnLoad(selectedAudioSource);
-        //if (musicVolObj != null) DontDestroyOnLoad(musicVolObj);
 
         SceneManager.LoadScene("MainGameplay"); //load main scene
+    }
+
+    void AssignCurrentSong()
+    {
+        currentSong = songs[activeSongCounter];
+        songObjectScript = currentSong.GetComponent<SongObjectScript>();
+        songObjectScript.setupSong();
+        songNameText.text = songObjectScript.audioName;
+    }
+
+    void ShowSongHighScore()
+    {
+        highScoreText.text = "Highscore: " + songObjectScript.GetSongHighScore().ToString();
+        if (songObjectScript.IsPerfectScore())
+        {
+            perfectScoreStar.SetActive(true);
+        }
+        else
+        {
+            perfectScoreStar.SetActive(false);
+        }
     }
 }

@@ -33,8 +33,9 @@ public class SaveSongData : MonoBehaviour
 
     public void CalculateCoins()
     {
-        int currentSavedCoins = PlayerPrefs.GetInt("Coins");  
-        coins = completionScript.getUserScore() * 5;
+        int currentSavedCoins = PlayerPrefs.GetInt("Coins");
+        Debug.Log("CalculatingCoins(): Userscore: " + completionScript.getUserScore());
+        coins = completionScript.getUserScore() * 2;
         PlayerPrefs.SetInt("Coins", currentSavedCoins+coins);
         Debug.Log(PlayerPrefs.GetInt("Coins"));
     }

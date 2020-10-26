@@ -209,13 +209,13 @@ namespace Tests
 
             GameObject[] songPanels = songSelectionScript.songs;
 
-            int numOfPanels = songSelectionScript.numOfPanels; //get the number of songPanels in the canvas
+            int numOfPanels = songSelectionScript.numOfSongs; //get the number of songPanels in the canvas
             int randPanel = Random.Range(0, numOfPanels - 1); //get a random song panel
-            int activePanel = songSelectionScript.activePanelCounter; //get the active song panel
+            int activePanel = songSelectionScript.activeSongCounter; //get the active song panel
 
             songPanels[activePanel].SetActive(false); //hide the current active song panel
 
-            songSelectionScript.activePanelCounter = randPanel;
+            songSelectionScript.activeSongCounter = randPanel;
             activePanel = randPanel;
 
             songPanels[activePanel].SetActive(true);

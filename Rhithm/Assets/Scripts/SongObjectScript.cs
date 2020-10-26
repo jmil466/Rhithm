@@ -14,6 +14,7 @@ public class SongObjectScript : MonoBehaviour
     public float audioLength;
     public float difficultyMultiplier;
     private int highScore; // Added by James
+    private string songPerfectScore; //Added by Rafael
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +30,14 @@ public class SongObjectScript : MonoBehaviour
     {
         audioClip = audioSource.clip;
         audioName = audioClip.name;
+        Debug.Log("setupSong(): audioName = " + audioName);
         audioLength = audioClip.length;
+
         string savedScoreName = audioName + "_highscore";
         highScore = PlayerPrefs.GetInt(savedScoreName);
+
+        string savedPerfectScoreName = audioName + "_perfectscore";
+        songPerfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
     }
 
     public AudioSource GetAudioSource()
@@ -82,5 +88,17 @@ public class SongObjectScript : MonoBehaviour
     public string GetSongName()
     {
         return audioName;
+    }
+
+    public bool IsPerfectScore()
+    {
+        if (songPerfectScore == "true")
+        {
+            return true;
+        }
+        else
+        {
+            return false;      
+        }       
     }
 }

@@ -371,7 +371,6 @@ MonoBehaviour:
   currentHighScore: 0
   userScore: 0
   songName: 
-  songKey: 
 --- !u!1001 &253568132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2642,6 +2641,10 @@ PrefabInstance:
       propertyPath: scoreUI
       value: 
       objectReference: {fileID: 8048320089039811841}
+    - target: {fileID: 6781075987131855195, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
+      propertyPath: finalScoreScript
+      value: 
+      objectReference: {fileID: 210081464}
     - target: {fileID: 6781075987131855196, guid: b8a91dc90e680bf44abd25dc1d763edd, type: 3}
       propertyPath: m_Name
       value: CompletionUI

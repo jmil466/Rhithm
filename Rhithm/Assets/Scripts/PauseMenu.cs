@@ -46,8 +46,10 @@ public class PauseMenu : MonoBehaviour
     public void Exit()
     {
         song.StopAudio();
+
         GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
         Destroy(songGameObject);
+
         SceneManager.LoadScene("SongList");
         Time.timeScale = 1f;
     }
@@ -58,12 +60,8 @@ public class PauseMenu : MonoBehaviour
 
         buttonClickSound.mute = !buttonClickSound.mute;
 
-        GameObject songObject = GameObject.Find("SongObject");
+        AudioSource songAudioSource = song.GetAudioSource();
 
-        SongObjectScript songObjectScript = songObject.GetComponent<SongObjectScript>();
-
-        AudioSource currentSong = songObjectScript.GetAudioSource();
-
-        currentSong.mute = !currentSong.mute;
+        songAudioSource.mute = !songAudioSource.mute;
     }
 }

@@ -8,20 +8,6 @@ public class FinalScoreScript : MonoBehaviour
     public int userScore;
     public string songName;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //if (GameObject.Find("CompletionUI") != null)
-        //{
-        //    CompletionScript completionScript = GameObject.Find("CompletionUI").GetComponent<CompletionScript>();
-        //    SongObjectScript songObjectScript = (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
-
-        //    currentHighScore = completionScript.getHighScore();
-        //    userScore = completionScript.getUserScore();
-        //    songName = songObjectScript.GetSongName();
-        //}
-    }
-
     public void CalculateFinalScore()
     {
         CompletionScript completionScript = GameObject.Find("CompletionUI").GetComponent<CompletionScript>();

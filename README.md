@@ -8,7 +8,7 @@ This game is a simple Rhithm game that procedurally generates beatmaps for each 
 This Game has been developed as apart of a University Project, and will unlikely see any future updates. 
 
 ## Usage
-This code sample was tested using Unity 2020.1.3f1. 
+This game was developed and tested using Unity 2020.1.3f1. 
 
 For desktop gameplay, select the ```Main Menu``` scene.
 

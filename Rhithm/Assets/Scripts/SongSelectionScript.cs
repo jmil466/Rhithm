@@ -136,6 +136,7 @@ public class SongSelectionScript : MonoBehaviour
     {
         currentSong.GetComponent<AudioSource>().clip.LoadAudioData();
         difficultyMenu.SetActive(true);
+        stars.SetActive(false);
         buttonClickSound.Play();
 
         SongObject = currentSong;
@@ -153,15 +154,15 @@ public class SongSelectionScript : MonoBehaviour
 
         if (difficulty == "NORMAL")
         {
-            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 1;
+            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 1f;
         } 
         else if (difficulty == "HARD")
         {
-            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 2;
+            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 2f;
         }
         else if (difficulty == "INSANE")
         {
-            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 4;
+            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 4f;
         }
 
         SongObject.transform.SetParent(null); //destroy parent object

@@ -17,10 +17,4 @@ public class FinalScoreScript : MonoBehaviour
         userScore = completionScript.getUserScore();
         songName = songObjectScript.GetSongName();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -6,8 +6,6 @@ using System;
 
 public class SongSelectionScript : MonoBehaviour
 {
-    //public GameObject musicVolObj;
-
     private GameObject[] songs; //all the songs
     public GameObject songDatabase;
     private int numOfSongs;

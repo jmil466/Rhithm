@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     void Awake()
     {
         checkFirstVisit();
-        devRoom();
+        //devRoom(); //gives 99999 coins
     }
 
     public void Play()

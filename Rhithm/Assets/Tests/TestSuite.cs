@@ -170,7 +170,7 @@ namespace Tests
 
             AudioSource buttonClickSound = songSelectionScript.buttonClickSound;
             songSelectionScript.OnClickMute();
-            AudioSource currentSongAudioSource = songSelectionScript.currentSong.GetComponent<AudioSource>();
+            AudioSource currentSongAudioSource = songSelectionScript.GetCurrentSong().GetComponent<AudioSource>();
 
             Assert.IsTrue(buttonClickSound.mute);
             Assert.IsTrue(currentSongAudioSource.mute);
@@ -207,15 +207,15 @@ namespace Tests
             SongSelectionScript songSelectionScript = songSelectionCanvas.GetComponent<SongSelectionScript>();
             songSelectionScript.FindSongs();
 
-            GameObject[] songPanels = songSelectionScript.songs;
+            GameObject[] songPanels = songSelectionScript.GetSongs();
 
-            int numOfPanels = songSelectionScript.numOfSongs; //get the number of songPanels in the canvas
+            int numOfPanels = songSelectionScript.GetNumOfSongs(); ; //get the number of songPanels in the canvas
             int randPanel = Random.Range(0, numOfPanels - 1); //get a random song panel
-            int activePanel = songSelectionScript.activeSongCounter; //get the active song panel
+            int activePanel = songSelectionScript.GetActiveSongCounter(); //get the active song panel
 
             songPanels[activePanel].SetActive(false); //hide the current active song panel
 
-            songSelectionScript.activeSongCounter = randPanel;
+            songSelectionScript.SetActiveSongCounter(randPanel);
             activePanel = randPanel;
 
             songPanels[activePanel].SetActive(true);

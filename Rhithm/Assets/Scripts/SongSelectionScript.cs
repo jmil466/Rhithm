@@ -8,16 +8,16 @@ public class SongSelectionScript : MonoBehaviour
 {
     //public GameObject musicVolObj;
 
-    public GameObject[] songs; //all the songs
+    private GameObject[] songs; //all the songs
     public GameObject songDatabase;
-    public int numOfSongs;
-    public int activeSongCounter; //the active song counter
+    private int numOfSongs;
+    private int activeSongCounter; //the active song counter
 
     public Text songNameText;
-    public GameObject currentSong;
-    public SongObjectScript songObjectScript;
-    public GameObject SongObject; //the selected song (EmptyObject form)
-    public GameObject selectedAudioSource;
+    private GameObject currentSong;
+    private SongObjectScript songObjectScript;
+    private GameObject SongObject; //the selected song (EmptyObject form)
+    private GameObject selectedAudioSource;
 
     public GameObject songMenu;
     public GameObject difficultyMenu;
@@ -213,5 +213,30 @@ public class SongSelectionScript : MonoBehaviour
         {
             InsaneStar.SetActive(false);
         }
+    }
+
+    public GameObject[] GetSongs()
+    {
+        return songs;
+    }
+
+    public int GetNumOfSongs()
+    {
+        return numOfSongs;
+    }
+
+    public int GetActiveSongCounter()
+    {
+        return activeSongCounter;
+    }
+
+    public void SetActiveSongCounter(int counter)
+    {
+        activeSongCounter = counter;
+    }
+
+    public GameObject GetCurrentSong()
+    {
+        return currentSong;
     }
 }

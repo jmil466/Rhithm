@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SongObjectScript : MonoBehaviour
 {
-    //public GameObject theSongPanel;
-    //SongDisplayScript songDisplayScript;
     public AudioSource audioSource;
     private AudioClip audioClip;
     private string audioName;
@@ -19,12 +17,8 @@ public class SongObjectScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //audioSource = GameObject.FindGameObjectWithTag("Song").GetComponent<AudioSource>();
         setupSong();
-
-        //songDisplayScript = theSongPanel.GetComponent<SongDisplayScript>();
     }
-    // Update is called once per frame
 
     public void setupSong()
     {

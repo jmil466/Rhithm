@@ -49,7 +49,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("PlayerCubeWhitePurchased") == -1)
         {
-            Debug.Log("Shop not visited");
+            Debug.Log("Shop not visited yet.");
             return false; //not visited shop yet
         }
         else

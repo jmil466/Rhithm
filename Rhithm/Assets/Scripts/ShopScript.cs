@@ -43,7 +43,7 @@ public class ShopScript : MonoBehaviour
             //This part is only applicable to the user very first opening of the game
             if (itemName.Equals("PlayerCubeWhite")) //The first playable player model
             {
-                if (PlayerPrefs.GetInt(itemPurchased) == -1) //If the item has not been purchased (Auto-purchase it for the user), -1 is key for first time visit
+                if (PlayerPrefs.GetInt(itemPurchased) == -1 || PlayerPrefs.GetInt(itemPurchased) == 0) //If the item has not been purchased (Auto-purchase it for the user), -1 is key for first time visit
                 {
                     Debug.Log("scanning [" + PlayerPrefs.GetInt(itemPurchased) + "], This is the users first SHOP visit, final set up...");
                     PlayerPrefs.SetInt(itemPurchased, 1); //Save purchase

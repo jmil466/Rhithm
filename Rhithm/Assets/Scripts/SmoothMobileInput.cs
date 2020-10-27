@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
 
-
 public class SmoothMobileInput : MonoBehaviour
 {
     private Vector3 startTouchPos, endTouchPos;
@@ -19,14 +18,11 @@ public class SmoothMobileInput : MonoBehaviour
 
     private const int LeftLane = -2, RightLane = 2, CentreLane = 0;
 
-
-
     // Update is called once per frame
     void Update()
     {
         lerpComplete = false;
         //UnityEngine.Debug.Log("pos is now " + transform.position.x);
-
 
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -53,7 +49,6 @@ public class SmoothMobileInput : MonoBehaviour
                 {
                     StartCoroutine(Fly(swipeDelta));
                 }
-
             }
             else
             {
@@ -71,7 +66,6 @@ public class SmoothMobileInput : MonoBehaviour
     {
         UnityEngine.Debug.Log("swipe delta is " + swipeDelta);
 
-
         if (swipeDelta > 0)
         {
             UnityEngine.Debug.Log("x pos is " + transform.position.x);
@@ -83,7 +77,7 @@ public class SmoothMobileInput : MonoBehaviour
                 startPlayerPos = transform.position;
                 endPlayerPos = new Vector3((startPlayerPos.x - 4f), transform.position.y, transform.position.z);
 
-                PlayerMovement(startPlayerPos, endPlayerPos);
+                StartCoroutine(PlayerMovement(startPlayerPos, endPlayerPos));
                 yield return null;
                 lerpComplete = true;
             }
@@ -94,13 +88,12 @@ public class SmoothMobileInput : MonoBehaviour
             // Check if Player is in Left Lane
             if (transform.position.x == LeftLane)
             {
-
                 UnityEngine.Debug.Log("Stepping into 2nd if");
 
                 startPlayerPos = transform.position;
                 endPlayerPos = new Vector3((startPlayerPos.x + 4f), transform.position.y, transform.position.z);
 
-                PlayerMovement(startPlayerPos, endPlayerPos);
+                StartCoroutine(PlayerMovement(startPlayerPos, endPlayerPos));
                 yield return null;
             }
         }
@@ -114,7 +107,7 @@ public class SmoothMobileInput : MonoBehaviour
             {
                 startPlayerPos = transform.position;
                 endPlayerPos = new Vector3((startPlayerPos.x - 2f), transform.position.y, transform.position.z);
-                PlayerMovement(startPlayerPos, endPlayerPos);
+                StartCoroutine(PlayerMovement(startPlayerPos, endPlayerPos));
             }
         }
 
@@ -126,22 +119,20 @@ public class SmoothMobileInput : MonoBehaviour
                 startPlayerPos = transform.position;
                 endPlayerPos = new Vector3((startPlayerPos.x + 2f), transform.position.y, transform.position.z);
 
-                PlayerMovement(startPlayerPos, endPlayerPos);
+                StartCoroutine(PlayerMovement(startPlayerPos, endPlayerPos));
                 yield return null;
             }
         }
     }
 
-    public void PlayerMovement(Vector3 startPlayerPos, Vector3 endPlayerPos)
+    public IEnumerator PlayerMovement(Vector3 startPlayerPos, Vector3 endPlayerPos)
     {
         moveTime = 0f;
         while (moveTime < moveDuration)
         {
             moveTime += Time.deltaTime;
             transform.position = Vector3.Lerp(startPlayerPos, endPlayerPos, moveTime / moveDuration);
+            yield return null;
         }
-
-
     }
-
 }

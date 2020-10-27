@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
         DontDestroyOnLoad(musicVolObj);
         DontDestroyOnLoad(sfxVolObj);
         
-        SceneManager.LoadScene("SongListDemo");
+        SceneManager.LoadScene("SongList");
     }
 
     public void Shop()

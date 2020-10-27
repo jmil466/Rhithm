@@ -247,7 +247,7 @@ public class NoteGenerator : MonoBehaviour
         GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
         Destroy(songGameObject);
 
-        SceneManager.LoadScene("SongListDemo");
+        SceneManager.LoadScene("SongList");
     }
 
 

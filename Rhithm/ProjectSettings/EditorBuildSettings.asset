@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainGameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/SongListDemo.unity
+    path: Assets/Scenes/SongList.unity
     guid: 2205aeda1875cbd40b2fba22e1ed77bc
   m_configObjects: {}

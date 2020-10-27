@@ -489,7 +489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 341369526281380723, guid: c0aa98e5e5a4f2441aec1801bfa7c2c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997012174698903981, guid: c0aa98e5e5a4f2441aec1801bfa7c2c0, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7830513285509100326, guid: c0aa98e5e5a4f2441aec1801bfa7c2c0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -557,7 +561,7 @@ GameObject:
   - component: {fileID: 415318646}
   m_Layer: 0
   m_Name: Player
-  m_TagString: PlayerModel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -630,7 +634,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1903998762825516534, guid: 5b6b313bab4ef724ca0c4a0b7bc7943e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4231105287754107446, guid: 5b6b313bab4ef724ca0c4a0b7bc7943e, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4430852515421225167, guid: 5b6b313bab4ef724ca0c4a0b7bc7943e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -696,7 +704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6874094198820506516, guid: f4d22d555158eac4595e5e4b69dcfcc7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6874094198820506517, guid: f4d22d555158eac4595e5e4b69dcfcc7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -768,7 +776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1277222757259401801, guid: 2e0f49729a23f954087e6c8e4781b0fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4949026787407100277, guid: 2e0f49729a23f954087e6c8e4781b0fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -813,6 +821,10 @@ PrefabInstance:
     - target: {fileID: 4949026787407100277, guid: 2e0f49729a23f954087e6c8e4781b0fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8235013514071206725, guid: 2e0f49729a23f954087e6c8e4781b0fa, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0f49729a23f954087e6c8e4781b0fa, type: 3}
@@ -2008,13 +2020,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112455495}
     m_Modifications:
+    - target: {fileID: 1378095349382480384, guid: 35c16a4b8285c7941bdd8256710dfaae, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1378095349382480397, guid: 35c16a4b8285c7941bdd8256710dfaae, type: 3}
       propertyPath: m_Name
       value: PlayerCubeRed
       objectReference: {fileID: 0}
     - target: {fileID: 1378095349382480397, guid: 35c16a4b8285c7941bdd8256710dfaae, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1378095349382480398, guid: 35c16a4b8285c7941bdd8256710dfaae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2498,6 +2514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112455495}
     m_Modifications:
+    - target: {fileID: 2127097156951086983, guid: ac80a377d35becf45983ca0745a01160, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5077110918805125167, guid: ac80a377d35becf45983ca0745a01160, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2548,7 +2568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6083509188345165317, guid: ac80a377d35becf45983ca0745a01160, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac80a377d35becf45983ca0745a01160, type: 3}
@@ -2559,13 +2579,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112455495}
     m_Modifications:
+    - target: {fileID: 5416526748560915437, guid: 2190882fae880404d9fd47982c4bbb33, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5882729808964160554, guid: 2190882fae880404d9fd47982c4bbb33, type: 3}
       propertyPath: m_Name
       value: PlayerCubeGold
       objectReference: {fileID: 0}
     - target: {fileID: 5882729808964160554, guid: 2190882fae880404d9fd47982c4bbb33, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7285035844576583494, guid: 2190882fae880404d9fd47982c4bbb33, type: 3}
       propertyPath: m_LocalPosition.x

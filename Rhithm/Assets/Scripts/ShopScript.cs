@@ -12,20 +12,6 @@ public class ShopScript : MonoBehaviour
 
     void Awake()
     {
-        //PlayerPrefs.SetInt("Coins", 999);
-
-        //PlayerPrefs.SetInt("PlayerCubeWhitePurchased", 0);
-        //PlayerPrefs.SetInt("PlayerCubeWhiteEquipped", 0);
-
-        //PlayerPrefs.SetInt("PlayerCubeRedPurchased", 0);
-        //PlayerPrefs.SetInt("PlayerCubeRedEquipped", 0);
-        //PlayerPrefs.SetInt("PlayerCubeGreenPurchased", 0);
-        //PlayerPrefs.SetInt("PlayerCubeGreenEquipped", 0);
-
-        PlayerPrefs.DeleteAll();
-
-        PlayerPrefs.SetInt("Coins", 99999);
-
         userCoins = PlayerPrefs.GetInt("Coins");
         SetShop();
     }
@@ -57,8 +43,9 @@ public class ShopScript : MonoBehaviour
             //This part is only applicable to the user very first opening of the game
             if (itemName.Equals("PlayerCubeWhite")) //The first playable player model
             {
-                if (!itemScript.IsPurchased()) //If the item has not been purchased (Auto-purchase it for the user)
+                if (PlayerPrefs.GetInt(itemPurchased) == -1) //If the item has not been purchased (Auto-purchase it for the user), -1 is key for first time visit
                 {
+                    Debug.Log("scanning [" + PlayerPrefs.GetInt(itemPurchased) + "], This is the users first SHOP visit, final set up...");
                     PlayerPrefs.SetInt(itemPurchased, 1); //Save purchase
                     itemScript.SetPurchased(true);
                     PlayerPrefs.SetInt(itemEquipped, 1); //Auto-equip and save equipped state

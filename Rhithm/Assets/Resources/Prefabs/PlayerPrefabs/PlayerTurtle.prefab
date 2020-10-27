@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6874094198820506507}
   - component: {fileID: 6874094198820506506}
   m_Layer: 0
-  m_Name: 20446_Sea_Turtle
-  m_TagString: Untagged
+  m_Name: PlayerTurtle
+  m_TagString: PlayerModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

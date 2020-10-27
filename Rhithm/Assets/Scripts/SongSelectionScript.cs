@@ -25,7 +25,10 @@ public class SongSelectionScript : MonoBehaviour
     public AudioSource buttonClickSound;
 
     public Text highScoreText;
-    public GameObject perfectScoreStar;
+    public GameObject stars;
+    public GameObject NormalStar;
+    public GameObject HardStar;
+    public GameObject InsaneStar;
 
     // Start is called before the first frame update
     void Start()
@@ -183,13 +186,9 @@ public class SongSelectionScript : MonoBehaviour
     void ShowSongHighScore()
     {
         highScoreText.text = "Highscore: " + songObjectScript.GetSongHighScore().ToString();
-        if (songObjectScript.IsPerfectScore())
-        {
-            perfectScoreStar.SetActive(true);
-        }
-        else
-        {
-            perfectScoreStar.SetActive(false);
-        }
+
+        if (songObjectScript.IsNormalFullCombo()) NormalStar.SetActive(true);
+        if (songObjectScript.IsHardFullCombo()) HardStar.SetActive(true);
+        if (songObjectScript.IsInsaneFullCombo()) InsaneStar.SetActive(true);
     }
 }

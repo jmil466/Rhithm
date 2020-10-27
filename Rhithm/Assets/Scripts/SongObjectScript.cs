@@ -109,4 +109,49 @@ public class SongObjectScript : MonoBehaviour
             return false;
         }
     }
+
+    public bool IsNormalFullCombo()
+    {
+        string savedPerfectScoreName = audioName + "_normal_perfectscore";
+        songPerfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
+
+        if (songPerfectScore == "true")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool IsHardFullCombo()
+    {
+        string savedPerfectScoreName = audioName + "_hard_perfectscore";
+        songPerfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
+
+        if (songPerfectScore == "true")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public bool IsInsaneFullCombo()
+    {
+        string savedPerfectScoreName = audioName + "_insane_perfectscore";
+        songPerfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
+
+        if (songPerfectScore == "true")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

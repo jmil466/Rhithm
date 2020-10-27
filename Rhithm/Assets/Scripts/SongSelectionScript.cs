@@ -188,8 +188,31 @@ public class SongSelectionScript : MonoBehaviour
     {
         highScoreText.text = "Highscore: " + songObjectScript.GetSongHighScore().ToString();
 
-        if (songObjectScript.IsNormalFullCombo()) NormalStar.SetActive(true);
-        if (songObjectScript.IsHardFullCombo()) HardStar.SetActive(true);
-        if (songObjectScript.IsInsaneFullCombo()) InsaneStar.SetActive(true);
+        if (songObjectScript.IsNormalFullCombo())
+        {
+            NormalStar.SetActive(true);
+        }
+        else
+        {
+            NormalStar.SetActive(false);
+        }
+
+        if (songObjectScript.IsHardFullCombo())
+        {
+            HardStar.SetActive(true);
+        }
+        else
+        {
+            HardStar.SetActive(false);
+        }
+
+        if (songObjectScript.IsInsaneFullCombo())
+        {
+          InsaneStar.SetActive(true);
+        }
+        else
+        {
+            InsaneStar.SetActive(false);
+        }
     }
 }

@@ -33,19 +33,23 @@ public class SongSelectionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/ABCRemix"), songDatabase.transform);
-        Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/Absence"), songDatabase.transform);
-        Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/Descent"), songDatabase.transform);
-        Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/Interpulse"), songDatabase.transform);
-        Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/PillarsOfCreation"), songDatabase.transform);
-
         Debug.Log("Coins: " + PlayerPrefs.GetInt("Coins"));
 
+        InstantiateSongObjects();
         FindSongs();
         AssignCurrentSong();
         ShowSongHighScore();
     }   
     
+    public void InstantiateSongObjects()
+    {
+        songs = Resources.LoadAll<GameObject>("Prefabs/Audio");
+
+        foreach (GameObject song in songs)
+        {
+            Instantiate(song, songDatabase.transform);
+        }
+    }
     public void FindSongs()
     {
         songMenu.SetActive(true);

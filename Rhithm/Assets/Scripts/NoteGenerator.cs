@@ -37,6 +37,7 @@ public class NoteGenerator : MonoBehaviour
     public CompletionScript completionUI;
     public GameObject FinalScoreObject;
     public SaveSongData songData;
+    private bool confettiCalled = false;
     private bool ending = false;
 
     //SpectrumFlux data
@@ -150,48 +151,41 @@ public class NoteGenerator : MonoBehaviour
             }
             else
             {
-
-                if (ending == false)
-                {
-                    ending = true;
-
-
-                    if (score.getNoteMissed() == false) // Full Combo's reward
-                    {
-                        //Celebrate here
-                        confetti.Play();
-                        Debug.Log("Woop");
-                        songData.savePerfectScore();
-                        StartCoroutine(WaitTime(4));
-                    }
-
-                    score.calculateHighScore();
-                    Debug.Log(score.getHighScore().ToString());
-                    completionUI.displayCompletionUI();
-                    songData.CalculateCoins();
-
-                    StartCoroutine(WaitTime(10));
-
-                    FinalScoreObject = GameObject.Find("FinalScoreObject");
-                    FinalScoreObject.transform.SetParent(null);
-                    DontDestroyOnLoad(FinalScoreObject);
-
-                    GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
-                    Destroy(songGameObject);
-
-                    StartCoroutine(WaitTime(1000));
-
-
-
-                    SceneManager.LoadScene("SongListDemo");
-                }
-
+                ending = true;
+                break;
             }
 
 
         }
+
+        if(ending)
+        {
+            EndGame();
+        }
+        
+
     }
 
+    public void EndGame()
+    {
+        if (score.getNoteMissed() == false && confettiCalled == false) // Full Combo's reward
+        {
+            confettiCalled = true;
+            //Celebrate here
+            confetti.Play();
+            Debug.Log("Woop");
+            songData.savePerfectScore();
+        }
+
+        score.calculateHighScore();
+        Debug.Log(score.getHighScore().ToString());
+        completionUI.displayCompletionUI();
+        songData.CalculateCoins();
+
+        StartCoroutine(WaitToEnd(5));
+
+        
+    }
 
 
     public void spawnNote(float currentFlux)
@@ -231,6 +225,7 @@ public class NoteGenerator : MonoBehaviour
         noteTwoFlux = fluxDiv * 4;
     }
 
+    
 
 
     private SongObjectScript findSong()
@@ -238,9 +233,18 @@ public class NoteGenerator : MonoBehaviour
         return (SongObjectScript)FindObjectOfType(typeof(SongObjectScript));
     }
 
-    private IEnumerator WaitTime(float time)
+    private IEnumerator WaitToEnd(float time)
     {
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSecondsRealtime(time);
+
+        FinalScoreObject = GameObject.Find("FinalScoreObject");
+        FinalScoreObject.transform.SetParent(null);
+        DontDestroyOnLoad(FinalScoreObject);
+
+        GameObject songGameObject = GameObject.FindGameObjectWithTag("Song");
+        Destroy(songGameObject);
+
+        SceneManager.LoadScene("SongListDemo");
     }
 
 

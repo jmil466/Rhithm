@@ -17,7 +17,6 @@ public class Score : MonoBehaviour
     public Text multiplierText;
     public SaveSongData songData;
 
-
     void Start()
     {
         score = 0;
@@ -111,9 +110,6 @@ public class Score : MonoBehaviour
             return highScore;
         }
 
-
-
-    
     }
 
 }

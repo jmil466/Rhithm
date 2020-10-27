@@ -39,6 +39,7 @@ public class NoteGenerator : MonoBehaviour
     public SaveSongData songData;
     private bool confettiCalled = false;
     private bool ending = false;
+    private bool endingCalled;
 
     //SpectrumFlux data
     private float largestFlux = 0f;
@@ -158,8 +159,9 @@ public class NoteGenerator : MonoBehaviour
 
         }
 
-        if(ending)
+        if(ending && endingCalled == false)
         {
+            endingCalled = true;
             EndGame();
         }
         
@@ -168,6 +170,7 @@ public class NoteGenerator : MonoBehaviour
 
     public void EndGame()
     {
+
         if (score.getNoteMissed() == false && confettiCalled == false) // Full Combo's reward
         {
             confettiCalled = true;

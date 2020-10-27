@@ -7,12 +7,12 @@ public class SongObjectScript : MonoBehaviour
     //public GameObject theSongPanel;
     //SongDisplayScript songDisplayScript;
     public AudioSource audioSource;
-    public AudioClip audioClip;
-    public string audioName;
+    private AudioClip audioClip;
+    private string audioName;
     public float BPM; //beats per minute
     public float startDelay;
-    public float audioLength;
-    public float difficultyMultiplier;
+    private float audioLength;
+    private float difficultyMultiplier;
     private int highScore; // Added by James
     private string songPerfectScore; //Added by Rafael
 
@@ -30,8 +30,7 @@ public class SongObjectScript : MonoBehaviour
     {
         audioClip = audioSource.clip;
         audioName = audioClip.name;
-        Debug.Log("setupSong(): audioName = " + audioName);
-        //audioLength = audioClip.length;
+        audioLength = audioClip.length;
         audioLength = 10f; //testing purposes
         string savedScoreName = audioName + "_highscore";
         highScore = PlayerPrefs.GetInt(savedScoreName);
@@ -77,6 +76,11 @@ public class SongObjectScript : MonoBehaviour
     public float GetDifficultyMultiplier()
     {
         return difficultyMultiplier;
+    }
+
+    public void SetDifficultyMultiplier(float num)
+    {
+        difficultyMultiplier = num;
     }
 
     public int GetSongHighScore()

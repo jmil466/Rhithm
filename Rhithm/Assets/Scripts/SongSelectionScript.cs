@@ -157,15 +157,15 @@ public class SongSelectionScript : MonoBehaviour
 
         if (difficulty == "NORMAL")
         {
-            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 1f;
+            SongObject.GetComponent<SongObjectScript>().SetDifficultyMultiplier(1f);
         } 
         else if (difficulty == "HARD")
         {
-            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 2f;
+            SongObject.GetComponent<SongObjectScript>().SetDifficultyMultiplier(2f);
         }
         else if (difficulty == "INSANE")
         {
-            SongObject.GetComponent<SongObjectScript>().difficultyMultiplier = 4f;
+            SongObject.GetComponent<SongObjectScript>().SetDifficultyMultiplier(4f);
         }
 
         SongObject.transform.SetParent(null); //destroy parent object
@@ -184,7 +184,7 @@ public class SongSelectionScript : MonoBehaviour
         currentSong = songs[activeSongCounter];
         songObjectScript = currentSong.GetComponent<SongObjectScript>();
         songObjectScript.setupSong();
-        songNameText.text = songObjectScript.audioName;
+        songNameText.text = songObjectScript.GetSongName();
     }
 
     void ShowSongHighScore()

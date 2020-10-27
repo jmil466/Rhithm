@@ -49,9 +49,9 @@ public class SaveSongData : MonoBehaviour
 
     public void savePerfectScore()
     {
-        string perfectScoreSaveName = songName + "_perfectScore";
+        string perfectScoreSaveName = songName + "_perfectscore";
         PlayerPrefs.SetString(perfectScoreSaveName, "true");
-        Debug.Log(PlayerPrefs.GetString(perfectScoreSaveName));
+        Debug.Log("[" + songName + "] Perfect score? " + PlayerPrefs.GetString(perfectScoreSaveName));
     }
 
 

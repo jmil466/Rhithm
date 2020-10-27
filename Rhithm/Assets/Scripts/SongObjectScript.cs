@@ -30,13 +30,10 @@ public class SongObjectScript : MonoBehaviour
     {
         audioClip = audioSource.clip;
         audioName = audioClip.name;
-        Debug.Log("setupSong(): audioName = " + audioName);
         //audioLength = audioClip.length;
         audioLength = 15f;
         string savedScoreName = audioName + "_highscore";
         highScore = PlayerPrefs.GetInt(savedScoreName);
-        Debug.Log("Highscore: " + highScore);
-        Debug.Log("Audio name: " + audioName);
         string savedPerfectScoreName = audioName + "_perfectscore";
         songPerfectScore = PlayerPrefs.GetString(savedPerfectScoreName);
     }
@@ -105,7 +102,8 @@ public class SongObjectScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not a perfect score");
+            Debug.Log("audio name: " + audioName);
+            Debug.Log("Not a perfect score" + songPerfectScore);
             return false;
         }
     }

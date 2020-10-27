@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 
     void Awake()
     {
+        PlayerPrefs.DeleteAll();
         checkFirstVisit();
         devRoom();
     }

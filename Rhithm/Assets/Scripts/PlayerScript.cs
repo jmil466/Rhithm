@@ -8,6 +8,13 @@ public class PlayerScript : MonoBehaviour
 
 
     // Start is called before the first frame update
+    
+
+    void Awake()
+    {
+        FindEquippedPlayer();
+    }
+
     void Start()
     {
         //scoreText.text = "Score: 0";
@@ -38,6 +45,58 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private bool IsShopVisited()
+    {
+        if (PlayerPrefs.GetInt("PlayerCubeWhitePurchased") == -1)
+        {
+            Debug.Log("Shop not visited yet.");
+            return false; //not visited shop yet
+        }
+        else
+        {
+            Debug.Log("Shop already visited.");
+            return true; //visited shop already
+        }
+    }
+
+    private void FindEquippedPlayer()
+    {
+        GameObject[] playerModels = GameObject.FindGameObjectsWithTag("PlayerModel");
+        Debug.Log("Num of player models: " + playerModels.Length);
+
+        if (!IsShopVisited())
+        {
+            foreach (GameObject pM in playerModels)
+            {
+                if (pM.name == "PlayerCubeWhite")
+                {
+                    Debug.Log("Setting " + pM.name + " active...");
+                    pM.SetActive(true);
+                }
+                else
+                {
+                    pM.SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject pM in playerModels)
+            {
+                string equippedKey = pM.name + "Equipped";
+
+                if (PlayerPrefs.GetInt(equippedKey) == 1)
+                {
+                    Debug.Log("Setting " + pM.name + " active...");
+                    pM.SetActive(true);
+                }
+                else
+                {
+                    pM.SetActive(false);
+                }
+            }
+        }
+    }
 
    /* private void OnTriggerEnter(Collider other)
     {
@@ -70,8 +129,4 @@ public class PlayerScript : MonoBehaviour
             }
         }
     }*/
-
-
-
-
 }

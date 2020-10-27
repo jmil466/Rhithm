@@ -30,7 +30,6 @@ public class SongSelectionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        checkFirstVisit();
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/ABCRemix"), songDatabase.transform);
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/Absence"), songDatabase.transform);
         Instantiate(Resources.Load<AudioSource>("Prefabs/Audio/Descent"), songDatabase.transform);
@@ -192,10 +191,5 @@ public class SongSelectionScript : MonoBehaviour
         {
             perfectScoreStar.SetActive(false);
         }
-    }
-
-    void checkFirstVisit()
-    {
-
     }
 }

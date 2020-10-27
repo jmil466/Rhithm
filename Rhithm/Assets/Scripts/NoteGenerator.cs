@@ -173,7 +173,7 @@ public class NoteGenerator : MonoBehaviour
             confettiCalled = true;
             //Celebrate here
             confetti.Play();
-            Debug.Log("Woop");
+            Debug.Log("Perfect score received.");
             songData.savePerfectScore();
         }
 

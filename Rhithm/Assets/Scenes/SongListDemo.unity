@@ -1786,13 +1786,13 @@ MonoBehaviour:
   songDatabase: {fileID: 1524552783251386267}
   numOfSongs: 0
   activeSongCounter: 0
+  songNameText: {fileID: 1524552782425058224}
   currentSong: {fileID: 0}
   songObjectScript: {fileID: 0}
   SongObject: {fileID: 0}
   selectedAudioSource: {fileID: 0}
   songMenu: {fileID: 1524552782443076433}
   difficultyMenu: {fileID: 1524552783417484014}
-  songNameText: {fileID: 1524552782425058224}
   buttonClickSound: {fileID: 1524552782505373050}
   highScoreText: {fileID: 1524552783351233123}
   perfectScoreStar: {fileID: 5436906005359775858}

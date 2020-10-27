@@ -12,7 +12,8 @@ This code sample was tested using Unity 2020.1.3f1.
 
 For desktop gameplay, select the ```Main Menu``` scene.
 
-To add additional songs to the songList, ---
+To add additional songs to the songList, import an AudioClip (preferred formats are .mp3 or .wav), move AudioClip to Assets/Audio/Music Tracks, create AudioSoure GameObject in Assets/Resources/Prefabs/Audio,
+drag AudioClip to AudioSource>AudioClip, add component SongObjectScript, drag AudioSource to SongObjectScript>AudioSource, navigate to SongSelectionScript, in Start() instantiate the AudioSource GameObject you just made. 
 
 For adding songs directly into ```Main Gameplay```, create an empty object, attach the ```SongObjectScript``` script to the empty object, add an audio file, and add relevant details i.e. BPM. 
 
